@@ -1,26 +1,142 @@
+/* BANNER CAROUSEL */
 .carousel {
     width: 100%;
-    height: 38rem;
+    height: 42rem;
 }
 .imgbanner {
-    height: 38rem;
+    height: 42rem;
     width: 100%;
     object-fit: none;
 }
-
+/* BANNER NUESTROS VALORES */
 .banner2_titulo {
     margin-top: 2rem;
     text-align: center;
+    margin-bottom: 2rem;
 }
-
 .banners2 {
     display: flex;
-    justify-content: space-evenly;
-    margin: 2rem 0rem;
+    justify-content: space-around;
+    margin-bottom: 3rem;
+}
+.banners2_titulo-circulo {
+    text-align: center;
+}
+.banners2_titulo-circulo p {
+    width: 10rem;
 }
 .banners2__circulos {
-    background-color: cyan;
-    height: 17rem;
-    width: 17rem;
+    background: #393AE6;
+    background: -moz-radial-gradient(center, #393AE6 0%, #3096F2 47%, #393AE6 100%);
+    background: -webkit-radial-gradient(center, #393AE6 0%, #3096F2 47%, #393AE6 100%);
+    background: radial-gradient(ellipse at center, #393AE6 0%, #3096F2 47%, #393AE6 100%);
+    height: 10rem;
+    width: 10rem;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-box-shadow: 0px 9px 27px 0px #000000; 
+    box-shadow: 0px 9px 27px 0px #000000;
+    margin-bottom: 1.5rem;
+}
+.banner2__icono {
+    height: 5rem;
+}
+
+ /* BANNER 3 */
+.banner3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/Banner3.jpg");
+    height: 42rem;
+    width: 100%;
+    color: white;
+}
+.banner3__titulo {
+    padding-top: 1rem;
+    text-align: center;
+    padding-bottom: 1.5rem;
+}
+.banner3__categorias {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 3rem;
+    row-gap: 2rem;
+}
+.banner3__cajaimagen {
+    height: 10rem;
+    border-radius: 1rem;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+.banner3__cajaimagen:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.imagen1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/ninos.jpg");
+}
+.imagen2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/emergencia.jpg");
+}
+.imagen3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/adultosMayores.jpg");
+}
+.imagen4 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/animales.jpg");
+}
+.imagen5 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/discapacidad.jpg");
+}
+.imagen6 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/medioAmbiente.jpg");
+}
+.imagen7 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/talleres.jpg");
+}
+.imagen8 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/rural.jpg");
+}
+.imagen9 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/construccion.jpg");
+}
+
+/* MQ */
+@media (max-width: 900px) {
+    .banners2 {
+        display: flex;
+        flex-wrap: wrap ;
+    }
+}
+@media (max-width: 768px) {
+    .banner3__categorias {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 3rem;
+        row-gap: 2rem;
+    }
+    .banner3 {
+        height: 66rem;
+    }
+    .navbar {
+        height: 4rem;
+    }
+}
+@media (max-width: 480px) {
+    .banner3__categorias {
+        display: flex;
+        flex-direction: column;
+    }
+    .banner3 {
+        height: 114rem;
+    }
+    .navbar {
+        height: 4rem;
+    }
 }

@@ -1,5 +1,6 @@
 .navbar {
     display: flex;
+    height: 3rem;
 }
 
 .navbar-collapse {
@@ -21,4 +22,8 @@ footer {
 }
 .icono {
     height: 1.5rem;
+}
+.icono2 {
+    height: 2.4rem;
+    margin-right: 1rem;
 }
