@@ -11,7 +11,26 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}.nav-link {
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
 }
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;bottom: 0;
+    width: 100%; height: 2px;
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .5s;
+}
+.nav-link:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
 
 footer {
     display: flex;

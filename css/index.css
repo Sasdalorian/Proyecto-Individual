@@ -44,6 +44,7 @@
     height: 5rem;
 }
 
+
  /* BANNER 3 */
 .banner3 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/Banner3.jpg");
@@ -106,6 +107,13 @@
 .imagen9 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/construccion.jpg");
 }
+
+/* CONTACTO */
+.contacto__titulo {
+    text-align: center;
+}
+
+
 
 /* MQ */
 @media (max-width: 900px) {
