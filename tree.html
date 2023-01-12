@@ -28,11 +28,11 @@
                     <img class="icono2" src="https://img.icons8.com/color/96/null/coniferous-tree.png"/>
                 </a>
                 <a class="nav-link" href="index.html">Inicio</a>
-                <a class="nav-link" href="#">Contacto</a>
-                <a class="nav-link" href="#">Nosotros</a>
-                <a class="nav-link" href="#">Registrarse</a>
-                <a class="nav-link" href="#">Login</a>
-                </div>
+                <a class="nav-link" href="index.html#nosotros">Nosotros</a>
+                <a class="nav-link" href="index.html#contacto">Contacto</a>
+                <a class="nav-link" href="#modal2">Registrarse</a>
+                <a class="nav-link" href="#modal">Login</a>
+            </div>
               </div>
             </div>
     </header>
@@ -40,5 +40,56 @@
 
     <h1>Ayudanos a reforestar nuestro hogar</h1>
 
+          
+                <!-- LOG IN -->
+                <a href="#modal" class="open"></a>
+                <div class="modal" id="modal">
+                  <a href="#" class="modal-bg"></a>
+                  <div class="modal-content" id="formContent">
+                       
+                    <div class="wrapper fadeInDown">
+                      <div>
+                        <!-- Tabs Titles -->
+                        <h2 class="active h2login"> Iniciar Sesion </h2>
+                        <a href="#modal2"><h2 class="inactive underlineHover h2login">Registrarse</h2></a>
+                        
+                        <!-- Login Form -->
+                        <form>
+                          <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario">
+                          <input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
+                          <input type="submit" class="fadeIn fourth" value="Iniciar Sesion">
+                        </form>
+                    
+                        <!-- Remind Passowrd -->
+                        <div id="formFooter">
+                          <a class="underlineHover alogin" href="#">Forgot Password?</a>
+                        </div>
+                      </div>
+                    </div>         
+                  </div>
+                </div>
+          
+                      <!-- SIGN UP -->
+                      <a href="#modal" class="open"></a>
+                      <div class="modal" id="modal2">
+                        <a href="#" class="modal-bg"></a>
+                        <div class="modal-content" id="formContent">
+                             
+                          <div class="wrapper fadeInDown">
+                            <div>
+                              <!-- Tabs Titles -->
+                              <a href="#modal"><h2 class="inactive h2login"> Iniciar Sesion</h2></a>
+                              <h2 class="active underlineHover h2login">Registrarse</h2>
+                              
+                              <!-- Login Form -->
+                              <form>
+                                <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario">
+                                <input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
+                                <input type="submit" class="fadeIn fourth" value="Registrarse">
+                              </form>
+                            </div>
+                          </div>         
+                        </div>
+                      </div>
 </body>
 </html>

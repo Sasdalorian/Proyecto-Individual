@@ -112,8 +112,21 @@
 .contacto__titulo {
     text-align: center;
 }
-
-
+.contacto__titulo2 {
+    margin-left: 2rem;
+}
+.formulario {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+.formulario__nombres {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+}
+.mb-6 {
+    width: 100%;
+}
 
 /* MQ */
 @media (max-width: 900px) {
