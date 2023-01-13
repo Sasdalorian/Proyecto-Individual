@@ -29,15 +29,11 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-              <a href="tree.html">
-                <img class="icono2"
-                  src="https://img.icons8.com/color/96/null/coniferous-tree.png"/>
-              </a>
               <a class="nav-link" href="index.html">Inicio</a>
               <a class="nav-link" href="#nosotros">Nosotros</a>
               <a class="nav-link" href="#contacto">Contacto</a>
-              <a class="nav-link" href="#modal2">Registrarse</a>
               <a class="nav-link open" href="#modal">Login</a>
+              <a class="nav-link" href="#modal2">Registrarse</a>
             </div>
           </div>
         </div>
@@ -218,31 +214,33 @@
         <form class="formulario">
           <div class="formulario__nombres">
             <div class="mb-6">
-              <label for="nombreInput" class="form-label">Nombre</label>
+              <label for="nombreInput" class="form-label">Nombre *</label>
               <input type="name" class="form-control formulario__nombre"
                 id="nombreInput">
             </div>
 
             <div class="mb-6">
-              <label for="numeroInput" class="form-label">Apellido</label>
+              <label for="numeroInput" class="form-label">Apellidos *</label>
               <input type="name" class="form-control formulario__nombre"
                 id="apellidoInput">
             </div>
           </div>
           <br>
           <div class="mb-6">
-            <label for="emailInput" class="form-label">Email</label>
-            <input type="email" class="form-control" id="emailInput">
+            <label for="emailInput" class="form-label">Email *</label>
+            <input type="email" class="form-control" 
+            id="emailInput">
           </div>
           <br>
           <div class="mb-6">
             <label for="exampleFormControlTextarea1" class="form-label">Comentario</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1"
+            <textarea class="form-control" 
+            id="mensajeInput"
               rows="3"></textarea>
           </div>
           <br><br>
           <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="button" class="btn btn-primary">Enviar</button>
+            <input type="submit" id="btnEnviar" value="Enviar" class="btn btn-primary"></button>
           </div>
         </form>
       </div>
@@ -261,8 +259,8 @@
               
               <!-- Login Form -->
               <form>
-                <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario">
-                <input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
+                <input type="text" id="login-login" class="fadeIn second" name="login" placeholder="Usuario">
+                <input type="password" id="password-login" class="fadeIn third" name="login" placeholder="Contraseña">
                 <input type="submit" class="fadeIn fourth" value="Iniciar Sesion">
               </form>
           
@@ -287,10 +285,10 @@
                     <a href="#modal"><h2 class="inactive h2login"> Iniciar Sesion</h2></a>
                     <h2 class="active underlineHover h2login">Registrarse</h2>
                     
-                    <!-- Login Form -->
+                    <!-- Sign Up Form -->
                     <form>
-                      <input type="text" id="login" class="fadeIn second" name="login" placeholder="Usuario">
-                      <input type="password" id="password" class="fadeIn third" name="login" placeholder="Contraseña">
+                      <input type="text" id="login-signUp" class="fadeIn second" name="login" placeholder="Usuario">
+                      <input type="password" id="password-signUp" class="fadeIn third" name="login" placeholder="Contraseña">
                       <input type="submit" class="fadeIn fourth" value="Registrarse">
                     </form>
                   </div>
@@ -314,7 +312,7 @@
 
 
       <script src="/js/jquery-3.6.3.js"></script>
-      <script src="prueba.js"></script>
+      <script src="index.js"></script>
       <script src="/js/bootstrap.bundle.min.js"></script>
     </body>
   </html>

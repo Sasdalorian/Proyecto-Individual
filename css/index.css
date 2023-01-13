@@ -1,3 +1,35 @@
+/* BARRA NAVEGACION */
+.navbar {
+    display: flex;
+    height: 3rem;
+}
+.navbar-collapse {
+    display: flex;
+    justify-content: flex-end;
+}
+.navbar-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}.nav-link {
+    display: inline-block;
+    text-decoration: none;
+    position: relative;
+}
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;bottom: 0;
+    width: 100%; height: 2px;
+    background-color: black;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .5s;
+}
+.nav-link:hover::after{
+    transform: scaleX(1);
+    transform-origin: left;
+}
 /* BANNER CAROUSEL */
 .carousel {
     width: 100%;
@@ -8,7 +40,7 @@
     width: 100%;
     object-fit: none;
 }
-/* BANNER NUESTROS VALORES */
+/* BANNER2 NUESTROS VALORES */
 .banner2_titulo {
     margin-top: 2rem;
     text-align: center;
@@ -43,8 +75,6 @@
 .banner2__icono {
     height: 5rem;
 }
-
-
  /* BANNER 3 */
 .banner3 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/Banner3.jpg");
@@ -127,9 +157,42 @@
 .mb-6 {
     width: 100%;
 }
+.correcto {
+    background-color: rgb(48, 160, 14);
+    text-align: center;
+    padding: 1rem;
+    color: white;
+    text-transform: uppercase;
+}
+.error {
+    background-color: rgb(185, 0, 0);
+    text-align: center;
+    padding: 1rem;
+    color: white;
+    text-transform: uppercase;
+}
+
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+.icono {
+    height: 1.5rem;
+}
+.icono2 {
+    height: 2.4rem;
+    margin-right: 1rem;
+}
 
 /* MQ */
-@media (max-width: 900px) {
+@media (max-width: 992px) {
+    .navbar {
+        height: 4rem;
+    }
     .banners2 {
         display: flex;
         flex-wrap: wrap ;
@@ -159,5 +222,14 @@
     }
     .navbar {
         height: 4rem;
+    }
+    .formulario__nombres {
+        display: flex;
+        flex-direction: column;
+    }
+}
+@media (max-width: 320px) {
+    .navbar {
+        height: 7rem;
     }
 }
