@@ -75,7 +75,12 @@
 .banner2__icono {
     height: 5rem;
 }
- /* BANNER 3 */
+.banner2__icono:hover {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    transition: all .5s;
+}
+/* BANNER 3 */
 .banner3 {
     background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/Banner3.jpg");
     height: 42rem;
