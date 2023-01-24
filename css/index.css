@@ -113,7 +113,6 @@
 
 /* BANNER 4 */
 .banner4__titulo {
-    margin-top: 2rem;
     padding-top: 2rem;
     color: white;
     font-size: 2.3rem;
@@ -252,3 +251,4 @@ footer {
         height: 7rem;
     }
 }
+
