@@ -39,8 +39,9 @@
         </div>
       </header>
 
-            <!-- CAROUSEL -->
-            <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <!-- CAROUSEL -->
+      <div id="carouselExampleAutoplaying" class="carousel slide"
+        data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleCaptions"
             data-bs-slide-to="0" class="active" aria-current="true"
@@ -82,17 +83,19 @@
             </div>
           </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <button class="carousel-control-prev" type="button"
+          data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <button class="carousel-control-next" type="button"
+          data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </button>
       </div>
 
-            <!-- NOSOTROS -->
+      <!-- NOSOTROS -->
       <br id="nosotros">
       <div class="banner2">
         <h2 class="banner2_titulo"> Nuestros Valores</h2>
@@ -201,7 +204,24 @@
         </div>
       </div>
 
-            <!-- FORMULARIO CONTACTO -->
+      <!--  DONA UN ARBOL  -->
+      <br id="Donacion">
+      <div class="banner4">
+        <h2 class="banner4__titulo">Planta un Árbol y reforestemos nuestros
+          bosques nativos</h2>
+
+        <div class="banner4__containers">
+          <div class="banner4__cajaimagen arrayan">
+          </div>
+        </div>
+        <br><br>
+
+        <div class="button__container">
+          <a href="#modal3" button class="button__donacion">Comienza a plantar</a>
+        </div>
+      </div>
+
+      <!-- FORMULARIO CONTACTO -->
       <br id="contacto"><br><br>
       <div class="contacto">
         <h2 class="contacto__titulo">Contacto</h2>
@@ -226,92 +246,94 @@
           <br>
           <div class="mb-6">
             <label for="emailInput" class="form-label">Email *</label>
-            <input type="email" class="form-control" 
-            id="emailInput">
+            <input type="email" class="form-control"
+              id="emailInput">
           </div>
           <br>
           <div class="mb-6">
             <label for="exampleFormControlTextarea1" class="form-label">Comentario</label>
-            <textarea class="form-control" 
-            id="mensajeInput"
+            <textarea class="form-control"
+              id="mensajeInput"
               rows="3"></textarea>
           </div>
           <br><br>
           <div class="d-grid gap-2 col-6 mx-auto">
-            <input type="submit" id="btnEnviar" value="Enviar" class="btn btn-primary"></button>
-          </div>
-        </form>
-      </div>
+            <input type="submit" id="btnEnviar" value="Enviar" class="btn
+              btn-primary"></button>
+        </div>
+      </form>
+    </div>
 
-      
-      <!-- LOG IN -->
-      <a href="#modal" class="open"></a>
-      <div class="modal" id="modal">
-        <a href="#" class="modal-bg"></a>
-        <div class="modal-content" id="formContent">
-             
-          <div class="wrapper fadeInDown">
-            <div>
-              <!-- Tabs Titles -->
-              <h2 class="active h2login"> Iniciar Sesion </h2>
-              <a href="#modal2"><h2 class="inactive underlineHover h2login">Registrarse</h2></a>
-              
-              <!-- Login Form -->
-              <form>
-                <input type="text" id="login-login" class="fadeIn second" name="login" placeholder="Usuario">
-                <input type="password" id="password-login" class="fadeIn third" name="login" placeholder="Contraseña">
-                <input type="submit" class="fadeIn fourth" value="Iniciar Sesion">
-              </form>
-          
-              <!-- Remind Passowrd -->
-              <div id="formFooter">
-                <a class="underlineHover alogin" href="#">Forgot Password?</a>
-              </div>
+
+    <!-- LOG IN -->
+    <div class="modal" id="modal">
+      <a href="#" class="modal-bg"></a>
+      <div class="modal-content" id="formContent">
+
+        <div class="wrapper fadeInDown">
+          <div>
+            <!-- Tabs Titles -->
+            <h2 class="active h2login"> Iniciar Sesion </h2>
+            <a href="#modal2"><h2 class="inactive underlineHover h2login">Registrarse</h2></a>
+            <!-- Login Form -->
+            <form>
+              <input type="text" id="login-login" class="fadeIn second"
+                name="login" placeholder="Usuario">
+              <input type="password" id="password-login" class="fadeIn third"
+                name="login" placeholder="Contraseña">
+              <input type="submit" class="fadeIn fourth" value="Iniciar Sesion">
+            </form>
+
+            <!-- Remind Passowrd -->
+            <div id="formFooter">
+              <a class="underlineHover alogin" href="#">Forgot Password?</a>
             </div>
-          </div>         
+          </div>
         </div>
       </div>
+    </div>
 
-            <!-- SIGN UP -->
-            <a href="#modal" class="open"></a>
-            <div class="modal" id="modal2">
-              <a href="#" class="modal-bg"></a>
-              <div class="modal-content" id="formContent">
-                   
-                <div class="wrapper fadeInDown">
-                  <div>
-                    <!-- Tabs Titles -->
-                    <a href="#modal"><h2 class="inactive h2login"> Iniciar Sesion</h2></a>
-                    <h2 class="active underlineHover h2login">Registrarse</h2>
-                    
-                    <!-- Sign Up Form -->
-                    <form>
-                      <input type="text" id="login-signUp" class="fadeIn second" name="login" placeholder="Usuario">
-                      <input type="password" id="password-signUp" class="fadeIn third" name="login" placeholder="Contraseña">
-                      <input type="submit" class="fadeIn fourth" value="Registrarse">
-                    </form>
-                  </div>
-                </div>         
-              </div>
-            </div>
+    <!-- SIGN UP -->
+    <div class="modal" id="modal2">
+      <a href="#" class="modal-bg"></a>
+      <div class="modal-content" id="formContent">
 
-      <footer>
-        <p>Copyright © 2023 Sas Inc. Todos los derechos reservados.</p>
-        <p>
-          Nicolas Sanhueza
-          <a href="https://www.linkedin.com/in/nicol%C3%A1s-sanhueza-diaz/"
-            target="_blank">
-            <img class="icono"
-              src="https://img.icons8.com/color/48/null/linkedin-circled--v1.png"
-              />
-          </p>
-        </a>
-      </footer>
+        <div class="wrapper fadeInDown">
+          <div>
+            <!-- Tabs Titles -->
+            <a href="#modal"><h2 class="inactive h2login"> Iniciar Sesion</h2></a>
+            <h2 class="active underlineHover h2login">Registrarse</h2>
+
+            <!-- Sign Up Form -->
+            <form>
+              <input type="text" id="login-signUp" class="fadeIn second"
+                name="login" placeholder="Usuario">
+              <input type="password" id="password-signUp" class="fadeIn third"
+                name="login" placeholder="Contraseña">
+              <input type="submit" class="fadeIn fourth" value="Registrarse">
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>Copyright © 2023 Sas Inc. Todos los derechos reservados.</p>
+      <p>
+        Nicolas Sanhueza
+        <a href="https://www.linkedin.com/in/nicol%C3%A1s-sanhueza-diaz/"
+          target="_blank">
+          <img class="icono"
+            src="https://img.icons8.com/color/48/null/linkedin-circled--v1.png"
+            />
+        </p>
+      </a>
+    </footer>
 
 
 
-      <script src="/js/jquery-3.6.3.js"></script>
-      <script src="index.js"></script>
-      <script src="/js/bootstrap.bundle.min.js"></script>
-    </body>
-  </html>
+    <script src="/js/jquery-3.6.3.js"></script>
+    <script src="/js/index.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

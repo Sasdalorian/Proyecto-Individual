@@ -1,5 +1,7 @@
-/* CONTACTO */
 
+/* CARRITO DE DONACION */
+
+/* CONTACTO */
 // Eventos de Inputs 
 const nombreInput = document.querySelector('#nombreInput');
 const apellidoInput = document.querySelector('#apellidoInput');
