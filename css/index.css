@@ -111,45 +111,6 @@
     background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/construccion.jpg");
 }
 
-/* BANNER 4 */
-.banner4__titulo {
-    padding-top: 2rem;
-    color: white;
-    font-size: 2.3rem;
-    font-family: 'Francois One', sans-serif;
-}
-.banner4 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/img/treefondo.jpg");
-    height: 40rem;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-.button__donacion {
-    background-color: #6D923C;
-    padding: 1rem;
-    border-radius: 1rem .7rem .7rem 1rem;
-    border: none;
-    color: #36231f;
-    font-size: 1rem;
-    text-transform: uppercase;
-    font-weight: bold;
-    transition: all ease-in-out .3s;
-    text-decoration: none;
-}
-.button__donacion:hover {
-    background-color: rgba(162, 193, 80, 0.8);
-    transition: all ease-in-out .3s;
-}
-.button__container {
-    display: flex;
-    justify-content: center;
-}
 
 /* CONTACTO */
 .contacto__titulo {
@@ -186,69 +147,12 @@
 }
 
 
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin-top: 1rem;
-}
-.icono {
-    height: 1.5rem;
-}
-.icono2 {
-    height: 2.4rem;
-    margin-right: 1rem;
-}
-
-/* MQ */
-@media (max-width: 992px) {
-    .navbar {
-        height: 4rem;
-    }
-    .banners2 {
-        display: flex;
-        flex-wrap: wrap ;
-    }
-    .navbar-nav {
-        background-color: white;
-        padding: 1rem;
-        border-radius: 0rem 0rem 1rem 1rem;
-    }
-}
-@media (max-width: 768px) {
-    .banner3__categorias {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        column-gap: 3rem;
-        row-gap: 2rem;
-    }
-    .banner3 {
-        height: 66rem;
-    }
-    .navbar {
-        height: 4rem;
-    }
-}
-@media (max-width: 480px) {
-    .banner3__categorias {
-        display: flex;
-        flex-direction: column;
-    }
-    .banner3 {
-        height: 114rem;
-    }
-    .navbar {
-        height: 4rem;
-    }
-    .formulario__nombres {
-        display: flex;
-        flex-direction: column;
-    }
-}
-@media (max-width: 320px) {
-    .navbar {
-        height: 7rem;
-    }
-}
-
+/* ARBOL */
+.icono__container {
+    position: fixed;
+    top: 10%;
+    bottom: 0;
+    right: 0;
+    width: 5;
+    z-index: 999;
+};

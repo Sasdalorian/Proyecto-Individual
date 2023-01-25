@@ -1,0 +1,213 @@
+body {
+    background-color: #eceaea;
+}
+/* BANNER 4 */
+.banner4__titulo {
+    padding-top: 2rem;
+    color: white;
+    font-size: 2.3rem;
+    font-family: 'Francois One', sans-serif;
+}
+.banner4 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.14)), url("/img/treefondo.jpg");
+    height: 50rem;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.button__donacion {
+    background-color: #6D923C;
+    padding: 1rem;
+    border-radius: 1rem .7rem .7rem 1rem;
+    border: none;
+    color: #36231f;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all ease-in-out .3s;
+    text-decoration: none;
+}
+.button__donacion:hover {
+    background-color: rgba(162, 193, 80, 0.8);
+    transition: all ease-in-out .3s;
+}
+.button__container {
+    display: flex;
+    justify-content: center;
+}
+
+/* BLOQUES */
+
+.bloques {
+    background-color: white;
+    margin-top: 4rem;
+    height: 40rem;
+    display: flex;
+    margin-bottom: 6rem;
+}
+.bloque__titulo {
+    text-align: center;
+    margin-top: 2rem;
+}
+.contenedor__p {
+    height: 65%;
+    overflow: hidden;
+    width: 90%;
+    margin: 5%;
+    margin-bottom: 1%;
+}
+.bloques__left {
+    width: 45%;
+}
+
+.bloques__right {
+    width: 55%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bloque2, .bloque4 {
+    flex-direction: row-reverse;
+}
+.bloque__img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bloque__img {
+    height: 75%;
+    width: 90%;
+}
+.bloque__butonC {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.bloques__buton {
+    height: 4rem;
+    width: 50%;
+    background-color: #6D923C;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #36231f;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    -webkit-box-shadow: 1px 6px 15px 5px #000000; 
+    box-shadow: 1px 6px 15px 5px #000000;
+}
+.bloques__buton:hover {
+    background-color: rgb(226, 226, 0);
+
+    transition: all ease-in-out .1s;
+}
+
+.video {
+    height: 70%;
+    width: 80%;
+}
+
+/*  FORMULARIO  */
+.form__contenedor {
+    background-color: #80a7a5;
+    padding-bottom: 2rem;
+}
+.form__titulo {
+    padding-top: 2rem;
+    text-align: center;
+    padding-bottom: 2rem;
+}
+.form__t {
+    margin-left: 10rem;
+}
+.form__opciones {
+    display: flex;
+    margin-left: 5rem;
+}
+.form__button {
+    background-color: rgba(142, 205, 202, 0);
+    padding: 1rem;
+    margin-left: 10rem;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(142, 205, 202, .8);
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    font-weight: bold;
+    color: rgb(142, 205, 202);
+    text-transform: uppercase;
+}
+.active {
+    background-color: rgba(142, 205, 202, .8);
+    color: white;
+}
+.form__opciones2 {
+    margin-left: 15rem;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+.form__opciones2_p {
+    margin-left: 5rem;
+    font-size: 1.3rem;
+    color: rgb(105, 31, 31);
+}
+.form__formatotarjeta {
+    margin-left: 10%;
+    display: grid;
+    padding-bottom: 2rem;
+}
+.formatoform {
+    display: flex;
+    font-size: 1.3rem;
+    color: rgb(105, 31, 31);
+    font-weight: bold;
+    gap: 1rem;
+}
+#opcionDigital {
+    margin-left: 10%;
+}
+.costosextras {
+    display: flex;
+}
+
+.form__inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 5fr);
+    margin-left: 10rem;
+    margin-right: 10rem;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+.label__1 {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: rgb(105, 31, 31);
+}
+.label__textarea {
+    grid-row: 2;
+}
+
+.form__p {
+    height: 1.5rem;
+}
+.incluirPlaca {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: rgb(105, 31, 31);
+    display: flex;
+    margin-top: 2rem;
+    gap: 1rem;
+    align-items: center;
+}
+.cobroextra {
+    font-size: 1.2rem;
+    color: yellow;
+}
