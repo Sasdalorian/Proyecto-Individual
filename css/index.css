@@ -131,20 +131,7 @@
 .mb-6 {
     width: 100%;
 }
-.correcto {
-    background-color: rgb(48, 160, 14);
-    text-align: center;
-    padding: 1rem;
-    color: white;
-    text-transform: uppercase;
-}
-.error {
-    background-color: rgb(185, 0, 0);
-    text-align: center;
-    padding: 1rem;
-    color: white;
-    text-transform: uppercase;
-}
+
 
 
 /* ARBOL */

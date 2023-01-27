@@ -18,7 +18,7 @@
           bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">
-                    <img src="/img/logo.jpg" alt="Logo" width="46" height="46" class="d-inline-block align-text-top">
+                    <img src="/img/logo.png" alt="Logo" width="46" height="46" class="d-inline-block align-text-top">
                 </a>
                 <a class="navbar-brand logo" href="index.html">Earth Volunteers</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -162,128 +162,106 @@
     <!-- FORMULARIO DONAR ARBOLES-->
     <br id="formularios">
     <form class="form__contenedor">
-        <h2 class="form__titulo"> Es hora de hacer tu aporte</h2>
+        <div class="form__contenedor__margin">
+            <h2 class="form__titulo"> Es hora de hacer tu aporte</h2>
 
-        <div>
-            <h3 class="form__t"> ¿Para quien es el árbol? *</h3>
+            <div class="form__container1">
+                <div class="form__left">
+                    <div>
+                        <h3 class="form__t"> ¿Para quien es el árbol? *</h3>
 
-            <div class="form__opciones">
-                <div class="form__button_container">
-                    <button id="button__parami" class="form__button">Para mí</button>
+                        <div class="form__opciones">
+                            <div class="form__button_container">
+                                <button id="button__parami" class="form__button">Para mí</button>
+                            </div>
+
+                            <div class="form__button_container">
+                                <button id="button__regalo" class="form__button">Para regalar</button>
+                                <p id="parrafo_regalo">*El formato para regalar aún no esta habilitado</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 class="form__t"> Formato de Tarjeta *</h3>
+                    <div class="form__formatotarjeta">
+                        <div class="formatoform">
+                            <input type="radio" id="opcionFisica" name="grupoFormato">Física
+                            <input type="radio" id="opcionDigital" name="grupoFormato">Digital
+                        </div>
+                        <p id="formatoFisica" class="cobroextra">Se adicionarán $2000 por costos de envío.</p>
+                    </div>
+
+                    <!--  PARA MI-->
+                    <div id="form__parami" class="form__parami">
+                        <h3 class="form__t"> ¿Número de Arboles que desea plantar?</h3>
+
+                        <div class="form__opciones2">
+                            <input id="cantidadArboles" type="number" value="1" min="1" onchange="precioTotal()">
+                            <p class="form__opciones2_p"> Valor árboles a donar:</p> <p class="precioArbol" id="precioArbol">$8000</p>
+                        </div>
+                    </div>          
                 </div>
 
-                <div class="form__button_container">
-                    <button id="button__regalo" class="form__button">Para regalar</button>
-                </div>
-            </div>
-        </div>
+                <div class="form__right">
+                    <img class="placaarbol" src="/img/arboltree/placaarbol.png">
+                    <div class="form__rigth__bot">
 
-        <h3 class="form__t"> Formato de Tarjeta *</h3>
-        <div class="form__formatotarjeta">
-            <div class="formatoform">
-                <input type="radio" id="opcionFisica" name="grupoFormato">Física
-                <input type="radio" id="opcionDigital" name="grupoFormato">Digital
-            </div>
-            <p id="formatoFisica" class="cobroextra">Se adicionarán $2.000 por costos de envío</p>
-        </div>
+                        <div class="form__rigth__r">
+                        <input id="placa" type="radio" name="placa">
+                        <p>Si quiero una placa</p>
+                        </div>
 
-        <!--  PARA MI-->
-        <div id="form__parami" class="form__parami">
-            <h3 class="form__t"> ¿Número de Arboles que desea plantar?</h3>
-
-            <div class="form__opciones2">
-                <input type="number" value="1" min="1">
-                <p class="form__opciones2_p"> Valor árboles a donar:</p>
-            </div>
-        </div>
-        <!--  CIERRE PARA MI-->
-
-        <!--  PARA REGALAR-->
-        <div id="form__regalo" class="form__regalo">
-            <h3 class="form__t"> ¿Número de Arboles que desea regalar?</h3>
-
-            <div class="form__opciones2">
-                <input type="number" value="1" min="1">
-                <p class="form__opciones2_p"> Valor árboles a donar:</p>
-            </div>
-
-            <h3 class="form__t"> ¿Quién recibe la tarjeta?</h3> 
-            <div class="form__inputs">
-
-                <div>
-                    <label class="label__1" for="nombreInput" class="form-label">Nombre *</label>
-                    <input type="name" class="form-control formulario__nombre" id="nombreInputR">
-                </div>
-    
-                <div>
-                    <label class="label__1" for="nombreInput" class="form-label">Apellidos *</label>
-                    <input type="name" class="form-control formulario__nombre" id="apellidoInputR">
-                </div>
-    
-                <div>
-                    <label class="label__1" for="nombreInput" class="form-label">E-mail *</label>
-                    <input type="email" class="form-control formulario__nombre" id="emailInputR">
-                </div>
-    
-                <div id="formatoFisica2">
-                    <label class="label__1" for="nombreInput" class="form-label">Dirección *</label>
-                    <input type="name" class="form-control formulario__nombre" id="direccionInputR">
-                </div>
-
-                <div id="formatoFisica3">
-                    <label class="label__1" for="nombreInput" class="form-label">Región *</label>
-                    <input type="name" class="form-control formulario__nombre" id="regionInputR">
-                </div>
-
-                <div id="formatoFisica4">
-                    <label class="label__1" for="nombreInput" class="form-label">Comuna *</label>
-                    <input type="name" class="form-control formulario__nombre" id="comunaInputR">
+                        <div class="form__rigth__r">
+                        <input id="noplaca" type="radio" name="placa">
+                        <p>No quiero una placa</p>
+                        </div>
+                    </div>
+                    
+                    <p id="placaP" class="cobroextra"> Se adicionarán $2000 por la placa.</p>
                 </div>
             </div>
-        </div>
-        <!--  CIERRE PARA REGALAR-->
 
         <h3 class="form__t">¿Quién realiza la donación?</h3>
         <div class="form__inputs">
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Nombre *</label>
-                <input type="name" class="form-control formulario__nombre" id="nombreInputM">
+                <input type="name" class="form-control formulario__nombre" id="nombreInput">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Apellidos *</label>
-                <input type="name" class="form-control formulario__nombre" id="apellidoInputM">
+                <input type="name" class="form-control formulario__nombre" id="apellidoInput">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">E-mail *</label>
-                <input type="email" class="form-control formulario__nombre" id="emailInputM">
+                <input type="email" class="form-control formulario__nombre" id="emailInput">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Rut *</label>
-                <input type="name" class="form-control formulario__nombre" id="rutInputM">
+                <input type="name" class="form-control formulario__nombre" id="rutInput">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Teléfono *</label>
-                <input type="tel" class="form-control formulario__nombre" id="telInputM">
+                <input type="tel" class="form-control formulario__nombre" id="telInput">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Dirección *</label>
-                <input type="name" class="form-control formulario__nombre" id="direccionInputM">
+                <input type="name" class="form-control formulario__nombre" id="direccionInput">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Región *</label>
-                <input type="name" class="form-control formulario__nombre" id="regionInputM">
+                <input type="name" class="form-control formulario__nombre" id="regionInput">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Comuna *</label>
-                <input type="name" class="form-control formulario__nombre" id="comunaInputM">
+                <input type="name" class="form-control formulario__nombre" id="comunaInput">
             </div>
 
             <div>
@@ -292,19 +270,13 @@
                   id="mensajeInputT"
                   rows="3"></textarea>
             </div>
-            
-            <div class="label__checkbox">
-                <div class="incluirPlaca">
-                    <input type="checkbox" id="incluirPlaca"> <p>Quiero incluir mi placa de dedicación en el árbol</p>
-                </div>
-                <p class="form__p cobroextra" id="placa">Se adicionarán $3.000 por costos de placa</p>
             </div>
-        </div>
 
-        <div class="d-grid gap-2 col-6 mx-auto">
-            <input type="submit" id="btnEnviar" value="Enviar" class="btn
-              btn-primary"></button>
-          </div>
+            <div class="container_btnEnviarform">
+                <button type="submit" id="btnEnviarform" onclick="holape()">HOLA SOY UN BOTON</button>
+            </div>
+
+        </div>
     </form>
 
 

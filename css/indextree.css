@@ -105,7 +105,6 @@ body {
 }
 .bloques__buton:hover {
     background-color: rgb(226, 226, 0);
-
     transition: all ease-in-out .1s;
 }
 
@@ -124,17 +123,50 @@ body {
     text-align: center;
     padding-bottom: 2rem;
 }
-.form__t {
-    margin-left: 10rem;
+.form__container1 {
+    display: flex;
+}
+.form__left {
+    width: 50%;
+}
+.form__right {
+    width: 50%;
+    display: grid;
+}
+.form__rigth__bot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+    gap: 2rem;
+}
+.form__rigth__r {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.placaarbol {
+    width: 80%;
+    margin-left: 10%;
+    height: 25rem;
+    border-radius: 1rem;
+}
+#placaP {
+    text-align: center;
+}
+.form__contenedor__margin {
+    margin-left: 5%;
+    margin-right:5%;
 }
 .form__opciones {
     display: flex;
-    margin-left: 5rem;
+    gap: 5rem;
+    margin-left: 10%;
 }
 .form__button {
     background-color: rgba(142, 205, 202, 0);
     padding: 1rem;
-    margin-left: 10rem;
     border-width: 2px;
     border-style: solid;
     border-color: rgba(142, 205, 202, .8);
@@ -148,8 +180,12 @@ body {
     background-color: rgba(142, 205, 202, .8);
     color: white;
 }
+.desactive {
+    background-color: rgba(241, 47, 47, 0.8);
+    color: white; 
+}
 .form__opciones2 {
-    margin-left: 15rem;
+    margin-left: 10%;
     display: flex;
     align-items: center;
     margin-bottom: 2rem;
@@ -158,6 +194,11 @@ body {
     margin-left: 5rem;
     font-size: 1.3rem;
     color: rgb(105, 31, 31);
+}
+.precioArbol {
+    font-size: 1.3rem;
+    color: rgb(105, 31, 31);
+    margin-left: 1rem;
 }
 .form__formatotarjeta {
     margin-left: 10%;
@@ -174,15 +215,9 @@ body {
 #opcionDigital {
     margin-left: 10%;
 }
-.costosextras {
-    display: flex;
-}
-
 .form__inputs {
     display: grid;
     grid-template-columns: repeat(2, 5fr);
-    margin-left: 10rem;
-    margin-right: 10rem;
     gap: 2rem;
     margin-bottom: 2rem;
 }
@@ -191,23 +226,42 @@ body {
     font-weight: bold;
     color: rgb(105, 31, 31);
 }
-.label__textarea {
-    grid-row: 2;
-}
-
 .form__p {
     height: 1.5rem;
-}
-.incluirPlaca {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: rgb(105, 31, 31);
-    display: flex;
-    margin-top: 2rem;
-    gap: 1rem;
-    align-items: center;
 }
 .cobroextra {
     font-size: 1.2rem;
     color: yellow;
+}
+
+.form__button_container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1rem;
+}
+#parrafo_regalo {
+    color: red;
+    font-size: 1.2rem;
+}
+#btnEnviarform {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-radius: .7rem;
+    border-style: none;
+    background-color: #6D923C;
+    font-weight: bold;
+    color: white;
+    box-shadow: #57752f 4px 4px 0px;
+    transition: 200ms;
+}
+#btnEnviarform:active {
+    transform: translateY(4px) translateX(4px);
+    box-shadow: #57752f 0px 0px 0px; ;
+}
+
+.container_btnEnviarform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

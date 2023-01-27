@@ -5,7 +5,7 @@ const apellidoInput = document.querySelector('#apellidoInput');
 const emailInput = document.querySelector('#emailInput');
 const mensajeInput = document.querySelector('#mensajeInput');
 const formulario = document.querySelector('.formulario');
-const btnEnviar = document.querySelector('#btnEnviar')
+const btnEnviar = document.querySelector('#btnEnviar');
 
 const datos = {
     nombreInput: '',
