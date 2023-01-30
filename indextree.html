@@ -273,7 +273,7 @@
             </div>
 
             <div class="container_btnEnviarform">
-                <input type="submit" id="button" value="Enviar Donacion" >
+                <input type="submit" id="button" value="Enviar Donacion" onclick="holape()">
             </div>
 
         </div>
@@ -355,26 +355,7 @@
     <script src="/js/indextree.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
     <script>
-        const btn = document.getElementById('button');
 
-document.getElementById('form')
- .addEventListener('submit', function(event) {
-   event.preventDefault();
-
-   btn.value = 'Enviando...';
-
-   const serviceID = 'default_service';
-   const templateID = 'template_ehc6ckq';
-
-   emailjs.sendForm(serviceID, templateID, this)
-    .then(() => {
-      btn.value = 'Enviar Donacion';
-      alert('Sent!');
-    }, (err) => {
-      btn.value = 'Enviar Donacion';
-      alert(JSON.stringify(err));
-    });
-});
     </script>
 </body>
 

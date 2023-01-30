@@ -55,8 +55,8 @@ function mostrarCobroPlata() {
 function ocultarCobroPlata() {
     document.getElementById('placaP').style.display = "none";
 };
-/* FORMULARIO DONACION ARBOL */
 
+/* FORMULARIO DONACION ARBOL */
 const nombreInput = document.querySelector('#nombreInput');
 const apellidoInput = document.querySelector('#apellidoInput');
 const emailInput = document.querySelector('#emailInput');
@@ -72,19 +72,20 @@ const btnEnviarform = document.querySelector('#btnEnviarform');
 
 function holape() {
     if (!paraMi.classList.contains("active") && !regalo.classList.contains("desactive")) {
-        mostrarError('Falta elegir si es para ti o es un regalo.')
+        mostrarError('Falta elegir si es para ti o es un regalo.');
         return;
     }
     
     if (!fisica.checked && !digital.checked) {
-        mostrarError('Falta elegir entre tarjeta fisica o digital')
+        mostrarError('Falta elegir entre tarjeta fisica o digital');
         return;
     }
 
     if (nombreInput.value === '' || apellidoInput.value === '' || emailInput.value === '' || rutInput.value === '' || telInput.value === '' || direccionInput.value === '' || regionInput.value === '' || comunaInput.value === '' || mensajeInputT.value === '') {
         mostrarError('Todos los campos son obligatorios.');
     } else {
-        mostrarMensaje('El formulario ha sido enviado correctamente.')
+        mostrarMensaje('El formulario ha sido enviado correctamente.');
+        enviarCorreo();
     }
 }
 
@@ -98,13 +99,13 @@ function holape() {
         alerta.classList.add('correcto');
     
         formulario.appendChild(alerta);
-        btnEnviarform.style.pointerEvents = 'none';
-        btnEnviarform.style.cursor = 'default';
+        button.style.pointerEvents = 'none';
+        button.style.cursor = 'default';
             //Desaparecer Alerta
         setTimeout(() => {
             alerta.remove();
-            btnEnviarform.style.pointerEvents = 'auto';
-            btnEnviarform.style.cursor = 'pointer';
+            button.style.pointerEvents = 'auto';
+            button.style.cursor = 'pointer';
         }, 2000);
     }
         // Mostrar Error en pantalla
@@ -114,13 +115,13 @@ function holape() {
         error.classList.add('error')
     
         formulario.appendChild(error);
-            btnEnviarform.style.pointerEvents = 'none';
-            btnEnviarform.style.cursor = 'default';
+            button.style.pointerEvents = 'none';
+            button.style.cursor = 'default';
             //Desaparecer Error
             setTimeout(() => {
                 error.remove();
-                btnEnviarform.style.pointerEvents = 'auto';
-                btnEnviarform.style.cursor = 'pointer';
+                button.style.pointerEvents = 'auto';
+                button.style.cursor = 'pointer';
             }, 2000);
         
     };
@@ -132,3 +133,26 @@ function precioTotal() {
     document.getElementById('precioArbol').innerHTML = `$ ${precioTotal}`;
 }
 
+/* ENVIAR CORREO */
+function enviarCorreo() {
+    const btn = document.getElementById('button');
+
+    document.getElementById('form')
+     .addEventListener('submit', function(event) {
+       event.preventDefault();
+    
+       btn.value = 'Enviando...';
+    
+       const serviceID = 'default_service';
+       const templateID = 'template_ehc6ckq';
+    
+       emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+          btn.value = 'Enviar Donacion';
+          alert('Donación Enviada!');
+        }, (err) => {
+          btn.value = 'Enviar Donacion';
+          alert(JSON.stringify(err));
+        });
+    });
+}
