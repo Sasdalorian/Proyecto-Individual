@@ -161,7 +161,7 @@
 
     <!-- FORMULARIO DONAR ARBOLES-->
     <br id="formularios">
-    <form class="form__contenedor">
+    <form id="form" class="form__contenedor">
         <div class="form__contenedor__margin">
             <h2 class="form__titulo"> Es hora de hacer tu aporte</h2>
 
@@ -226,58 +226,64 @@
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Nombre *</label>
-                <input type="name" class="form-control formulario__nombre" id="nombreInput">
+                <input type="name" class="form-control formulario__nombre" id="nombreInput" name="name">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Apellidos *</label>
-                <input type="name" class="form-control formulario__nombre" id="apellidoInput">
+                <input type="name" class="form-control formulario__nombre" id="apellidoInput" name="apellidos">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">E-mail *</label>
-                <input type="email" class="form-control formulario__nombre" id="emailInput">
+                <input type="email" class="form-control formulario__nombre" id="emailInput" name="email">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Rut *</label>
-                <input type="name" class="form-control formulario__nombre" id="rutInput">
+                <input type="name" class="form-control formulario__nombre" id="rutInput" name="rut">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Teléfono *</label>
-                <input type="tel" class="form-control formulario__nombre" id="telInput">
+                <input type="tel" class="form-control formulario__nombre" id="telInput" name="tel">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Dirección *</label>
-                <input type="name" class="form-control formulario__nombre" id="direccionInput">
+                <input type="name" class="form-control formulario__nombre" id="direccionInput" name="dir">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Región *</label>
-                <input type="name" class="form-control formulario__nombre" id="regionInput">
+                <input type="name" class="form-control formulario__nombre" id="regionInput" name="region">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Comuna *</label>
-                <input type="name" class="form-control formulario__nombre" id="comunaInput">
+                <input type="name" class="form-control formulario__nombre" id="comunaInput" name="comuna">
             </div>
 
             <div>
                 <label class="label__1 label__textarea">Mensaje que aparecera en la Tarjeta *</label>
                 <textarea class="form-control"
-                  id="mensajeInputT"
+                  id="mensajeInputT" name="mensajeInputT"
                   rows="3"></textarea>
             </div>
             </div>
 
             <div class="container_btnEnviarform">
-                <button type="submit" id="btnEnviarform" onclick="holape()">HOLA SOY UN BOTON</button>
+                <input type="submit" id="button" value="Enviar Donacion" >
             </div>
 
         </div>
     </form>
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script type="text/javascript">
+    emailjs.init('9W1wXcsuVlCkJP4Re')
+    </script>
 
 
     <footer>
@@ -348,6 +354,28 @@
     <script src="/js/jquery-3.6.3.js"></script>
     <script src="/js/indextree.js"></script>
     <script src="/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const btn = document.getElementById('button');
+
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Enviando...';
+
+   const serviceID = 'default_service';
+   const templateID = 'template_ehc6ckq';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Enviar Donacion';
+      alert('Sent!');
+    }, (err) => {
+      btn.value = 'Enviar Donacion';
+      alert(JSON.stringify(err));
+    });
+});
+    </script>
 </body>
 
 </html>

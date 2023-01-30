@@ -244,7 +244,7 @@ body {
     color: red;
     font-size: 1.2rem;
 }
-#btnEnviarform {
+#button {
     margin-bottom: 2rem;
     padding: 1rem;
     border-radius: .7rem;
@@ -255,7 +255,7 @@ body {
     box-shadow: #57752f 4px 4px 0px;
     transition: 200ms;
 }
-#btnEnviarform:active {
+#button:active {
     transform: translateY(4px) translateX(4px);
     box-shadow: #57752f 0px 0px 0px; ;
 }

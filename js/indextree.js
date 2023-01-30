@@ -88,9 +88,9 @@ function holape() {
     }
 }
 
-btnEnviarform.addEventListener('click', function(e) {
-    e.preventDefault();
-})
+// btnEnviarform.addEventListener('click', function(e) {
+//     e.preventDefault();
+// })
     // Mostrar Alerta de Envio Correcto
     function mostrarMensaje(mensaje) {
         const alerta = document.createElement('P');
@@ -105,7 +105,7 @@ btnEnviarform.addEventListener('click', function(e) {
             alerta.remove();
             btnEnviarform.style.pointerEvents = 'auto';
             btnEnviarform.style.cursor = 'pointer';
-        }, 4000);
+        }, 2000);
     }
         // Mostrar Error en pantalla
     function mostrarError(mensaje) {
@@ -121,7 +121,7 @@ btnEnviarform.addEventListener('click', function(e) {
                 error.remove();
                 btnEnviarform.style.pointerEvents = 'auto';
                 btnEnviarform.style.cursor = 'pointer';
-            }, 4000);
+            }, 2000);
         
     };
 
