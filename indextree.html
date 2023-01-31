@@ -18,7 +18,7 @@
           bg-body-tertiary">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">
-                    <img src="/img/logo.png" alt="Logo" width="46" height="46" class="d-inline-block align-text-top">
+                    <img src="/img/logo.png" alt="Logo" width="46" height="40" class="d-inline-block align-text-top">
                 </a>
                 <a class="navbar-brand logo" href="index.html">Earth Volunteers</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -196,8 +196,8 @@
                         <h3 class="form__t"> ¿Número de Arboles que desea plantar?</h3>
 
                         <div class="form__opciones2">
-                            <input id="cantidadArboles" type="number" value="1" min="1" onchange="precioTotal()">
-                            <p class="form__opciones2_p"> Valor árboles a donar:</p> <p class="precioArbol" id="precioArbol">$8000</p>
+                            <input id="cantidadArboles" type="number" value="1" min="1" onchange="precioTotal(), precioDonacion()">
+                            <p class="form__opciones2_p"> Valor árboles a donar:</p> <p class="precioArbol" id="precioArbol">$ 8000</p>
                         </div>
                     </div>          
                 </div>
@@ -217,7 +217,7 @@
                         </div>
                     </div>
                     
-                    <p id="placaP" class="cobroextra"> Se adicionarán $2000 por la placa.</p>
+                    <p id="placaP" class="cobroextra"> Se adicionarán $2500 por la placa.</p>
                 </div>
             </div>
 
@@ -226,42 +226,42 @@
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Nombre *</label>
-                <input type="name" class="form-control formulario__nombre" id="nombreInput" name="name">
+                <input type="name" class="form-control formulario__nombre" id="nombreInput" name="name" placeholder="Nombre">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Apellidos *</label>
-                <input type="name" class="form-control formulario__nombre" id="apellidoInput" name="apellidos">
+                <input type="name" class="form-control formulario__nombre" id="apellidoInput" name="apellidos" placeholder="Apellido apellido">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">E-mail *</label>
-                <input type="email" class="form-control formulario__nombre" id="emailInput" name="email">
+                <input type="email" class="form-control formulario__nombre" id="emailInput" name="email" placeholder="correo@correo.com">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Rut *</label>
-                <input type="name" class="form-control formulario__nombre" id="rutInput" name="rut">
+                <input type="name" class="form-control formulario__nombre" id="rutInput" name="rut" placeholder="12345678-9">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Teléfono *</label>
-                <input type="tel" class="form-control formulario__nombre" id="telInput" name="tel">
+                <input type="tel" class="form-control formulario__nombre" id="telInput" name="tel" placeholder="912345678">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Dirección *</label>
-                <input type="name" class="form-control formulario__nombre" id="direccionInput" name="dir">
+                <input type="name" class="form-control formulario__nombre" id="direccionInput" name="dir" placeholder="Dirección">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Región *</label>
-                <input type="name" class="form-control formulario__nombre" id="regionInput" name="region">
+                <input type="name" class="form-control formulario__nombre" id="regionInput" name="region" placeholder="Región">
             </div>
 
             <div>
                 <label class="label__1" for="nombreInput" class="form-label">Comuna *</label>
-                <input type="name" class="form-control formulario__nombre" id="comunaInput" name="comuna">
+                <input type="name" class="form-control formulario__nombre" id="comunaInput" name="comuna" placeholder="Comuna">
             </div>
 
             <div>
@@ -270,10 +270,14 @@
                   id="mensajeInputT" name="mensajeInputT"
                   rows="3"></textarea>
             </div>
+
+            <div class="container__total">
+                <h4> Total a donar: </h4> <h4 id="totalDonacion" name="totalDonacion">$ 8000</h4>
+            </div>
             </div>
 
             <div class="container_btnEnviarform">
-                <input type="submit" id="button" value="Enviar Donacion" onclick="holape()">
+                <button type="submit" id="button" value="Enviar Donacion">Enviar Donación</button>
             </div>
 
         </div>

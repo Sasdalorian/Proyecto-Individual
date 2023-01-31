@@ -70,7 +70,10 @@ const mensajeInputT = document.querySelector('#mensajeInputT');
 const formulario = document.querySelector('.form__contenedor');
 const btnEnviarform = document.querySelector('#btnEnviarform');
 
-function holape() {
+document.getElementById('button').addEventListener('click', holape)
+
+function holape(e) {
+    e.preventDefault();
     if (!paraMi.classList.contains("active") && !regalo.classList.contains("desactive")) {
         mostrarError('Falta elegir si es para ti o es un regalo.');
         return;
@@ -88,10 +91,6 @@ function holape() {
         enviarCorreo();
     }
 }
-
-// btnEnviarform.addEventListener('click', function(e) {
-//     e.preventDefault();
-// })
     // Mostrar Alerta de Envio Correcto
     function mostrarMensaje(mensaje) {
         const alerta = document.createElement('P');
@@ -133,12 +132,47 @@ function precioTotal() {
     document.getElementById('precioArbol').innerHTML = `$ ${precioTotal}`;
 }
 
+
+/* PLACA */
+document.getElementById('placa').addEventListener('change', precioDonacion)
+document.getElementById('noplaca').addEventListener('change', precioDonacion)
+/* TARJETA FISICA */
+document.getElementById('opcionFisica').addEventListener('change', precioDonacion)
+document.getElementById('opcionDigital').addEventListener('change', precioDonacion)
+
+function precioDonacion() {
+    let cantidadArboles = document.getElementById('cantidadArboles').value;
+    let precioTotalArboles = cantidadArboles * 8000;
+    let precioTotalPlaca = precioTotalArboles + 2500;
+    let precioTotalFisica = precioTotalArboles + 2000;
+    let precioTotalFP = precioTotalArboles + 4500;
+    
+    if (placa.checked) {
+        document.getElementById('totalDonacion').innerHTML = `$ ${precioTotalPlaca}`
+    }
+    if (noplaca.checked) {
+        document.getElementById('totalDonacion').innerHTML = `$ ${precioTotalArboles}`
+    }
+    if (digital.checked) {
+        document.getElementById('totalDonacion').innerHTML = `$ ${precioTotalArboles}`
+    }
+    if (fisica.checked) {
+        document.getElementById('totalDonacion').innerHTML = `$ ${precioTotalFisica}`
+    }
+    if (digital.checked && placa.checked) {
+        document.getElementById('totalDonacion').innerHTML = `$ ${precioTotalPlaca}`
+    }
+    if (fisica.checked && placa.checked) {
+        document.getElementById('totalDonacion').innerHTML = `$ ${precioTotalFP}`
+    }
+}
+
 /* ENVIAR CORREO */
 function enviarCorreo() {
     const btn = document.getElementById('button');
 
     document.getElementById('form')
-     .addEventListener('submit', function(event) {
+     .addEventListener('click', function(event) {
        event.preventDefault();
     
        btn.value = 'Enviando...';

@@ -232,6 +232,7 @@ body {
 .cobroextra {
     font-size: 1.2rem;
     color: yellow;
+    margin-bottom: 0;
 }
 
 .form__button_container {
@@ -264,4 +265,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.container__total {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
