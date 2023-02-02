@@ -1,2 +1,2 @@
 # Proyecto-Individual
-Proyecto Individual para Talento Digital M2
+Proyecto Individual para Talento Digital
