@@ -17,7 +17,7 @@ function login(e) {
     e.preventDefault();
 
    usuarios.filter(users => {
-        if(loginUser.value === users.nombreUsuario && loginPass.value === users.password) {
+        if(loginUser.value === users.nombreUsuario || loginUser.value === users.email && loginPass.value === users.password) {
             Swal.fire('AHORA SI QUE SIPOOOOO.');
             console.log('pasamo');
         }
