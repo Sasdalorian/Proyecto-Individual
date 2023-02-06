@@ -6,9 +6,10 @@ const usuarios = [
     {nombreUsuario: "OhZeta", password: "contraseñapaprobar5", email: "zzzwaffle@gmail.com", id: 5}
 ]
 
-btnLogin = document.querySelector('#btnLogin');
-loginModal = document.querySelector('#modal')
-
+const btnLogin = document.querySelector('#btnLogin');
+let loginNav = document.querySelector('#login');
+const loginModal = document.querySelector('#modal');
+const navbar = document.querySelector('.navbar-nav')
 btnLogin.addEventListener('click', login)
 
 function login(e) {
@@ -18,8 +19,19 @@ function login(e) {
 
    usuarios.filter(users => {
         if((loginUser.value === users.nombreUsuario || loginUser.value === users.email) && loginPass.value === users.password) {
-            Swal.fire('AHORA SI QUE SIPOOOOO.');
-            console.log('pasamo');
+            loginModal.style.display = "none";
+            Swal.fire({
+                icon: 'success',
+                title: 'Has iniciado sesión.',
+                showConfirmButton: false,
+                timer: 1500
+              })
+                loginNav.style.display = "none"
+                const usuario = document.createElement('p');
+                usuario.classList.add('nav-link', 'm-0');
+                usuario.textContent = users.nombreUsuario;
+                navbar.appendChild(usuario);
+                console.log('pasamo');
         }
     })
 }
