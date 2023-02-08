@@ -405,6 +405,18 @@ footer {
   height: 2.4rem;
   margin-right: 1rem;
 }
+.banner3 {
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/Banner3.jpg");
+  height: 42rem;
+  width: 100%;
+  color: white;
+}
+.banner3__categorias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 3rem;
+  row-gap: 2rem;
+}
 
 /* MQ */
 @media (max-width: 992px) {
@@ -431,9 +443,8 @@ footer {
     column-gap: 3rem;
     row-gap: 2rem;
   }
-
   .banner3 {
-    height: 66rem;
+    height: 65rem;
   }
 
   .navbar {

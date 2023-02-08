@@ -49,22 +49,10 @@
     transition: all .5s;
 }
 /* BANNER 3 */
-.banner3 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/Banner3.jpg");
-    height: 42rem;
-    width: 100%;
-    color: white;
-}
 .banner3__titulo {
     padding-top: 1rem;
     text-align: center;
     padding-bottom: 1.5rem;
-}
-.banner3__categorias {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 3rem;
-    row-gap: 2rem;
 }
 .banner3__cajaimagen {
     height: 10rem;
@@ -131,7 +119,10 @@
 .mb-6 {
     width: 100%;
 }
-
+#mx-auto {
+    display: flex;
+    justify-content: center;
+}
 
 
 /* ARBOL */
@@ -143,3 +134,4 @@
     width: 5;
     z-index: 999;
 };
+
