@@ -1,5 +1,4 @@
 # Proyecto-Individual
-    Proyecto Individual para Talento Digital
+    Portafolio para Talento Digital
 
-## Para que corra correctamente
-    ```npm i```
+## Para que el proyecto funcione correctamente se debe usar ```npm i``` 
