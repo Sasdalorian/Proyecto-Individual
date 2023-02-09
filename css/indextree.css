@@ -4,6 +4,7 @@ body {
 /* BANNER 4 */
 .banner4__titulo {
     padding-top: 2rem;
+    text-align: center;
     color: white;
     font-size: 2.3rem;
     font-family: 'Francois One', sans-serif;
@@ -93,12 +94,13 @@ body {
 .bloque__left__video {
     width: 40%;
 }
-.contenedor__p {
-    overflow: scroll;
+.bloqueVideo {
+    grid-template-columns: repeat(2,1fr);
 }
 .video {
     margin-top: 2rem;
 }
+
 .bloque__butonC {
     display: flex;
     justify-content: center;
@@ -303,6 +305,23 @@ body {
     }
 }
 @media (max-width: 850px) {
+    .bloquesleft-right {
+        grid-template-columns: repeat(5,2fr);
+    }
+    .bloques__left, .bloques__right {
+        grid-column: 1/6;
+    }
+    .bloque__reverse {
+        grid-template-columns: repeat(2,1fr);
+    }
+    .bloque__left__reverse {
+        grid-template-rows: 1/2;
+    }
+    .bloque__right__reverse {
+        grid-column: 1/4;
+        grid-row: 2/3;
+    }
+
     .form__opciones {
         display: grid;
         margin: 0;
