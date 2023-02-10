@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/voluntariado.css"
 </head>
 <body>
     <header class="header">
@@ -41,24 +42,44 @@
     </header>
     <br><br>
 
-    <aside>
-        TODO ESTO AL LADO IZQUIERDO DE LA PAGINA
-        <h1>FILTRADO</h1>
-        <h1>BUSCADOR</h1>
-        <h1>AREAS</h1>
-    </aside>
+    <div class="divisones">
+        <aside class="asideLeft">
+            <ul>
+                <li>FILTRANDO POR:</li>
 
-    <menu> 
-        ESTO AL CENTRO DE LA PAGINA
-        <h1>VOLUNTARIADOS</h1>
-    </menu>
+                <li>BUSCADOR</li>
+                <input class="buscadorAreas">
+                <ul>AREAS</ul>
+                    <li>Educacion</li>
+                    <li>Emergencias</li>
+                    <li>Animales</li>
+                    <li>Construccion</li>
+            </ul>
+        </aside>
+        <main class="centro">
+            <h1>Todas las areas para hacer voluntariado</h1>
+            
+            <div id="contenedor__areas" class="contenedor__areas">
+                <a href="#" target="_blank">
+                    <div class="contenedor__areas__voluntariado">
+                        <div>
+                            IMAGEN
+                        </div>
+                        <div>
+                            INFO AREA VOLUNTARIADO
+                        </div>
+                    </div>
+                </a>
+            </div>
 
-    <aside>
-        AL LADO DERECHO DE LA PAGINA
-        <h1>PUBLICIDAD AL VOLUNTARIADO</h1>
-    </aside>
+        </main>
 
-    <div id="contenedor__areas" class="contenedor__areas"></div>
+        <aside class="asideRight">
+            AL LADO DERECHO DE LA PAGINA
+            <h1>PUBLICIDAD AL VOLUNTARIADO</h1>
+        </aside>
+    </div>
+
 
     <footer>
         <p>Copyright © 2023 Sas Inc. Todos los derechos reservados.</p>
