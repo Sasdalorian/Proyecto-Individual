@@ -471,7 +471,9 @@ footer {
     flex-direction: column;
   }
 }
-
+a {
+  text-decoration: none;
+}
 @media (max-width: 320px) {
   .navbar {
     height: 7rem;

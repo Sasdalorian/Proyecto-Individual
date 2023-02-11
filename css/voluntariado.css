@@ -1,0 +1,19 @@
+.divisones {
+    display: grid;
+    grid-template-columns: repeat(8,1fr);
+}
+.asideLeft {
+    background-color: palegreen;
+    grid-column: 1/3;
+}
+.centro {
+    grid-column: 3/8;
+    background-color: blue;
+}
+.asideRight {
+    grid-column: 8/9;
+    background-color: blueviolet;
+}
+.contenedor__areas__voluntariado {
+    display: flex;
+}
