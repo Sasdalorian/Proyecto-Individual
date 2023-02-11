@@ -10,7 +10,7 @@ body {
     font-family: 'Francois One', sans-serif;
 }
 .banner4 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.14)), url("/img/treefondo.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.14)), url("/img/arboltree/treefondo.jpg");
     height: 50rem;
     -webkit-background-size: cover;
     -moz-background-size: cover;

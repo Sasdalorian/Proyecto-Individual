@@ -2,18 +2,58 @@
     display: grid;
     grid-template-columns: repeat(8,1fr);
 }
+/* ASIDE LEFT */
 .asideLeft {
     background-color: palegreen;
     grid-column: 1/3;
 }
+/* CENTRO PAG AREAS */
 .centro {
     grid-column: 3/8;
     background-color: blue;
 }
+.container__area__img {
+    height: 100px;
+    width: 100px;
+    padding-right: 1rem;
+}
+.container__area {
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+}
+/* INFORMACION AREA */
+.container__areaInfo {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    width: 100%;
+}
+.container__area__titulo {
+    grid-column: 1/4;
+}
+.container__area__cantidad {
+    grid-column: 4/5;
+}
+.container__area__ubicacion {
+    grid-column: 1/3;
+}
+.container__area__area {
+    grid-column: 3/4;
+}
+.container__area__duracion {
+    grid-column: 4/5;
+}
+.container__area__quehacer {
+    grid-column: 1/3;
+}
+.container__area__beneficio {
+    grid-column: 3/5;
+}
+.container__area__cantidad {
+    grid-column: 4/5;
+}
+/* ASIDE RIGHT */
 .asideRight {
     grid-column: 8/9;
     background-color: blueviolet;
-}
-.contenedor__areas__voluntariado {
-    display: flex;
 }

@@ -1,42 +1,46 @@
 [
     {
+        "id": 1,
         "titulo": "Enseñanza a niños de entre 5 a 8 años",
-        "img": "",
-        "area": "niños",
+        "area": ["Niños"],
         "ubicacion": "Valparaiso",
         "duracion": "3 semana",
         "quehacer": ["Turno Diurno", "Enseñar", "Limpieza"],
         "beneficio": ["2 comida", "habitacion compartida"],
-        "cantidad": 4
+        "cantidad": 4,
+        "imagen": "./img/voluntariado/voluntariadoninos.jpeg"
     },
     {
-        "titulo": "Bioconstruccion y mantenimiento",
-        "img": "",
-        "area": "construccion",
-        "ubicacion": "Laguna Verde",
-        "duracion": "Al menos 2 semanas",
-        "quehacer": ["Turno Diurno", "Construccion", "Limpieza", "Pintura y Decoracion", "Mantenimiento"],
-        "beneficio": ["1 comida", "habitacion compartida"],
-        "cantidad": 8
-    },
-    {
-        "titulo": "Cuidado de Adultos Mayores",
-        "img": "",
-        "area": "formacion adultos",
-        "ubicacion": "Viña del Mar",
-        "duracion": "1 semana",
-        "quehacer": ["Turno Diurno", "Cuidar", "Limpieza"],
-        "beneficio": ["1 comida", "Habitacion privada"],
-        "cantidad": 2
-    },
-    {
+        "id": 2,
         "titulo": "Cuidado de animales y niños",
-        "img": "",
-        "area": ["animales", "niños"],
+        "area": ["Animales", "Niños"],
         "ubicacion": "Viña del Mar",
         "duracion": "2 semanas",
         "quehacer": ["Turno Diurno/nocturno", "Cuidar", "Limpieza"],
         "beneficio": ["3 comidas", "Habitacion privada"],
-        "cantidad": 1
+        "cantidad": 1,
+        "imagen": "./img/voluntariado/niños-perros.jpg"
+    },
+    {
+        "id": 3,
+        "titulo": "Bioconstruccion y mantenimiento",
+        "area": "Construccion",
+        "ubicacion": "Laguna Verde",
+        "duracion": "Al menos 2 semanas",
+        "quehacer": ["Turno Diurno", "Construccion", "Limpieza", "Pintura y Decoracion", "Mantenimiento"],
+        "beneficio": ["1 comida", "habitacion compartida"],
+        "cantidad": 8,
+        "imagen": "./img/voluntariado/construccion.jpg"
+    },
+    {
+        "id": 4,
+        "titulo": "Cuidado de Adultos Mayores",
+        "area": "Formacion Adultos",
+        "ubicacion": "Viña del Mar",
+        "duracion": "1 semana",
+        "quehacer": ["Turno Diurno", "Cuidar", "Limpieza"],
+        "beneficio": ["1 comida", "Habitacion privada"],
+        "cantidad": 2,
+        "imagen": "./img/voluntariado/adultomayor.jpg"
     }
 ]
