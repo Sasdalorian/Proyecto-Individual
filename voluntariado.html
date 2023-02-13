@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/global.css">
-    <link rel="stylesheet" href="css/voluntariado.css"
+    <link rel="stylesheet" href="css/voluntariado.css">
 </head>
 <body>
     <header class="header">
@@ -45,22 +45,18 @@
     <div class="divisones">
         <aside class="asideLeft">
             <ul>
+                <li class="aside__buscador">BUSCADOR</li>
+                <input id="buscadorAreas" style="width: 80%;">
+                <div class="containerBuscador">
+                    <button id="btnBuscar" onclick="buscadorArea()">Buscar</button>
+                </div>
+
                 <li class="aside__filtro">FILTRANDO POR:</li>
                 <div class="aside__filtrando"></div>
-
-                <li class="aside__buscador">BUSCADOR</li>
-                <input class="buscadorAreas">
-
-                <p class="aside__areas">AREAS</p>
-                    <li id="aside__categoria-Am" class="aside__areas__categorias">Adultos Mayores</li>
-                    <li id="aside__categoria-Ani" class="aside__areas__categorias">Animales</li>
-                    <li id="aside__categoria-Const" class="aside__areas__categorias">Construccion</li>
-                    <li id="aside__categoria-Disc" class="aside__areas__categorias">Discapacidad</li>
-                    <li id="aside__categoria-Emerg" class="aside__areas__categorias">Emergencias</li>
-                    <li id="aside__categoria-Ma" class="aside__areas__categorias">Medio Ambiente</li>
-                    <li id="aside__categoria-Niñ" class="aside__areas__categorias">Niños</li>
-                    <li id="aside__categoria-Rural" class="aside__areas__categorias">Rural</li>
-                    <li id="aside__categoria-Tall" class="aside__areas__categorias">Talleres</li>
+                    <!--  SE RELLENARA CON JS  -->
+                
+                <p class="aside__areas">-AREAS-</p>
+                <div id="aside__categorias"></div>
             </ul>
 
             <div class="icono__container">
@@ -99,6 +95,7 @@
         </a>
     </footer>
 
+    <script src="js/Area.js"></script>
     <script src="js/mainVoluntariado.js"></script>
 </body>
 </html>

@@ -1,9 +1,10 @@
-fetch('js/data.json')
-.then(res => res.json())
-.then(data => {
+/* CREACION CONTAINER MAIN */
+function crearContainer(data) {
     let areasVolunt = '';
+
     data.forEach(areas => {
-        areasVolunt += `
+        voluntariado.agregarAreas(areas);
+    areasVolunt += `
         <a href="#">
         <div class="contenedor__areas__voluntariado">
             <div class="container__area">
@@ -45,10 +46,21 @@ fetch('js/data.json')
         `;
     })
     document.getElementById('contenedor__areas').innerHTML = areasVolunt;
-})
+}
+/* CARGA JSON */
+fetch('js/data.json')
+.then(res => res.json())
+.then(data => {
+    crearContainer(data);
+});
 
-function buscar() {
+
+
+let voluntariado = new Area();
+function buscadorArea() {
     const contenedorAreas =  document.querySelector('#contenedor__areas');
+    const inputBuscar = document.getElementById('buscadorAreas');
+    const areaEncontrada = voluntariado.buscarArea(inputBuscar.value);
 }
 
 /* FILTRAR */
@@ -73,7 +85,6 @@ ninos.addEventListener('click', filtrarCategorias);
 rural.addEventListener('click', filtrarCategorias);
 talleres.addEventListener('click', filtrarCategorias);
 
-
-function filtrarCategorias(e) {
+function filtrarCategorias() {
 
 }
