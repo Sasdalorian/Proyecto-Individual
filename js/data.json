@@ -6,7 +6,7 @@
         "ubicacion": "Valparaiso",
         "duracion": "3 semana",
         "quehacer": ["Turno Diurno", "Enseñar", "Limpieza"],
-        "beneficio": ["2 comida", "habitacion compartida"],
+        "beneficio": ["2 comidas", "habitacion compartida"],
         "cantidad": 4,
         "imagen": "./img/voluntariado/voluntariadoninos.jpeg"
     },
@@ -35,12 +35,23 @@
     {
         "id": 4,
         "titulo": "Cuidado de Adultos Mayores",
-        "area": "Formacion Adultos",
+        "area": "Adultos Mayores",
         "ubicacion": "Viña del Mar",
         "duracion": "1 semana",
         "quehacer": ["Turno Diurno", "Cuidar", "Limpieza"],
         "beneficio": ["1 comida", "Habitacion privada"],
         "cantidad": 2,
         "imagen": "./img/voluntariado/adultomayor.jpg"
+    },
+    {
+        "id": 5,
+        "titulo": "Cuidado de Adultos Mayor con discapacidad",
+        "area": ["Adultos Mayores", "Discapacidad"],
+        "ubicacion": "Villa Alemana",
+        "duracion": "3 semana",
+        "quehacer": ["Turno Diurno y Nocturno", "Cuidar", "Limpieza"],
+        "beneficio": ["2 comidas", "Habitacion compartida"],
+        "cantidad": 2,
+        "imagen": "./img/voluntariado/adultomayordiscapacitado.jpg"
     }
 ]
