@@ -1,19 +1,119 @@
+:root {
+    --clr--grey--dark: rgb(172, 158, 158);
+    --clr--grey--light: rgb(209, 198, 198);
+    --clr--blue--dark: #074365;
+    --clr--blue--darkHover: #08527c;
+    --clr--white: rgb(255, 255, 255);
+    --clr--black: rgb(0, 0, 0);
+}
+
 .divisones {
     display: grid;
-    grid-template-columns: repeat(8,1fr);
+    grid-template-columns: repeat(10,1fr);
 }
+
+/* ASIDE LEFT */
 .asideLeft {
-    background-color: palegreen;
     grid-column: 1/3;
+    padding-top: 1rem;
+    background-color: var(--clr--blue--dark);
+    margin-top: 1rem;
+    color: var(--clr--white);
+    border-radius: 0 .7rem .7rem 0;
+
+
+    position: fixed;
+    top: 3rem;
+    right: start;
+    bottom: 0;
+    z-index: 999;
+    width: 17.5%;
+    padding-bottom: 2rem;
+    margin-bottom: 2rem;
+}
+.icono__container {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+.aside__areas, .aside__buscador {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+}
+li {
+    margin-left: 1rem;
+}
+.aside__areas__categorias:hover {
+    background-color: var(--clr--blue--darkHover);
+}
+/* CENTRO PAG AREAS */
+.titulo__centro {
+    text-align: left;
+    margin: 0;
+    margin-left: 1rem;
+    border: 2px solid var(--clr--grey--dark);
+    border-radius: .7rem .7rem 0 0;
+    border-bottom: 0px;
+    margin-right: 38%;
+    padding: 1rem;
+    font-size: 1.5rem;
 }
 .centro {
-    grid-column: 3/8;
-    background-color: blue;
-}
-.asideRight {
-    grid-column: 8/9;
-    background-color: blueviolet;
+    grid-column: 3/10;
+    margin-top: 1rem;
 }
 .contenedor__areas__voluntariado {
+    border: 2px solid var(--clr--grey--dark);
+    margin: 1rem;
+    border-radius: .7rem;
+}
+.contenedor__contenedor__areas {
+    border: 2px solid var(--clr--grey--dark);
+    border-radius: 0rem .7rem .7rem .7rem;
+    margin: 1rem;
+    margin-top: 0;
+}
+.container__area__img {
+    height: 100%;
+    width: 150px;
+    padding-right: 1rem;
+    border-radius: 1rem;
+}
+.container__area {
+    width: 100%;
     display: flex;
+    border-radius: .8rem;
+    padding: .7rem;
+}
+/* INFORMACION AREA */
+.container__areaInfo {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    width: 100%;
+    height: 100%;
+}
+.area__c0, .area__c1, .area__c2 {
+    grid-column: 1/4;
+    display: flex;
+    gap: 20%;
+    margin-left: 1rem;
+}
+.area__c3 {
+    grid-column: 1/4;
+    display: flex;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.areas {
+    border-radius: 1rem;
+    color: var(--clr--black);
+    margin-bottom: .5rem;
+}
+.iconPerson {
+    height: 1rem;
+}
+/* ASIDE RIGHT */
+.asideRight {
+    grid-column: 10/11;
 }

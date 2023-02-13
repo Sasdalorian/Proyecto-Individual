@@ -406,7 +406,7 @@ footer {
   margin-right: 1rem;
 }
 .banner3 {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/Banner3.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("/img/index/Banner3.jpg");
   height: 42rem;
   width: 100%;
   color: white;

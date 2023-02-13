@@ -45,33 +45,36 @@
     <div class="divisones">
         <aside class="asideLeft">
             <ul>
-                <li>FILTRANDO POR:</li>
+                <li class="aside__filtro">FILTRANDO POR:</li>
 
-                <li>BUSCADOR</li>
+                <li class="aside__buscador">BUSCADOR</li>
                 <input class="buscadorAreas">
-                <ul>AREAS</ul>
-                    <li>Educacion</li>
-                    <li>Emergencias</li>
-                    <li>Animales</li>
-                    <li>Construccion</li>
+
+                <p class="aside__areas">AREAS</p>
+                    <li id="aside__categoria-Am" class="aside__areas__categorias">Adultos Mayores</li>
+                    <li id="aside__categoria-Ani" class="aside__areas__categorias">Animales</li>
+                    <li id="aside__categoria-Const" class="aside__areas__categorias">Construccion</li>
+                    <li id="aside__categoria-Disc" class="aside__areas__categorias">Discapacidad</li>
+                    <li id="aside__categoria-Emerg" class="aside__areas__categorias">Emergencias</li>
+                    <li id="aside__categoria-Ma" class="aside__areas__categorias">Medio Ambiente</li>
+                    <li id="aside__categoria-Niñ" class="aside__areas__categorias">Niños</li>
+                    <li id="aside__categoria-Rural" class="aside__areas__categorias">Rural</li>
+                    <li id="aside__categoria-Tall" class="aside__areas__categorias">Talleres</li>
             </ul>
-        </aside>
-        <main class="centro">
-            <h1>Todas las areas para hacer voluntariado</h1>
-            
-            <div id="contenedor__areas" class="contenedor__areas">
-                <a href="#" target="_blank">
-                    <div class="contenedor__areas__voluntariado">
-                        <div>
-                            IMAGEN
-                        </div>
-                        <div>
-                            INFO AREA VOLUNTARIADO
-                        </div>
-                    </div>
-                </a>
+
+            <div class="icono__container">
+                <a href="indextree.html"><img class="iconoArbol" height=110" src="https://img.icons8.com/clouds/100/null/floating-island-forest.png"/></a>
             </div>
 
+        </aside>
+
+        <main class="centro">
+            <h1 class="titulo__centro">Todas las areas para hacer voluntariado</h1>
+            <div class="contenedor__contenedor__areas">
+                <div id="contenedor__areas" class="contenedor__areas">
+                    <!--  ESTA PARTE SE RELLENARA CON JS-->
+                </div>
+            </div>
         </main>
 
         <aside class="asideRight">
@@ -95,5 +98,6 @@
         </a>
     </footer>
 
+    <script src="js/mainVoluntariado.js"></script>
 </body>
 </html>
