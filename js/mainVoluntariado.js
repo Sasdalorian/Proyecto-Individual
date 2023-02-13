@@ -1,10 +1,8 @@
 fetch('js/data.json')
-.then(function(res) {
-    return res.json();
-})
-.then(function(data) {
+.then(res => res.json())
+.then(data => {
     let areasVolunt = '';
-    data.forEach(function(areas) {
+    data.forEach(areas => {
         areasVolunt += `
         <a href="#">
         <div class="contenedor__areas__voluntariado">
@@ -51,6 +49,31 @@ fetch('js/data.json')
 
 function buscar() {
     const contenedorAreas =  document.querySelector('#contenedor__areas');
+}
 
-    
+/* FILTRAR */
+const adultoMayor = document.getElementById('aside__categoria-Am');
+const animal = document.getElementById('aside__categoria-Ani');
+const construccion = document.getElementById('aside__categoria-Const');
+const discapacitados = document.getElementById('aside__categoria-Disc');
+const emergencia = document.getElementById('aside__categoria-Emerg');
+const medioAmbiente = document.getElementById('aside__categoria-Ma');
+const ninos = document.getElementById('aside__categoria-Niñ');
+const rural = document.getElementById('aside__categoria-Rural');
+const talleres = document.getElementById('aside__categoria-Tall');
+const divFiltro = document.getElementById('aside__filtrando');
+
+adultoMayor.addEventListener('click', filtrarCategorias);
+animal.addEventListener('click', filtrarCategorias);
+construccion.addEventListener('click', filtrarCategorias);
+discapacitados.addEventListener('click', filtrarCategorias);
+emergencia.addEventListener('click', filtrarCategorias);
+medioAmbiente.addEventListener('click', filtrarCategorias);
+ninos.addEventListener('click', filtrarCategorias);
+rural.addEventListener('click', filtrarCategorias);
+talleres.addEventListener('click', filtrarCategorias);
+
+
+function filtrarCategorias(e) {
+
 }

@@ -2,7 +2,7 @@
     {
         "id": 1,
         "titulo": "Enseñanza a niños de entre 5 a 8 años",
-        "area": ["Niños"],
+        "area": "Niños",
         "ubicacion": "Valparaiso",
         "duracion": "3 semana",
         "quehacer": ["Turno Diurno", "Enseñar", "Limpieza"],
