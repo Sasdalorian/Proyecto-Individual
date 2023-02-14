@@ -1,6 +1,7 @@
 :root {
     --clr--grey--dark: rgb(172, 158, 158);
     --clr--grey--light: rgb(209, 198, 198);
+    --clr--blue--darklight: #125880;
     --clr--blue--dark: #074365;
     --clr--blue--darkHover: #08527c;
     --clr--white: rgb(255, 255, 255);
@@ -24,11 +25,34 @@
 
     position: fixed;
     top: 3rem;
+    bottom: 4.6%;
     right: start;
     z-index: 999;
-    width: 17.5%;
+    width: 18%;
     padding-bottom: 2rem;
     margin-bottom: 2rem;
+}
+.aside__areas {
+    text-align: center;
+    margin-top: 1rem;
+}
+.asideL {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+.botonFiltro, .botonFiltrado {
+    background-color: var(--clr--blue--darklight);
+    color: var(--clr--white);
+    border: none;
+    border-radius: .6rem;
+    padding: .2rem .5rem;
+    margin-top: .3rem;
+    margin-left: .3rem;
+}
+#aside__areas_p {
+    text-align: center;
+    color: var(--clr--blue--darklight);
+    margin-bottom: 1rem;
 }
 .icono__container {
     display: flex;

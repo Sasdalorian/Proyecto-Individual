@@ -44,20 +44,28 @@
 
     <div class="divisones">
         <aside class="asideLeft">
-            <ul>
-                <li class="aside__buscador">BUSCADOR</li>
+            <div class="asideL">
+                <p class="aside__buscador">BUSCADOR</p>
                 <input id="buscadorAreas" style="width: 80%;">
                 <div class="containerBuscador">
                     <button id="btnBuscar" onclick="buscadorArea()">Buscar</button>
                 </div>
+                <br>
+                <p id="aside__filtro">FILTRANDO POR:</p>
+                <p id="aside__areas_p"> No se han seleccionado filtros.</p>
+                <div class="aside__campos">
+                    <div id="aside__filtrando"></div>
+                </div>
 
-                <li class="aside__filtro">FILTRANDO POR:</li>
-                <div class="aside__filtrando"></div>
+
+                    <p class="aside__areas">-AREAS A FILTRAR-</p>
+
+                    <div class="aside__campos">
+                        <div id="aside__categorias"></div>
+                    </div>
                     <!--  SE RELLENARA CON JS  -->
-                
-                <p class="aside__areas">-AREAS-</p>
-                <div id="aside__categorias"></div>
-            </ul>
+
+                </div>
 
             <div class="icono__container">
                 <a href="indextree.html"><img class="iconoArbol" height=110" src="https://img.icons8.com/clouds/100/null/floating-island-forest.png"/></a>

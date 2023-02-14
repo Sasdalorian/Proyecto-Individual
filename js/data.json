@@ -4,7 +4,7 @@
         "titulo": "Enseñanza a niños de entre 5 a 8 años",
         "area": ["Niños"],
         "ubicacion": "Valparaiso",
-        "duracion": "3 semana",
+        "duracion": "3 semanas",
         "quehacer": ["Turno Diurno", "Enseñar", "Limpieza"],
         "beneficio": ["2 comidas", "habitacion compartida"],
         "cantidad": 4,
@@ -48,10 +48,54 @@
         "titulo": "Cuidado de Adultos Mayor con discapacidad",
         "area": ["Adultos Mayores", "Discapacidad"],
         "ubicacion": "Villa Alemana",
-        "duracion": "3 semana",
+        "duracion": "3 semanas",
         "quehacer": ["Turno Diurno y Nocturno", "Cuidar", "Limpieza"],
         "beneficio": ["2 comidas", "Habitacion compartida"],
         "cantidad": 2,
         "imagen": "./img/voluntariado/adultomayordiscapacitado.jpg"
+    },
+    {
+        "id": 6,
+        "titulo": "Ayuda en labores de campo",
+        "area": ["Rural", "Animales"],
+        "ubicacion": "Olmue",
+        "duracion": "2 semanas",
+        "quehacer": ["Turno Diurno y Nocturno", "Cuidar", "Limpieza"],
+        "beneficio": ["2 comidas", "Habitacion compartida"],
+        "cantidad": 4,
+        "imagen": "./img/voluntariado/rural.jpg"
+    },
+    {
+        "id": 7,
+        "titulo": "Ayuda en labores de campo",
+        "area": ["Discapacidad", "Medio Ambiente"],
+        "ubicacion": "Olmue",
+        "duracion": "2 semanas",
+        "quehacer": ["Turno Diurno y Nocturno", "Cuidar", "Limpieza"],
+        "beneficio": ["2 comidas", "Habitacion compartida"],
+        "cantidad": 4,
+        "imagen": "./img/voluntariado/rural.jpg"
+    },
+    {
+        "id": 8,
+        "titulo": "Ayuda en labores de campo",
+        "area": ["Talleres", "Construccion"],
+        "ubicacion": "Olmue",
+        "duracion": "2 semanas",
+        "quehacer": ["Turno Diurno y Nocturno", "Cuidar", "Limpieza"],
+        "beneficio": ["2 comidas", "Habitacion compartida"],
+        "cantidad": 4,
+        "imagen": "./img/voluntariado/rural.jpg"
+    },
+    {
+        "id": 9,
+        "titulo": "Ayuda en labores de campo",
+        "area": ["Adultos Mayores", "Emergencias"],
+        "ubicacion": "Olmue",
+        "duracion": "2 semanas",
+        "quehacer": ["Turno Diurno y Nocturno", "Cuidar", "Limpieza"],
+        "beneficio": ["2 comidas", "Habitacion compartida"],
+        "cantidad": 4,
+        "imagen": "./img/voluntariado/rural.jpg"
     }
 ]

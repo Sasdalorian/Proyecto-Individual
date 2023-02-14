@@ -1,3 +1,6 @@
+let catalogo = null;
+let filtroAplicar = [];
+
 /* CREACION CONTAINER MAIN */
 function crearContainer(data) {
     let areasVolunt = '';
@@ -30,8 +33,6 @@ function crearContainer(data) {
                     <p class="container__area__quehacer areas">
                         <svg class="iconPerson" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"/></svg>
                         ${areas.quehacer}</p>
-
-
                     </div>
 
                     <div class="area__c3">
@@ -47,14 +48,14 @@ function crearContainer(data) {
     })
     document.getElementById('contenedor__areas').innerHTML = areasVolunt;
 }
+
 /* CARGA JSON */
 fetch('js/data.json')
 .then(res => res.json())
 .then(data => {
+    catalogo = data;
     crearContainer(data);
 });
-
-
 
 let voluntariado = new Area();
 function buscadorArea() {
@@ -63,28 +64,59 @@ function buscadorArea() {
     const areaEncontrada = voluntariado.buscarArea(inputBuscar.value);
 }
 
-/* FILTRAR */
-const adultoMayor = document.getElementById('aside__categoria-Am');
-const animal = document.getElementById('aside__categoria-Ani');
-const construccion = document.getElementById('aside__categoria-Const');
-const discapacitados = document.getElementById('aside__categoria-Disc');
-const emergencia = document.getElementById('aside__categoria-Emerg');
-const medioAmbiente = document.getElementById('aside__categoria-Ma');
-const ninos = document.getElementById('aside__categoria-Niñ');
-const rural = document.getElementById('aside__categoria-Rural');
-const talleres = document.getElementById('aside__categoria-Tall');
-const divFiltro = document.getElementById('aside__filtrando');
+/*  FILTRO  */
+const categorias = ["Niños", "Emergencias", "Adultos Mayores", "Animales", "Discapacidad", "Medio Ambiente", "Talleres", "Rural", "Construccion"]
+const filtro = document.getElementById('aside__categorias');
+const areaFiltrado = document.getElementById('aside__filtrando');
 
-adultoMayor.addEventListener('click', filtrarCategorias);
-animal.addEventListener('click', filtrarCategorias);
-construccion.addEventListener('click', filtrarCategorias);
-discapacitados.addEventListener('click', filtrarCategorias);
-emergencia.addEventListener('click', filtrarCategorias);
-medioAmbiente.addEventListener('click', filtrarCategorias);
-ninos.addEventListener('click', filtrarCategorias);
-rural.addEventListener('click', filtrarCategorias);
-talleres.addEventListener('click', filtrarCategorias);
+categorias.forEach(element => {
+    const botonFiltro = document.createElement('button');
+    const botonFiltrado = document.createElement('button');
+    const sinFiltro = document.getElementById('aside__areas_p')
 
-function filtrarCategorias() {
+    botonFiltro.innerHTML = element;
+    botonFiltrado.innerHTML = element;
+    botonFiltro.classList.add("botonFiltro")
+    botonFiltrado.classList.add("botonFiltrado")
+    botonFiltrado.hidden = true;
 
-}
+    botonFiltro.addEventListener('click', ()=> {
+        botonFiltro.hidden = true;
+        botonFiltrado.hidden = false;
+        sinFiltro.hidden = true;
+
+        seleccionCategorias(element, "agregar");
+    });
+
+    botonFiltrado.addEventListener('click', ()=> {
+        botonFiltro.hidden = false;
+        botonFiltrado.hidden = true;
+
+        seleccionCategorias(element, "quitar");
+    });
+
+    filtro.appendChild(botonFiltro);
+    areaFiltrado.appendChild(botonFiltrado);
+});
+
+function seleccionCategorias(categoria, accion) {
+    if (accion === "agregar") {
+        filtroAplicar.push(categoria);
+    } else {
+       filtroAplicar = filtroAplicar.filter(element => element !== categoria);
+    }
+
+    filtrarCatalogoPorCategorias(filtroAplicar);
+};
+
+function filtrarCatalogoPorCategorias(filtros) {
+    let pruebas = [];
+    pruebas = filtros.flatMap(element => catalogo.filter(taller => taller.area.includes(element)));
+    const data = new Set(pruebas);
+    let result = [...data];
+    crearContainer(result);
+
+    if(result.length === 0) {
+        crearContainer(catalogo)
+    }
+};
