@@ -24,13 +24,11 @@
 
 
     position: fixed;
-    top: 3rem;
-    bottom: 4.6%;
+    top: 2rem;
     right: start;
     z-index: 999;
     width: 18%;
-    padding-bottom: 2rem;
-    margin-bottom: 2rem;
+    padding-bottom: 1rem;
 }
 .aside__areas {
     text-align: center;
@@ -52,7 +50,7 @@
 #aside__areas_p {
     text-align: center;
     color: var(--clr--blue--darklight);
-    margin-bottom: 1rem;
+    margin-bottom: .2rem;
 }
 .icono__container {
     display: flex;

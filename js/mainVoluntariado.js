@@ -118,5 +118,7 @@ function filtrarCatalogoPorCategorias(filtros) {
 
     if(result.length === 0) {
         crearContainer(catalogo)
+        const sinFiltro = document.getElementById('aside__areas_p')
+        sinFiltro.hidden = false;
     }
 };

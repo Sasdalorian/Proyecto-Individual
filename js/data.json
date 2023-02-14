@@ -67,19 +67,19 @@
     },
     {
         "id": 7,
-        "titulo": "Ayuda en labores de campo",
-        "area": ["Discapacidad", "Medio Ambiente"],
-        "ubicacion": "Olmue",
+        "titulo": "Ayuda Teleton 2023",
+        "area": ["Discapacidad"],
+        "ubicacion": "Valparaiso",
         "duracion": "2 semanas",
-        "quehacer": ["Turno Diurno y Nocturno", "Cuidar", "Limpieza"],
+        "quehacer": ["Turno Diurno", "Cuidar", "Enseñar"],
         "beneficio": ["2 comidas", "Habitacion compartida"],
-        "cantidad": 4,
-        "imagen": "./img/voluntariado/rural.jpg"
+        "cantidad": 6,
+        "imagen": "./img/voluntariado/teleton.jpg"
     },
     {
         "id": 8,
         "titulo": "Ayuda en labores de campo",
-        "area": ["Talleres", "Construccion"],
+        "area": ["Talleres", "Construccion", "Medio Ambiente"],
         "ubicacion": "Olmue",
         "duracion": "2 semanas",
         "quehacer": ["Turno Diurno y Nocturno", "Cuidar", "Limpieza"],
