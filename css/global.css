@@ -379,6 +379,7 @@ input[type=text]:placeholder {
   padding: 1rem;
   color: white;
   text-transform: uppercase;
+  margin-top: 1rem;
 }
 .error {
   background-color: rgb(185, 0, 0);
@@ -386,6 +387,7 @@ input[type=text]:placeholder {
   padding: 1rem;
   color: white;
   text-transform: uppercase;
+  margin-top: 1rem;
 }
 
 
@@ -417,6 +419,8 @@ footer {
   column-gap: 3rem;
   row-gap: 2rem;
 }
+
+
 
 /* MQ */
 @media (max-width: 992px) {
