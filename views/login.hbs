@@ -1,0 +1,15 @@
+{{#> plantilla}}
+<br><br>
+        <div class="contenedorSignUp">
+            <h3>Login</h3>
+            <form class="formSignUp" action="/auth" method="POST">
+                <input class="input-SignUp" type="text" id="username" placeholder="Usuario" name="username">
+                <input class="input-SignUp" type="password" id="password" placeholder="Password" name="pass">
+                <button type="submit">Login</button>
+            </form>
+
+            <p>¿No tienes cuenta?
+                <a href="/signup">Registrate aquí.</a>
+            </p>
+    </div>
+{{/plantilla}}

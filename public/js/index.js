@@ -1,3 +1,5 @@
+// INDEX //
+
 /* CONTACTO */
 // Eventos de Inputs 
 const nombreInput = document.querySelector('#nombreInput');
@@ -25,8 +27,7 @@ formulario.addEventListener('submit', function(evento) {
 
 
     // Validar Formulario
-
-const { nombreInput, emailInput, mensajeInput } = datos;
+const { nombreInput, emailInput, apellidoInput } = datos;
     if(nombreInput === "" || emailInput === '' || apellidoInput === '') {
         mostrarError('Todos los campos con * son obligatorios.')
         return;
@@ -55,7 +56,6 @@ function mostrarMensaje(mensaje) {
         btnEnviar.style.cursor = 'pointer';
     }, 4000);
 }
-
     // Mostrar Error en pantalla
 function mostrarError(mensaje) {
     const error = document.createElement('P');
@@ -71,5 +71,4 @@ function mostrarError(mensaje) {
             btnEnviar.style.pointerEvents = 'auto';
             btnEnviar.style.cursor = 'pointer';
         }, 4000);
-    
 };

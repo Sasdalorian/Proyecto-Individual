@@ -74,11 +74,13 @@ document.getElementById('button').addEventListener('click', holape)
 
 function holape(e) {
     e.preventDefault();
-    if (!paraMi.classList.contains("active") && !regalo.classList.contains("desactive")) {
+    if (regalo.classList.contains("desactive")) {
+        mostrarError('Aún no se ha habilitado el modo regalo');
+    }
+    if (!paraMi.classList.contains("active")) {
         mostrarError('Falta elegir si es para ti o es un regalo.');
         return;
     }
-    
     if (!fisica.checked && !digital.checked) {
         mostrarError('Falta elegir entre tarjeta fisica o digital');
         return;
