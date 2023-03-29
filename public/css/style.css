@@ -805,6 +805,11 @@ a {
   border-radius: .8rem;
   padding: .7rem;
 }
+.container__area:hover {
+  background-color: #b3b3b3c2;
+  border-radius: .5rem;
+  padding: .7rem;
+}
 /* INFORMACION AREA */
 .container__areaInfo {
   display: grid;
@@ -813,10 +818,13 @@ a {
   height: 100%;
   font-size: 13px;
 }
+.container__area__cantidad {
+  display: flex;
+  gap: .3rem;
+}
 .area__c0, .area__c1, .area__c2 {
   grid-column: 1/4;
   display: flex;
-  gap: 20%;
   margin-left: 1rem;
   justify-content: space-between;
 }

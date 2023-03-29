@@ -8,7 +8,7 @@ CREATE TABLE Usuario (
 	correo VARCHAR(100) NOT NULL UNIQUE,
 	usuario VARCHAR(25) NOT NULL UNIQUE,
     pass VARCHAR(255) NOT NULL,
-    Tvolun_idTvolun INT
+    Tvolun_idTvolun INT 
 );
 
 CREATE TABLE Anfitrion(
@@ -55,7 +55,7 @@ INSERT INTO tvolun (titulo, area, ubicacion, duracion, quehacer, beneficio, cant
 	("Ayuda en labores de campo", '"Rural", "Animales"', "Olmue", "2 semanas", '"Turno Diurno y Nocturno", "Cuidar", "Limpieza"', '"2 comidas", "Habitacion compartida"', 4, "./img/voluntariado/rural.jpg", 1),
     ("Ayuda Teleton 2023", "Discapacidad", "Valparaiso", "2 semanas", '"Turno Diurno", "Cuidar", "Enseñar"', '"2 comidas", "Habitacion compartida"', 6, "./img/voluntariado/teleton.jpg", 1),
     ("$", '"Talleres", "Construccion", "Medio Ambiente"', "Laguna Verde", "2 semanas", '"Turno Diurno y Nocturno", "Cuidar", "Limpieza"', '"2 comidas", "Habitacion compartida"', 4, "$", 1),
-    ("$", '"Adultos Mayores", "Emergencias"', "Limache", "2 semanas", '"Turno Diurno y Nocturno", "Cuidar", "Limpieza"', '"2 comidas", "Habitacion compartida"', 4, "$", 1);
+    ("Cuidado de adultos mayores en hospital Van Buren", '"Adultos Mayores", "Emergencias"', "Valparaiso", "2 semanas", '"Turno Diurno y Nocturno", "Cuidar", "Limpieza"', '"2 comidas", "Habitacion compartida"', 4, "./img/voluntariado/abuelohosp.png", 1);
     
     
 SELECT * FROM usuario;
