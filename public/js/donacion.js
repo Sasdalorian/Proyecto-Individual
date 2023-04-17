@@ -70,12 +70,13 @@ const mensajeInputT = document.querySelector('#mensajeInputT');
 const formulario = document.querySelector('.form__contenedor');
 const btnEnviarform = document.querySelector('#btnEnviarform');
 
-document.getElementById('button').addEventListener('click', holape)
+document.getElementById('button').addEventListener('click', comprobarForm)
 
-function holape(e) {
+function comprobarForm(e) {
     e.preventDefault();
     if (regalo.classList.contains("desactive")) {
         mostrarError('Aún no se ha habilitado el modo regalo');
+        return;
     }
     if (!paraMi.classList.contains("active")) {
         mostrarError('Falta elegir si es para ti o es un regalo.');

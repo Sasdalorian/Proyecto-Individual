@@ -15,7 +15,7 @@ Voluntariados.init({
         autoIncrement: true
     },
     titulo: {
-        type: DataTypes.STRING(25),
+        type: DataTypes.STRING(255),
         allowNull: false,
     },
     ubicacion: {
@@ -23,15 +23,15 @@ Voluntariados.init({
         allowNull: false
     },
     duracion: {
-        type: DataTypes.STRING(25),
+        type: DataTypes.STRING(100),
         allowNull: false
     },
     quehacer: {
-        type: DataTypes.STRING(25),
+        type: DataTypes.STRING(100),
         allowNull: false
     },
     beneficio: {
-        type: DataTypes.STRING(30),
+        type: DataTypes.STRING(100),
         allowNull: false
     },
     cantidad: {
@@ -41,7 +41,7 @@ Voluntariados.init({
     img: {
         type: DataTypes.STRING(255),
         allowNull: false
-    }
+    },
 },
 {
     sequelize,
@@ -54,8 +54,8 @@ Voluntariados.init({
     }
 });
 
-Areas.belongsTo(Voluntariados, {foreignKey: "idareas"});
-Voluntariados.belongsTo(Areas, {foreignKey: "idareas"});
+Areas.belongsToMany(Voluntariados, {through: "idAreaVolun"});
+Voluntariados.belongsToMany(Areas, {through: "idAreaVolun"});
 
 Usuario.belongsTo(Voluntariados, {foreignKey: "id_usuario"});
 Voluntariados.belongsTo(Usuario, {foreignKey: "id_usuario"});
