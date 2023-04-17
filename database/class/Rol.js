@@ -25,4 +25,3 @@ Rol.init({
         plural: "roles"
     }
 });
-

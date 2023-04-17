@@ -1,4 +1,5 @@
--- Active: 1681602210682@@127.0.0.1@5432@proyectoind@public
+-- Active: 1681744154754@@127.0.0.1@5432@proyectoind@public
+
 CREATE DATABASE proyectoind;
 USE proyectoind;
 CREATE TABLE rol (
@@ -35,16 +36,20 @@ CREATE TABLE tablaVoluntariado (
     img VARCHAR(150) NOT NULL,
     usuario_idusuario INT NOT NULL
 );
-SELECT * FROM areas;
 ALTER TABLE tablaVoluntariado ADD CONSTRAINT fk_idareas_areas FOREIGN KEY (area_idareas) REFERENCES areas(idareas);
 ALTER TABLE tablaVoluntariado ADD CONSTRAINT fk_idusuario_usuario FOREIGN KEY (usuario_idusuario) REFERENCES usuario(idusuario);
 
 INSERT INTO tablaVoluntariado (titulo, area_idareas, ubicacion, duracion, quehacer, beneficio, cantidad, img, usuario_idusuario) VALUES
     ("Enseñanza a niños de entre 5 a 8 años", 1, "Valparaiso", "3 Semanas", "Turno Diurno, Enseñar, Limpieza", "2 comidas, habitacion compartida", 4, "./img/voluntariado/voluntariadoninos.jpeg", 1);
 
-SELECT * FROM areas; 
+SELECT * FROM roles;
+SELECT * FROM usuarios;
+SELECT * FROM Areas; 
+SELECT * FROM Voluntariados;
+SELECT * FROM idareavoluntariado;
 
 DROP TABLE areas;
-DROP TABLE rol;
-DROP TABLE tablavoluntariado;
-DROP TABLE usuario;
+DROP TABLE roles;
+DROP TABLE voluntariados;
+DROP TABLE usuarios;
+DROP TABLE idAreaVoluntariado;
