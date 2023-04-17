@@ -1,6 +1,9 @@
 import { sequelize } from "../data.js";
 import { DataTypes, Model } from "sequelize";
 
+import { Usuario } from "./Usuario.js";
+import { Areas } from "./Areas.js";
+
 export class Voluntariados extends Model{};
 
 Voluntariados.init({
@@ -12,23 +15,23 @@ Voluntariados.init({
         autoIncrement: true
     },
     titulo: {
-        type: DataTypes.VARCHAR(25),
+        type: DataTypes.STRING(25),
         allowNull: false,
     },
     ubicacion: {
-        type: DataTypes.VARCHAR(100),
+        type: DataTypes.STRING(100),
         allowNull: false
     },
     duracion: {
-        type: DataTypes.VARCHAR(25),
+        type: DataTypes.STRING(25),
         allowNull: false
     },
     quehacer: {
-        type: DataTypes.VARCHAR(25),
+        type: DataTypes.STRING(25),
         allowNull: false
     },
     beneficio: {
-        type: DataTypes.VARCHAR(30),
+        type: DataTypes.STRING(30),
         allowNull: false
     },
     cantidad: {
@@ -36,7 +39,7 @@ Voluntariados.init({
         allowNull: false
     },
     img: {
-        type: DataTypes.VARCHAR(255),
+        type: DataTypes.STRING(255),
         allowNull: false
     }
 },
@@ -50,3 +53,9 @@ Voluntariados.init({
         plural: "voluntariados"
     }
 });
+
+Areas.belongsTo(Voluntariados, {foreignKey: "idareas"});
+Voluntariados.belongsTo(Areas, {foreignKey: "idareas"});
+
+Usuario.belongsTo(Voluntariados, {foreignKey: "id_usuario"});
+Voluntariados.belongsTo(Usuario, {foreignKey: "id_usuario"});

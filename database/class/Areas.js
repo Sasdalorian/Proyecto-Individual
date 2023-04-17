@@ -11,7 +11,7 @@ Areas.init({
         autoIncrement: true
     },
     nombreArea: {
-        type: DataTypes.VARCHAR(25),
+        type: DataTypes.STRING(25),
         allowNull: false
     }
 }, 
@@ -25,3 +25,4 @@ Areas.init({
         plural: "areas"
     }
 });
+

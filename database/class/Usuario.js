@@ -43,3 +43,4 @@ Usuario.init({
 
 Rol.hasMany(Usuario, {foreignKey: "idrol"});
 Usuario.belongsTo(Rol, {foreignKey: "idrol"});
+
