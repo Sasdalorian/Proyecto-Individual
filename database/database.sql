@@ -35,16 +35,16 @@ CREATE TABLE tablaVoluntariado (
     img VARCHAR(150) NOT NULL,
     usuario_idusuario INT NOT NULL
 );
-SELECT * FROM areas;
+SELECT * FROM voluntariados;
 ALTER TABLE tablaVoluntariado ADD CONSTRAINT fk_idareas_areas FOREIGN KEY (area_idareas) REFERENCES areas(idareas);
 ALTER TABLE tablaVoluntariado ADD CONSTRAINT fk_idusuario_usuario FOREIGN KEY (usuario_idusuario) REFERENCES usuario(idusuario);
 
 INSERT INTO tablaVoluntariado (titulo, area_idareas, ubicacion, duracion, quehacer, beneficio, cantidad, img, usuario_idusuario) VALUES
     ("Enseñanza a niños de entre 5 a 8 años", 1, "Valparaiso", "3 Semanas", "Turno Diurno, Enseñar, Limpieza", "2 comidas, habitacion compartida", 4, "./img/voluntariado/voluntariadoninos.jpeg", 1);
 
-SELECT * FROM areas; 
+SELECT * FROM roles; 
 
 DROP TABLE areas;
-DROP TABLE rol;
-DROP TABLE tablavoluntariado;
-DROP TABLE usuario;
+DROP TABLE roles;
+DROP TABLE usuarios;
+DROP TABLE voluntariados;
