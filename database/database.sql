@@ -46,10 +46,14 @@ SELECT * FROM roles;
 SELECT * FROM usuarios;
 SELECT * FROM Areas; 
 SELECT * FROM Voluntariados;
-SELECT * FROM idareavoluntariado;
+SELECT * FROM idAreaVolun;
+
 
 DROP TABLE areas;
 DROP TABLE roles;
 DROP TABLE voluntariados;
 DROP TABLE usuarios;
-DROP TABLE idAreaVoluntariado;
+DROP TABLE idAreaVolun;
+
+
+DROP DATABASE proyectoind;
