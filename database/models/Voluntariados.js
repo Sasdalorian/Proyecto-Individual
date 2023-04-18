@@ -54,8 +54,8 @@ Voluntariados.init({
     }
 });
 
-Areas.belongsToMany(Voluntariados, {through: "idAreaVolun"});
-Voluntariados.belongsToMany(Areas, {through: "idAreaVolun"});
+Areas.belongsTo(Voluntariados, {foreignKey: "idarea"});
+Voluntariados.belongsTo(Areas, {foreignKey: "idarea"});
 
 Usuario.belongsTo(Voluntariados, {foreignKey: "id_usuario"});
 Voluntariados.belongsTo(Usuario, {foreignKey: "id_usuario"});

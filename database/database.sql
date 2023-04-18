@@ -1,4 +1,4 @@
--- Active: 1681744154754@@127.0.0.1@5432@proyectoind@public
+-- Active: 1681602210682@@127.0.0.1@5432@proyectoind@public
 
 CREATE DATABASE proyectoind;
 USE proyectoind;
@@ -41,12 +41,15 @@ ALTER TABLE tablaVoluntariado ADD CONSTRAINT fk_idusuario_usuario FOREIGN KEY (u
 
 INSERT INTO tablaVoluntariado (titulo, area_idareas, ubicacion, duracion, quehacer, beneficio, cantidad, img, usuario_idusuario) VALUES
     ("Enseñanza a niños de entre 5 a 8 años", 1, "Valparaiso", "3 Semanas", "Turno Diurno, Enseñar, Limpieza", "2 comidas, habitacion compartida", 4, "./img/voluntariado/voluntariadoninos.jpeg", 1);
-
+    
 SELECT * FROM roles;
 SELECT * FROM usuarios;
 SELECT * FROM Areas; 
 SELECT * FROM Voluntariados;
+<<<<<<< HEAD
 SELECT * FROM idAreaVolun;
+=======
+>>>>>>> cd9122dff9964ad2399eef6f4836db367f986908
 
 
 DROP TABLE areas;

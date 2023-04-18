@@ -1,14 +1,14 @@
 import { sequelize } from "../database/data.js";
 
-import { Rol } from "../database/class/Rol.js";
-import { Usuario } from "../database/class/Usuario.js";
-import { Areas } from "../database/class/Areas.js";
-import { Voluntariados } from "../database/class/Voluntariados.js";
+import { Rol } from "../database/models/Rol.js";
+import { Usuario } from "../database/models/Usuario.js";
+import { Areas } from "../database/models/Areas.js";
+import { Voluntariados } from "../database/models/Voluntariados.js";
 
 // CARGAR TABLAS
 export async function syncTables() {
     try {
-        await sequelize.sync();
+        await sequelize.sync({ force: true });
         console.log("Tablas sincronizadas correctamente.")
     } catch (error) {
         console.error("No se han podido sincronizar las Tablas.")
@@ -63,7 +63,7 @@ export async function agregarArea(nombre) {
 };
 
 // AGREGAR TABLA VOLUNTARIADO
-export async function agregarVoluntariado(titulo, ubicacion, duracion, quehacer, beneficio, cantidad, img, idareas, id_usuario) {
+export async function agregarVoluntariado(titulo, ubicacion, duracion, quehacer, beneficio, cantidad, img, id_usuario, idarea) {
     try {
         const voluntariado = await Voluntariados.create({
             titulo,
@@ -73,8 +73,10 @@ export async function agregarVoluntariado(titulo, ubicacion, duracion, quehacer,
             beneficio,
             cantidad,
             img,
-            idareas,
-            id_usuario
+            id_usuario,
+            id_area: idarea
+        }, {
+            include: "idarea"
         });
         console.log("Se ha agregado el Voluntariado.");
         return true;

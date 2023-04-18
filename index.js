@@ -1,11 +1,12 @@
 // IMPORTS
 import express from "express";
 import indexRoutes from "./routes/routes.js";
+import postsRouter from "./routes/posts.js";
+import userRouter from "./routes/usuario.js";
 import hbs from "hbs";
 import {dirname, join} from "path";
 import {fileURLToPath} from "url";
 import session from "express-session";
-import bycryptjs from "bcryptjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
@@ -19,6 +20,16 @@ app.use(express.static(join(__dirname , "/node_modules/bootstrap/dist")));
 app.use(express.static(join(__dirname , "/node_modules/sweetalert2/dist")));
 app.use(express.static(join(__dirname , "/node_modules/normalize.css")));
 hbs.registerPartials(join(__dirname , "/views/partials"));
+
+//Middleware
+//Para rellenar el req.body
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
+app.use("/api/posts", postsRouter);
+app.use("/api/usuario", userRouter);
+
+
 
 app.use(session({
     secret:'secret',

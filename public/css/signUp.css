@@ -1,0 +1,33 @@
+.formSignUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input-SignUp {
+    width: 100%;
+    display: flex;
+    margin: 1rem;
+}
+.contenedoresSignUp {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+}
+.signUpR {
+    background-color: orange;
+    border-radius: 2rem 0 2rem 0;
+}
+
+.signUpL {
+    background-color: rgba(0, 0, 255, 0.835);
+    border-radius: 0 2rem 0 2rem;
+}
+.contenedorSignUp {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    padding: 2rem;
+}
