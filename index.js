@@ -1,7 +1,6 @@
 // IMPORTS
 import express from "express";
 import indexRoutes from "./routes/routes.js";
-import postsRouter from "./routes/posts.js";
 import userRouter from "./routes/usuario.js";
 import hbs from "hbs";
 import {dirname, join} from "path";
@@ -14,6 +13,7 @@ const app = express();
 app.set("view engine", "hbs");
 app.set("views", "./views");
 app.use(indexRoutes);
+app.use(userRouter);
 app.use(express.static("public"));
 app.use(express.urlencoded({extended:false}))
 app.use(express.static(join(__dirname , "/node_modules/bootstrap/dist")));
@@ -25,17 +25,6 @@ hbs.registerPartials(join(__dirname , "/views/partials"));
 //Para rellenar el req.body
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-
-app.use("/api/posts", postsRouter);
-app.use("/api/usuario", userRouter);
-
-
-
-app.use(session({
-    secret:'secret',
-    resave: true,
-    saveUninitialized: true
-}))
 
 app.listen(3000, (req, res) => {
     console.log('El server se ha conectado al puerto 3000;')

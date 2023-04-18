@@ -6,7 +6,6 @@ import { Rol } from "./Rol.js";
 export class Usuario extends Model{};
 
 Usuario.init({
-
     id_usuario: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -17,10 +16,6 @@ Usuario.init({
         type: DataTypes.STRING(50),
         allowNull: false,
         validate: {
-            isAlpha: {
-                args: true,
-                msg: "El nombre solo puede contener letras."
-            },
             notNull: {
                 msg: "El campo no puede ser nulo"
             }
@@ -30,10 +25,6 @@ Usuario.init({
         type: DataTypes.STRING(50),
         allowNull: false,
         validate: {
-            isAlpha: {
-                args: true,
-                msg: "El apellido solo puede contener letras."
-            },
             notNull: {
                 msg: "El campo no puede ser nulo"
             }

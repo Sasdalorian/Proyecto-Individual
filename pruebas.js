@@ -4,7 +4,7 @@ import { Rol } from "./database/models/Rol.js";
 import { Usuario } from "./database/models/Usuario.js";
 import { Areas} from "./database/models/Areas.js";
 import { Voluntariados } from "./database/models/Voluntariados.js";
-import { Post } from "./database/models/Post.js";
+import { Areavolun } from "./database/models/Areavolun.js";
 
 import { syncTables, agregarRol, agregarUsuario, agregarArea, agregarVoluntariado } from "./utils/sqlfuncion.js";
 
@@ -13,7 +13,7 @@ await agregarRol("Admin");
 await agregarRol("Voluntario");
 await agregarRol("Anfitrion");
 
-await agregarUsuario("Sas", "Mah Foo", "esteban.nicolas.sd@gmail.com", "1234", 1);
+await agregarUsuario("Sas", "MahFoo", "esteban.nicolas.sd@gmail.com", "1234", 1);
 await agregarUsuario("Bryan", "Contreras", "bryan.contreras@gmail.com", "1234", 2);
 await agregarUsuario("Ignacio", "Wallace", "ignacio.wallace@gmail.com", "1234", 3);
 

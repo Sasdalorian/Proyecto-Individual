@@ -7,7 +7,6 @@ import { Areas } from "./Areas.js";
 export class Voluntariados extends Model{};
 
 Voluntariados.init({
-
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,

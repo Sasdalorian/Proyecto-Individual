@@ -1,12 +1,18 @@
 // IMPORTS
 import express from "express";
+import bodyParser from "body-parser";
 import hbs from "hbs";
 import {dirname, join} from "path";
 import {fileURLToPath} from "url";
 import session from "express-session";
 import { sequelize } from "../database/data.js";
 import { Router } from "express";
+import { Usuario } from "../database/models/Usuario.js";
+
+
 const router = Router();
+router.use(bodyParser.urlencoded({ extended: false}));
+router.use(bodyParser.json());
 
 // GET
 router.get("/", (req, res) => {
