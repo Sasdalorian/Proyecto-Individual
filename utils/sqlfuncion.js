@@ -18,7 +18,7 @@ export async function syncTables() {
                 beneficio: "prueba",
                 cantidad: 2,
                 img: "prueba.png",
-                Areas: {nombreArea: "Prueba"}
+                Areas: {areaId: 1}
             }, {
                 include: Areas
             });
