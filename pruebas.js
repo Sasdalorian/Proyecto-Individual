@@ -27,5 +27,6 @@ await agregarArea("Talleres");
 await agregarArea("Rural");
 await agregarArea("Construccion");
 
-await agregarVoluntariado("cabroxicos", "santiago", "lo que quiera", "lo que de nomas", "lo que querai po papito", 4, "imagencabroxico.penege", [2, 1]);
+await agregarVoluntariado("Enseñanza a niños de entre 5 a 8 años", "Valparaiso", "3 semanas", "Turno Diurno, Enseñar, Limpieza", "2 comidas, habitacion compartida", 4, "./img/voluntariado/voluntariadoninos.jpeg", [1]);
+await agregarVoluntariado("Cuidado de animales y niños", "Viña del Mar", "2 semanas", "Turno Diurno, Cuidar, Limpieza", "3 comidas, Habitacion privada", 1, "./img/voluntariado/niños-perros.jpg", [1, 4]);
 

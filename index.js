@@ -13,7 +13,7 @@ const app = express();
 
 app.set("view engine", "hbs");
 app.set("views", "./views");
-app.use(indexRoutes);
+//app.use(indexRoutes);
 app.use(userRouter);
 app.use(rolRouter);
 app.use(express.static("public"));
