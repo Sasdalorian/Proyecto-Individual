@@ -4,25 +4,12 @@ import { Rol } from "../database/models/Rol.js";
 import { Usuario } from "../database/models/Usuario.js";
 import { Areas } from "../database/models/Areas.js";
 import { Voluntariados } from "../database/models/Voluntariados.js";
-import { Areavolunt } from "../database/models/Areavolunt.js";
+// import { Areavolunt } from "../database/models/Areavolunt.js";
 
 // CARGAR TABLAS
 export async function syncTables() {
     try {
-        await sequelize.sync({ force: true }).then(async () => {
-            let prueba = await Voluntariados.create({
-                titulo: "woldo",
-                ubicacion: "prueba",
-                duracion: "prueba",
-                quehacer: "prueba",
-                beneficio: "prueba",
-                cantidad: 2,
-                img: "prueba.png",
-                Areas: {areaId: 1}
-            }, {
-                include: Areas
-            });
-        })
+        await sequelize.sync({ force: true })
         console.log("Tablas sincronizadas correctamente.")
     } catch (error) {
         console.error("No se han podido sincronizar las Tablas.")
@@ -53,7 +40,7 @@ export async function agregarUsuario(nombre, apellidos, email, pass, idrol) {
             email: email,
             pass: pass,
             idrol: idrol
-        });
+        })
         console.log(`Se ha agregado el Usuario ${nombre}.`);
         return true;
     } catch (err) {
@@ -77,7 +64,7 @@ export async function agregarArea(nombre) {
 };
 
 // AGREGAR TABLA VOLUNTARIADO
-export async function agregarVoluntariado(titulo, ubicacion, duracion, quehacer, beneficio, cantidad, img, id_usuario) {
+export async function agregarVoluntariado(titulo, ubicacion, duracion, quehacer, beneficio, cantidad, img, areas) {
     try {
         const voluntariado = await Voluntariados.create({
             titulo,
@@ -86,8 +73,11 @@ export async function agregarVoluntariado(titulo, ubicacion, duracion, quehacer,
             quehacer,
             beneficio,
             cantidad,
-            img,
-            id_usuario
+            img
+        });
+        areas.forEach(async element => {
+            const area = await Areas.findByPk(element);
+            await voluntariado.addArea(area, { through: { selfGranted: false } });
         });
         console.log("Se ha agregado el Voluntariado.");
         return true;
