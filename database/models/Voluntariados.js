@@ -9,7 +9,7 @@ export class Voluntariados extends Model{};
 Voluntariados.init({
     id: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
+        primaryKey: true, 
         allowNull: false,
         autoIncrement: true
     },
@@ -53,8 +53,9 @@ Voluntariados.init({
     }
 });
 
-Areas.belongsTo(Voluntariados, {foreignKey: "idarea"});
-Voluntariados.belongsTo(Areas, {foreignKey: "idarea"});
+// Muchos a Muchos, NaN
 
-Usuario.belongsTo(Voluntariados, {foreignKey: "id_usuario"});
-Voluntariados.belongsTo(Usuario, {foreignKey: "id_usuario"});
+// //Voluntariados tiene muchas Areas
+// // Crea nueva tabla en la base de datos llamada areavolunt
+// Voluntariados.belongsToMany(Areas, { through: "areavolunt"});
+// Areas.belongsToMany(Voluntariados, {through: "areavolunt"});

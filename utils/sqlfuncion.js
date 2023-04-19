@@ -4,11 +4,25 @@ import { Rol } from "../database/models/Rol.js";
 import { Usuario } from "../database/models/Usuario.js";
 import { Areas } from "../database/models/Areas.js";
 import { Voluntariados } from "../database/models/Voluntariados.js";
+import { Areavolunt } from "../database/models/Areavolunt.js";
 
 // CARGAR TABLAS
 export async function syncTables() {
     try {
-        await sequelize.sync({ force: true });
+        await sequelize.sync({ force: true }).then(async () => {
+            let prueba = await Voluntariados.create({
+                titulo: "woldo",
+                ubicacion: "prueba",
+                duracion: "prueba",
+                quehacer: "prueba",
+                beneficio: "prueba",
+                cantidad: 2,
+                img: "prueba.png",
+                Areas: {nombreArea: "Prueba"}
+            }, {
+                include: Areas
+            });
+        })
         console.log("Tablas sincronizadas correctamente.")
     } catch (error) {
         console.error("No se han podido sincronizar las Tablas.")
@@ -20,7 +34,7 @@ export async function agregarRol(nombre) {
     try {
         
         const rol = await Rol.create({
-            nivel: nombre
+            clase: nombre
         });
         console.log(`Se ha agregado el Rol ${nombre}.`);
         return true;
@@ -63,7 +77,7 @@ export async function agregarArea(nombre) {
 };
 
 // AGREGAR TABLA VOLUNTARIADO
-export async function agregarVoluntariado(titulo, ubicacion, duracion, quehacer, beneficio, cantidad, img, id_usuario, idarea) {
+export async function agregarVoluntariado(titulo, ubicacion, duracion, quehacer, beneficio, cantidad, img, id_usuario) {
     try {
         const voluntariado = await Voluntariados.create({
             titulo,
@@ -73,10 +87,7 @@ export async function agregarVoluntariado(titulo, ubicacion, duracion, quehacer,
             beneficio,
             cantidad,
             img,
-            id_usuario,
-            id_area: idarea
-        }, {
-            include: "idarea"
+            id_usuario
         });
         console.log("Se ha agregado el Voluntariado.");
         return true;

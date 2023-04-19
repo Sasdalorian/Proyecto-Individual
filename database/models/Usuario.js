@@ -64,6 +64,10 @@ Usuario.init({
     }
 });
 
+// Muchos a uno, N a 1
 Rol.hasMany(Usuario, {foreignKey: "idrol"});
+// Uno a Muchos, 1 a N
 Usuario.belongsTo(Rol, {foreignKey: "idrol"});
+
+
 

@@ -10,7 +10,7 @@ Rol.init({
         allowNull: false,
         autoIncrement: true
     },
-    nivel: {
+    clase: {
         type: DataTypes.STRING(10),
         allowNull: false
     }

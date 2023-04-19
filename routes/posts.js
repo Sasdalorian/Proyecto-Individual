@@ -1,13 +1,9 @@
 import express from "express";
 import { Router } from "express";
 import { Post } from "../database/models/Post.js";
+import { Usuario } from "../database/models/Usuario.js";
 
 const postsRouter = Router();
-
-
-postsRouter.get("/",(req, res) => {
-    res.send("Holiii")
-})
 
 
 // CREATE

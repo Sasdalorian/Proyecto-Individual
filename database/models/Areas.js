@@ -4,7 +4,7 @@ import { DataTypes, Model } from "sequelize";
 export class Areas extends Model{};
 
 Areas.init({
-    idarea: {
+    id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         allowNull: false,

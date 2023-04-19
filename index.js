@@ -2,6 +2,7 @@
 import express from "express";
 import indexRoutes from "./routes/routes.js";
 import userRouter from "./routes/usuario.js";
+import rolRouter from "./routes/rol.js";
 import hbs from "hbs";
 import {dirname, join} from "path";
 import {fileURLToPath} from "url";
@@ -12,8 +13,9 @@ const app = express();
 
 app.set("view engine", "hbs");
 app.set("views", "./views");
-app.use(indexRoutes);
+// app.use(indexRoutes);
 app.use(userRouter);
+app.use(rolRouter);
 app.use(express.static("public"));
 app.use(express.urlencoded({extended:false}))
 app.use(express.static(join(__dirname , "/node_modules/bootstrap/dist")));

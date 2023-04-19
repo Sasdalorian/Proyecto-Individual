@@ -4,7 +4,6 @@ import { Rol } from "./database/models/Rol.js";
 import { Usuario } from "./database/models/Usuario.js";
 import { Areas} from "./database/models/Areas.js";
 import { Voluntariados } from "./database/models/Voluntariados.js";
-import { Areavolunt } from "./database/models/Areavolunt.js";
 
 import { syncTables, agregarRol, agregarUsuario, agregarArea, agregarVoluntariado } from "./utils/sqlfuncion.js";
 
@@ -26,6 +25,3 @@ await agregarArea("Medio Ambiente");
 await agregarArea("Talleres");
 await agregarArea("Rural");
 await agregarArea("Construccion");
-
-await agregarVoluntariado("cabroxicos", "santiago", "lo que quiera", "lo que de nomas", "lo que querai po papito", 4, "imagencabroxico.penege");
-

@@ -1,8 +1,36 @@
 import express from "express";
 import { Router } from "express";
 import { Usuario } from "../database/models/Usuario.js";
+import { Rol } from "../database/models/Rol.js";
+import { Voluntariados } from "../database/models/Voluntariados.js";
+import { Areas } from "../database/models/Areas.js";
+import { Areavolunt } from "../database/models/Areavolunt.js";
 
 const userRouter = Router();
+
+userRouter.get("/",(req, res) => {
+    Voluntariados.findAll({
+        include: {
+            model: Areas,
+            attributes: ["id", "nombreArea"]
+        },
+        attributes: ["titulo"],
+    }).then(Voluntariados => res.json(Voluntariados));
+})
+
+
+
+// userRouter.get("/",(req, res) => {
+//     Usuario.findAll({
+//         include: {
+//             model: Rol,
+//             attributes: ["clase"]
+//         },
+//         attributes: ["nombre", "apellidos"]
+//     }).then(Usuario => res.json(Usuario));
+// })
+
+
 
 // CREATE /api/users    // VOLUNTARIOS
 userRouter.post("/registerVoluntario", (req, res) => {
