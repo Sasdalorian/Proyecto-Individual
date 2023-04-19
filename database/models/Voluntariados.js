@@ -59,3 +59,6 @@ Voluntariados.init({
 // // Crea nueva tabla en la base de datos llamada areavolunt
 // Voluntariados.belongsToMany(Areas, { through: "areavolunt"});
 // Areas.belongsToMany(Voluntariados, {through: "areavolunt"});
+
+Voluntariados.belongsToMany(Areas, {through: "Areavolunt"});
+Areas.belongsToMany(Voluntariados, {through: "Areavolunt"});
