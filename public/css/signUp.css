@@ -8,20 +8,33 @@
     display: flex;
     margin: 1rem;
 }
+
 .contenedoresSignUp {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    margin-top: 1rem;
+    height: 51.9rem;
+    color: white;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/img/signUp/fondo.jpg");
+    padding-bottom: 2rem;
+}
+.contenedorForm {
+    padding-top: 40%;
+    padding-bottom: 40%;
 }
 .signUpR {
-    background-color: orange;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/img/signUp/voluntario.jpg");
+    background-size: cover;
+    background-position: center;
     border-radius: 2rem 0 2rem 0;
+    background-repeat: no-repeat;
 }
-
 .signUpL {
-    background-color: rgba(0, 0, 255, 0.835);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/img/signUp/anfitrion.jpg");
+    background-size: cover;
+    background-position: center;
     border-radius: 0 2rem 0 2rem;
+    background-repeat: no-repeat;
 }
 .contenedorSignUp {
     display: flex;
@@ -30,4 +43,10 @@
     gap: 1rem;
     margin-top: 1rem;
     padding: 2rem;
+}
+.negrita {
+    color: rgb(34, 254, 254);
+}
+.ppregunta {
+    font-size: 20px;
 }

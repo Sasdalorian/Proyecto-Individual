@@ -2,33 +2,41 @@
 <br><br>
 <div class="contenedoresSignUp">
     <div class="contenedorSignUp signUpR">
-        <h3>Registrarse como Voluntario</h3>
-        <form class="formSignUp" action="registerVoluntario" method="post">
-            <input class="input-SignUp" type="text" id="nombre" placeholder="Nombre" name="nombre">
-            <input class="input-SignUp" type="text" id="apellidos" placeholder="Apellidos" name="apellidos">
-            <input class="input-SignUp" type="email" id="email" placeholder="Email" name="email">
-            <input class="input-SignUp" type="password" id="pass" placeholder="Password" name="pass">
-            <button type="submit" value="enviar">Registrarse</button>
-        </form>
+        <div class="contenedorForm">
+            <h3>Registrarse como Voluntario</h3>
+            <form class="formSignUp" action="registerVoluntario" method="post">
+                <input class="input-SignUp" type="text" id="nombre" placeholder="Nombre" name="nombre">
+                <input class="input-SignUp" type="text" id="apellidos" placeholder="Apellidos" name="apellidos">
+                <input class="input-SignUp" type="email" id="email" placeholder="Email" name="email">
+                <input class="input-SignUp" type="password" id="pass" placeholder="Password" name="pass">
+                <button type="submit" value="enviar">Registrarse</button>
+            </form>
+        </div>
 
-        <p>¿Tienes una cuenta?
-            <a href="/login">Ingresa aquí.</a>
-        </p>
+        <div class="ppregunta">
+            <p>¿Tienes una cuenta?
+                <a href="/login" class="negrita">Ingresa aquí.</a>
+            </p>
+        </div>
     </div>
 
     <div class="contenedorSignUp signUpL">
-        <h3>Registrarse cómo Anfitrión</h3>
-        <form class="formSignUp" action="registerAnfitrion" method="post">
-            <input class="input-SignUp" type="text" id="nombre" placeholder="Nombre" name="nombre">
-            <input class="input-SignUp" type="text" id="apellidos" placeholder="Apellidos" name="apellidos">
-            <input class="input-SignUp" type="email" id="email" placeholder="Email" name="email">
-            <input class="input-SignUp" type="password" id="pass" placeholder="Password" name="pass">
-            <button type="submit" value="enviar">Registrarse</button>
-        </form>
+        <div class="contenedorForm">
+            <h3>Registrarse cómo Anfitrión</h3>
+            <form class="formSignUp" action="registerAnfitrion" method="post">
+                <input class="input-SignUp" type="text" id="nombre" placeholder="Nombre" name="nombre">
+                <input class="input-SignUp" type="text" id="apellidos" placeholder="Apellidos" name="apellidos">
+                <input class="input-SignUp" type="email" id="email" placeholder="Email" name="email">
+                <input class="input-SignUp" type="password" id="pass" placeholder="Password" name="pass">
+                <button type="submit" value="enviar">Registrarse</button>
+            </form>
+        </div>
 
-        <p>¿Tienes una cuenta?
-            <a href="/login">Ingresa aquí.</a>
-        </p>
+        <div class="ppregunta">
+            <p>¿Tienes una cuenta?
+                <a href="/login" class="negrita">Ingresa aquí.</a>
+            </p>
+        </div>
     </div>
 </div>
 {{/plantilla}}
