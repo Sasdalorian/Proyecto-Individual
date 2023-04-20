@@ -17,15 +17,11 @@ categorias.forEach(element => {
         botonFiltro.hidden = true;
         botonFiltrado.hidden = false;
         sinFiltro.hidden = true;
-
-      //  seleccionCategorias(element, "agregar");
     });
 
     botonFiltrado.addEventListener('click', ()=> {
         botonFiltro.hidden = false;
         botonFiltrado.hidden = true;
-
-     //   seleccionCategorias(element, "quitar");
     });
 
     filtro.appendChild(botonFiltro);

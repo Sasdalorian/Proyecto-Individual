@@ -25,6 +25,12 @@ router.get("/voluntariado", async (req, res) => {
     res.render("voluntariado", {"voluntariados":data});
 });
 
+// router.get("/voluntariado", async (req, res) => {
+//     const resultado = await fetch("http://localhost:4000/api/v2/voluntariados");
+//     const data = await resultado.json();
+//     res.render("voluntariado", {"voluntariados": data});
+// })
+
 router.get("/login", (req, res) => {
     res.render("login");
 });
@@ -32,11 +38,6 @@ router.get("/login", (req, res) => {
 router.get("/signUp", (req, res) => {
     res.render("signUp");
 });
-
-// POST
-app.post("api/v1/registerVoluntario", async (req, res) => {
-    res.send("Entramoss")
-})
 
 // EXPORT
 export default router;
