@@ -4,6 +4,9 @@ import bodyParser from "body-parser";
 import { Router } from "express";
 import bcrypt from "bcrypt";
 
+import { inicioSesion, registrarAnf, registrarVolunt } from "./userRoutes.js";
+import { mostrarVolunt } from "./volunRoutes.js";
+
 const router = Router();
 const app = express();
 
@@ -25,71 +28,21 @@ router.get("/signUp", (req, res) => {
     res.render("signUp");
 });
 
-
+router.get("/prueba", (req, res) => {
+    // SOLO ENTRAR SI INICIO SESION
+    res.render("prueba");
+});
 
     // MOSTRAR VOLUNTARIADOS
-router.get("/voluntariado", async (req, res) => {
-    const resultado = await fetch("http://localhost:4000/api/v1/voluntariados");
-    const data = await resultado.json();
-    res.render("voluntariado", {"voluntariados":data});
-});
+router.get("/voluntariado", mostrarVolunt);
 
-
-    // REGISTRAR USUARIOS
-//REGISTRAR VOLUNTARIO
-router.post("/registerVoluntario", async (req, res) => {
-    try {
-        const { nombre, apellidos, email } = req.body;
-        let pass = bcrypt.hashSync(req.body.pass, 10)
-        const cuerpo = { nombre, apellidos, email, pass}
-
-        const resultado = await fetch("http://localhost:4000/api/v1/registerVoluntario", {
-            method: "POST",
-            body: JSON.stringify(cuerpo),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-    } catch (error) {
-        res.render("error", {"error": "Problemas al Registrar Usuario."})
-    }
-});
-//REGISTRAR ANFITRION
-router.post("/registerAnfitrion", async (req, res) => {
-    try {
-        const { nombre, apellidos, email } = req.body;
-        let pass = bcrypt.hashSync(req.body.pass, 10);
-        const cuerpo = { nombre, apellidos, email, pass};
-
-        const resultado = await fetch("http://localhost:4000/api/v1/registerAnfitrion", {
-            method: "POST",
-            body: JSON.stringify(cuerpo),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-        console.log(cuerpo)
-    } catch (error) {
-        res.render("error", {"error": "Problemas al Registrar Anfitrion."})
-    }
-});
+    //REGISTRAR VOLUNTARIO
+router.post("/registerVoluntario", registrarAnf);
+    //REGISTRAR ANFITRION
+router.post("/registerAnfitrion", registrarVolunt);
 
     // LOGIN USUARIO
-router.post("/iniciarSesion", async(req, res) => {
-    try {
-        const { email, pass } = req.body;
-        const cuerpo = { email, pass };
-        const resultado = await fetch("http://localhost:4000/api/v1/iniciarSesion", {
-            method: "POST",
-            body: JSON.stringify(cuerpo),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
-    } catch (error) {
-        
-    }
-})
+router.post("/iniciarSesion", inicioSesion);
 
 
 
