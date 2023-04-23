@@ -3,14 +3,12 @@ import hbs from "hbs";
 import { dirname, join} from "path";
 import {fileURLToPath} from "url";
 import indexRoutes from "./routes/routes.js";
-import methoodOverride from "method-override";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
 app.set('view engine', 'hbs');
 app.use(express.json());
-app.use(methoodOverride("_method", {methods: ["POST"]}));
 
 app.use(indexRoutes);
 

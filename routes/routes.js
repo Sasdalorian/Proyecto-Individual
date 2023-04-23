@@ -2,14 +2,15 @@
 import express from "express";
 import bodyParser from "body-parser";
 import { Router } from "express";
+import methodOverride from "method-override";
 
 import { inicioSesion, registrarAnf, registrarVolunt, mostrarPerfil } from "./userRoutes.js";
 import { mostrarVolunt } from "./volunRoutes.js";
 import { adminShowVolunt, deleteVolunt } from "./adminRoutes.js";
 
 const router = Router();
-const app = express();
 
+router.use(methodOverride("_method", {methods: ["POST"]}));
 router.use(bodyParser.urlencoded({ extended: false}));
 router.use(bodyParser.json());
 
@@ -43,7 +44,7 @@ router.post("/registerAnfitrion", registrarVolunt);
 router.post("/iniciarSesion", inicioSesion);
 
 //DELETE
-app.delete("/deletevolunt/:id", deleteVolunt);
+router.delete("/deletevolunt/:id", deleteVolunt);
 
 // router.get("/voluntariado", async (req, res) => {
 //     const resultado = await fetch("http://localhost:4000/api/v2/voluntariados");

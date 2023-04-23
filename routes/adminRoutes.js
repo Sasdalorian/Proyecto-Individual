@@ -1,4 +1,4 @@
-
+import Swal from 'sweetalert2'
 
 //MOSTRAR VOLUNTARIADOS
 export const adminShowVolunt = async (req, res) => {
@@ -9,11 +9,23 @@ export const adminShowVolunt = async (req, res) => {
 
 //BORRAR VOLUNTARIADO
 export const deleteVolunt = async (req, res) => {
-    const {id} = req.params
     try {
-        const resultado = await fetch("http://localhost:4000/api/v1/deletevolunt/:id");
+        const {id} = req.params
+        const resultado = await fetch(`http://localhost:4000/api/v1/deletevolunt/${id}`, {
+            method: "delete",
+            headers: {"Content-Type": "application/json"}
+        });
         res.redirect("/administracion");
     } catch (error) {
         console.log('No se pudo eliminar pedido', error)
     }
+}
+
+export const intentoAviso = async (req, res) => {
+    Swal.fire({
+        title: 'Error!',
+        text: 'Do you want to continue',
+        icon: 'error',
+        confirmButtonText: 'Cool'
+      })
 }

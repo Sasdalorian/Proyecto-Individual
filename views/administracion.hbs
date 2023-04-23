@@ -33,11 +33,12 @@
                             </span></a>
                         </td>
                         <td>
-                            <a href="deletevolunt/{{id}}?_method=delete"><i class="fa-solid fa-trash-can"></i>
-                                delete
-                            </span>
-
-                            </a></td>
+                            <form action="/deletevolunt/{{id}}?_method=DELETE" method="POST">
+                            <button type="submit">
+                                <i class="fa-solid fa-trash-can"></i> delete
+                            </button>
+                            </form>
+                        </td>
                     </tr>
                 {{/each}}
             </tbody>
