@@ -19,8 +19,8 @@ categorias.forEach(element => {
         sinFiltro.hidden = true;
         
     
-    //categorias.forEach((number, i) => console.log(`${number} is at index ${i}`))
-    categorias.forEach((number, i) => console.log());
+    categorias.forEach((number, i) => console.log(`${number} is at index ${i}`))
+    //categorias.forEach((number, i) => console.log());
     });
 
     botonFiltrado.addEventListener('click', ()=> {
