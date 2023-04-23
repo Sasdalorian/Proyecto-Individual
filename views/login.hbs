@@ -1,15 +1,18 @@
 {{#> plantilla}}
 <br><br>
-<div class="contenedorSignUp">
-    <h3>Login</h3>
-    <form class="formSignUp" action="iniciarSesion" method="post">
-        <input class="input-SignUp" type="text" id="email" placeholder="Email" name="email">
-        <input class="input-SignUp" type="password" id="pass" placeholder="Password" name="pass">
-        <button type="submit">Login</button>
-    </form>
+<div class="contenedorLogin">
+    <div class="contenedorLog">
+        <h3 class="titleForm">Login</h3>
+        <form class="formLogin" action="iniciarSesion" method="post">
+            <input class="input-Login" type="text" id="email" placeholder="Email" name="email">
+            <input class="input-Login" type="password" id="pass" placeholder="Password" name="pass">
+            <button type="submit">Login</button>
+        </form>
 
-    <p>¿No tienes cuenta?
-        <a href="/signup">Registrate aquí.</a>
-    </p>
+        <p class="ppregunta">¿No tienes cuenta?
+            <a class="negrita" href="/signup">Registrate aquí.</a>
+        </p>
+    </div>
+
 </div>
 {{/plantilla}}

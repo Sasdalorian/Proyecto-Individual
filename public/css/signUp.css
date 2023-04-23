@@ -8,19 +8,17 @@
     display: flex;
     margin: 1rem;
 }
-
 .contenedoresSignUp {
     display: flex;
     justify-content: center;
     gap: 2rem;
-    height: 70%;
     color: white;
     background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/img/signUp/fondo.jpg");
     padding-bottom: 2rem;
 }
 .contenedorForm {
-    padding-top: 20%;
-    padding-bottom: 20%;
+    padding-top: 42%;
+    padding-bottom: 42%;
 }
 .signUpR {
     background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("/img/signUp/voluntario.jpg");

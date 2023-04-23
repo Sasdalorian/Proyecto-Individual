@@ -1,0 +1,32 @@
+.contenedorLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2rem;
+    color: white;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/img/login/fondologin.jpg");
+    background-position: center;
+    background-size: 35%;
+}
+.titleForm {
+    text-align: center;
+}
+.formLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.input-Login {
+    width: 100%;
+    display: flex;
+    margin: 1rem;
+}
+.contenedorLog {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("/img/login/cardlogin.jpg");
+    padding: 12% 10% 12% 10%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 0 2rem 0 2rem;
+    background-repeat: no-repeat;
+}

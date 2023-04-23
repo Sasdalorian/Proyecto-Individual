@@ -1,0 +1,47 @@
+{{#> plantilla}}
+    <br><br>
+    <h3 class="nameTable">Administrar Tabla Voluntariados</h3>
+    <div class="containerTable">
+        <table class="table table-sm table-striped table-bordered">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Titulo</td>
+                    <td>Ubicacion</td>
+                    <td>Duracion</td>
+                    <td>Cantidad</td>
+                    <td>Que hacer</td>
+                    <td>Beneficio</td>
+                    <td>Editar</td>
+                    <td>Eliminar</td>
+                </tr>
+            </thead>
+            
+            <tbody class="table-group-divider">
+                {{#each voluntariados}} 
+                    <tr>
+                        <td>{{id}}</td>
+                        <td>{{titulo}}</td>
+                        <td>{{ubicacion}}</td>
+                        <td>{{duracion}}</td>
+                        <td>{{cantidad}}</td>
+                        <td>{{quehacer}}</td>
+                        <td>{{beneficio}}</td>
+                        <td>
+                            <a href="#" onclick="editar({{id}})"><span class="material-symbols-outlined">
+                                edit
+                            </span></a>
+                        </td>
+                        <td>
+                            <a href="deletevolunt/{{id}}?_method=delete"><i class="fa-solid fa-trash-can"></i>
+                                delete
+                            </span>
+
+                            </a></td>
+                    </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+    
+{{/plantilla}}
