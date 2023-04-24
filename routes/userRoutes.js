@@ -10,59 +10,93 @@ res.render("perfilUser", {"Usuarios":data});
 //REGISTRAR VOLUNTARIO
 export const registrarVolunt = async (req, res) => {
     try {
-        const { nombre, apellidos, email } = req.body;
-        let pass = bcrypt.hashSync(req.body.pass, 10);
-        const cuerpo = { nombre, apellidos, email, pass};
+        const nombre = req.body.nombre;
+        const apellidos = req.body.apellidos;
+        const email = req.body.email;
+        const pass = req.body.pass;
+        // const cuerpo = { nombre, apellidos, email, pass};
 
-        const resultado = await fetch("http://localhost:4000/api/v1/registerAnfitrion", {
-            method: "POST",
-            body: JSON.stringify(cuerpo),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
+        if(!nombre || !apellidos || !email || !pass) {
+            // AGREGAR SWEETALERT 2
+            res.render("signUp");
+            console.log("no pasamos");
+
+        } else {
+            let passE = bcrypt.hashSync(pass, 10);
+            const cuerpo = {nombre, apellidos, email, passE};
+            const resultado = await fetch("http://localhost:4000/api/v1/registerVoluntario", {
+                method: "POST",
+                body: JSON.stringify(cuerpo),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            res.render("login");
+        }
     } catch (error) {
-        res.render("error", {"error": "Problemas al Registrar Anfitrion."})
+        res.render("error", {"error": "Problemas al Registrar Voluntario."})
     }
-    res.render("index");
+
 }
 
 //REGISTRAR ANFITRION
 export const registrarAnf = async (req,res) => {
     try {
-        const { nombre, apellidos, email } = req.body;
-        let pass = bcrypt.hashSync(req.body.pass, 10)
-        const cuerpo = { nombre, apellidos, email, pass}
+        const nombre = req.body.nombre;
+        const apellidos = req.body.apellidos;
+        const email = req.body.email;
+        const pass = req.body.pass;
+        // const cuerpo = { nombre, apellidos, email, pass};
 
-        const resultado = await fetch("http://localhost:4000/api/v1/registerVoluntario", {
-            method: "POST",
-            body: JSON.stringify(cuerpo),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
+        if(!nombre || !apellidos || !email || !pass) {
+            // AGREGAR SWEETALERT 2
+            res.render("signUp");
+            console.log("no pasamos");
+
+        } else {
+            let passE = bcrypt.hashSync(pass, 10);
+            const cuerpo = {nombre, apellidos, email, passE};
+
+            const resultado = await fetch("http://localhost:4000/api/v1/registerAnfitrion", {
+                method: "POST",
+                body: JSON.stringify(cuerpo),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            res.render("login");
+        }
     } catch (error) {
-        res.render(error)
+        res.render("error", {"error": "Problemas al Registrar Anfitrion."})
     }
-    res.render("index");
 };
 
 // LOGIN USUARIO
 export const inicioSesion = async (req,res) => {
-        try {
+    try {
         const { email, pass } = req.body;
         const cuerpo = { email, pass };
-        const resultado = await fetch("http://localhost:4000/api/v1/iniciarSesion", {
-            method: "POST",
-            body: JSON.stringify(cuerpo),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        });
+
+        if(!email || !pass) {
+            console.log("no pasamoo")
+            res.render("login");
+        } else {
+            const resultado = await fetch("http://localhost:4000/api/v1/iniciarSesion", {
+                method: "POST",
+                body: JSON.stringify(cuerpo),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            const resultado2 = await fetch("http://localhost:4000/api/v1/administracion");
+            const data = await resultado2.json();
+            console.log("pasamoo");
+            res.render("administracion", {"voluntariados":data});
+        }
     } catch (error) {
+        res.render("login");
         console.log(error);
     }
-    const resultado = await fetch("http://localhost:4000/api/v1/administracion");
-    const data = await resultado.json();
-    res.render("administracion", {"voluntariados":data});
+
+
 };

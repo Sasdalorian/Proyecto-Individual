@@ -37,9 +37,9 @@ router.get("/administracion", adminShowVolunt);
 
 //POST
     //REGISTRAR VOLUNTARIO
-router.post("/registerVoluntario", registrarAnf);
+router.post("/registerVoluntario", registrarVolunt);
     //REGISTRAR ANFITRION
-router.post("/registerAnfitrion", registrarVolunt);
+router.post("/registerAnfitrion", registrarAnf);
     // LOGIN USUARIO
 router.post("/iniciarSesion", inicioSesion);
 
