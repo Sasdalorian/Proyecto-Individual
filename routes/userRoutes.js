@@ -1,11 +1,13 @@
 import bcrypt from "bcrypt";
+import { LocalStorage } from "node-localstorage";
+const localStorage = new LocalStorage("./localStorage");
 
 // MOSTRAR PERFIL
 export const mostrarPerfil = async (req, res) => {
     const resultado = await fetch("http://localhost:4000/api/v1/usuarios");
-const data = await resultado.json();
-res.render("perfilUser", {"Usuarios":data});
-};
+    const data = await resultado.json();
+    res.render("perfilUser", {"Usuarios":data});
+    };
 
 //REGISTRAR VOLUNTARIO
 export const registrarVolunt = async (req, res) => {
@@ -89,7 +91,10 @@ export const inicioSesion = async (req,res) => {
                 }
             });
             const token = await resultado.json();
-            console.log(token)
+            //console.log(token);
+            localStorage.setItem('token', JSON.stringify(token));
+            console.log(JSON.parse(localStorage.getItem('token')));
+
             if(resultado.ok) {
                 const administracionJson = await fetch("http://localhost:4000/api/v1/administracion");
                 const data = await administracionJson.json();
@@ -105,3 +110,5 @@ export const inicioSesion = async (req,res) => {
         console.log(error);
     }
 };
+
+export const getToken = () => sessionStorage.getItem("token");
