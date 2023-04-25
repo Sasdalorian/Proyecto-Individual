@@ -79,6 +79,7 @@ export const inicioSesion = async (req,res) => {
         const { email, pass } = req.body;
         const cuerpo = { email, pass };
 
+        //VERIFICAR QUE LOS CAMPOS NO ESTEN VACIOS
         if(!email || !pass) {
             console.log("Campos Vacios.")
             res.render("login");
@@ -91,9 +92,14 @@ export const inicioSesion = async (req,res) => {
                 }
             });
             const token = await resultado.json();
+            console.log(token)
             //console.log(token);
             localStorage.setItem('token', JSON.stringify(token));
-            console.log(JSON.parse(localStorage.getItem('token')));
+
+            //TOKEN CREADO EN FRONT Y GUARDADO EN LOCALSTORAGE
+            if(token[0].estado && token[0].token) {
+                localStorage.setItem("token", JSON.stringify(token[0].token));
+            }
 
             if(resultado.ok) {
                 const administracionJson = await fetch("http://localhost:4000/api/v1/administracion");
@@ -111,4 +117,4 @@ export const inicioSesion = async (req,res) => {
     }
 };
 
-export const getToken = () => sessionStorage.getItem("token");
+export const getToken = () => localStorage.getItem("token");
