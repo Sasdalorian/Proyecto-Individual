@@ -21,6 +21,7 @@ export const deleteVolunt = async (req, res) => {
     }
 }
 
+// PRUEBA
 export const intentoAviso = async (req, res) => {
     Swal.fire({
         title: 'Error!',

@@ -1,5 +1,4 @@
 // IMPORTS
-import express from "express";
 import bodyParser from "body-parser";
 import { Router } from "express";
 import methodOverride from "method-override";

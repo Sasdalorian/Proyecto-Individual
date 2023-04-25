@@ -78,7 +78,7 @@ export const inicioSesion = async (req,res) => {
         const cuerpo = { email, pass };
 
         if(!email || !pass) {
-            console.log("no pasamoo")
+            console.log("Campos Vacios.")
             res.render("login");
         } else {
             const resultado = await fetch("http://localhost:4000/api/v1/iniciarSesion", {
@@ -88,15 +88,20 @@ export const inicioSesion = async (req,res) => {
                     "Content-Type": "application/json"
                 }
             });
-            const resultado2 = await fetch("http://localhost:4000/api/v1/administracion");
-            const data = await resultado2.json();
-            console.log("pasamoo");
-            res.render("administracion", {"voluntariados":data});
+            const token = await resultado.json();
+            console.log(token)
+            if(resultado.ok) {
+                const administracionJson = await fetch("http://localhost:4000/api/v1/administracion");
+                const data = await administracionJson.json();
+                console.log("pasamoo");
+                res.render("administracion", {"voluntariados":data});
+            } else {
+                console.log("Email o contraseña incorrecta")
+                res.render("login", { error: "Email o contraseña incorrecta" });
+            }
         }
     } catch (error) {
         res.render("login");
         console.log(error);
     }
-
-
 };
