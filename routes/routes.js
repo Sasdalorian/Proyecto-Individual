@@ -1,7 +1,7 @@
 // CLAUSULA ORDENAMIENTO Y AGRUPAMIENTO
-// GROUP BY Y ORDER BY
-
+// ORDER BY Y GROUP BY
 // Documentacion COMENTAR EL CODIGO
+
 
 // IMPORTS
 import bodyParser from "body-parser";
