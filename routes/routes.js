@@ -4,9 +4,10 @@ import { Router } from "express";
 import methodOverride from "method-override";
 
 
-import { inicioSesion, registrarAnf, registrarVolunt, mostrarPerfil } from "./userRoutes.js";
-import { mostrarVolunt } from "./volunRoutes.js";
-import { adminShowVolunt, deleteVolunt } from "./adminRoutes.js";
+import { inicioSesion, registrarAnf, registrarVolunt } from "./userRoutes.js";
+import { deleteVolunt } from "../utils/delete.js";
+import { obtenerUsuarios, obtenerVoluntariados } from "../utils/gets.js";
+
 
 const router = Router();
 
@@ -27,13 +28,32 @@ router.get("/login", (req, res) => {
 router.get("/signUp", (req, res) => {
     res.render("signUp");
 });
-    // MOSTRAR USUARIO
-router.get("/perfilUser", mostrarPerfil);
-    // MOSTRAR VOLUNTARIADOS
-router.get("/voluntariado", mostrarVolunt);
 
-    // ADMINISTRACION VOLUNTARIADOS
-router.get("/administracion", adminShowVolunt);
+    // MOSTRAR VOLUNTARIADOS
+router.get("/voluntariado", async (req, res) => {
+  try {
+    const voluntariados = await obtenerVoluntariados();
+    res.render("voluntariado", {"voluntariados": voluntariados});
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Error en el servidor");
+      }
+});
+      
+      // ADMINISTRACION VOLUNTARIADOS
+      router.get("/administracion", async (req, res) => {
+        try {
+          const voluntariados = await obtenerVoluntariados();
+          const usuarios = await obtenerUsuarios();
+          const resultados = { voluntariados, usuarios };
+          res.render("adminTvoluntariados", resultados);
+        } catch (error) {
+          console.log(error);
+          res.status(500).send("Error en el servidor");
+        }
+      });
+
+router.get("/api/v1/usuarios", obtenerUsuarios);
 
 //POST
     //REGISTRAR VOLUNTARIO

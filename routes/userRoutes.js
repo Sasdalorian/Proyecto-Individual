@@ -1,13 +1,7 @@
 import bcrypt from "bcrypt";
 import { LocalStorage } from "node-localstorage";
 const localStorage = new LocalStorage("./localStorage");
-
-// MOSTRAR PERFIL
-export const mostrarPerfil = async (req, res) => {
-    const resultado = await fetch("http://localhost:4000/api/v1/usuarios");
-    const data = await resultado.json();
-    res.render("perfilUser", {"Usuarios":data});
-    };
+import { obtenerUsuarios, obtenerVoluntariados } from "../utils/gets.js";
 
 //REGISTRAR VOLUNTARIO
 export const registrarVolunt = async (req, res) => {
@@ -19,9 +13,9 @@ export const registrarVolunt = async (req, res) => {
         // const cuerpo = { nombre, apellidos, email, pass};
 
         if(!nombre || !apellidos || !email || !pass) {
-            // AGREGAR SWEETALERT 2
+            // HACER SWEETALERT EN JS PUBLIC
             res.render("signUp");
-            console.log("no pasamos");
+            console.log("Campos de Voluntariado Vacios.");
 
         } else {
             let passE = bcrypt.hashSync(pass, 10);
@@ -48,12 +42,11 @@ export const registrarAnf = async (req,res) => {
         const apellidos = req.body.apellidos;
         const email = req.body.email;
         const pass = req.body.pass;
-        // const cuerpo = { nombre, apellidos, email, pass};
 
         if(!nombre || !apellidos || !email || !pass) {
-            // AGREGAR SWEETALERT 2
+            // HACER SWEETALERT EN JS PUBLIC
             res.render("signUp");
-            console.log("no pasamos");
+            console.log("Campos de Anfitrion Vacios.");
 
         } else {
             let passE = bcrypt.hashSync(pass, 10);
@@ -81,6 +74,7 @@ export const inicioSesion = async (req,res) => {
 
         //VERIFICAR QUE LOS CAMPOS NO ESTEN VACIOS
         if(!email || !pass) {
+            // HACER SWEETALERT EN JS PUBLIC
             console.log("Campos Vacios.")
             res.render("login");
         } else {
@@ -91,24 +85,14 @@ export const inicioSesion = async (req,res) => {
                     "Content-Type": "application/json"
                 }
             });
-            const token = await resultado.json();
-            console.log(token)
-            //console.log(token);
-            localStorage.setItem('token', JSON.stringify(token));
-
-            //TOKEN CREADO EN FRONT Y GUARDADO EN LOCALSTORAGE
-            if(token[0].estado && token[0].token) {
-                localStorage.setItem("token", JSON.stringify(token[0].token));
-            }
-
-            if(resultado.ok) {
-                const administracionJson = await fetch("http://localhost:4000/api/v1/administracion");
-                const data = await administracionJson.json();
-                console.log("pasamoo");
-                res.render("administracion", {"voluntariados":data});
-            } else {
-                console.log("Email o contraseña incorrecta")
-                res.render("login", { error: "Email o contraseña incorrecta" });
+        try {
+            const voluntariados = await obtenerVoluntariados();
+            const usuarios = await obtenerUsuarios();
+            const resultados = { voluntariados, usuarios };
+            res.render("adminTvoluntariados", resultados);
+        } catch (error) {
+            console.log(error);
+            res.status(500).send("Error en el servidor");
             }
         }
     } catch (error) {
