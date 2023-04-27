@@ -17,4 +17,10 @@ export const obtenerUsuarios = async () => {
     const resultado = await fetch("http://localhost:4000/api/v1/usuarios");
     const usuarios = await resultado.json();
     return usuarios;
-  };
+};
+// MOSTRAR para Administrar Admins
+export const obtenerAdmin = async () => {
+    const resultado = await fetch("http://localhost:4000/api/v1/admin");
+    const admin = await resultado.json();
+    return admin;
+};

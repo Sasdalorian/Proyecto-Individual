@@ -86,10 +86,8 @@ export const inicioSesion = async (req,res) => {
                 }
             });
         try {
-            const voluntariados = await obtenerVoluntariados();
-            const usuarios = await obtenerUsuarios();
-            const resultados = { voluntariados, usuarios };
-            res.render("adminTvoluntariados", resultados);
+            console.log("Se ha iniciado sesion")
+            res.redirect("adminTvoluntariados");
         } catch (error) {
             console.log(error);
             res.status(500).send("Error en el servidor");

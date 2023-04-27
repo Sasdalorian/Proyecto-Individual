@@ -1,12 +1,16 @@
+// CLAUSULA ORDENAMIENTO Y AGRUPAMIENTO
+// GROUP BY Y ORDER BY
+
+// Documentacion COMENTAR EL CODIGO
+
 // IMPORTS
 import bodyParser from "body-parser";
 import { Router } from "express";
 import methodOverride from "method-override";
 
-
 import { inicioSesion, registrarAnf, registrarVolunt } from "./userRoutes.js";
 import { deleteVolunt } from "../utils/delete.js";
-import { obtenerUsuarios, obtenerVoluntariados } from "../utils/gets.js";
+import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados } from "../utils/gets.js";
 
 
 const router = Router();
@@ -41,17 +45,40 @@ router.get("/voluntariado", async (req, res) => {
 });
       
       // ADMINISTRACION VOLUNTARIADOS
-      router.get("/administracion", async (req, res) => {
-        try {
-          const voluntariados = await obtenerVoluntariados();
-          const usuarios = await obtenerUsuarios();
-          const resultados = { voluntariados, usuarios };
-          res.render("adminTvoluntariados", resultados);
-        } catch (error) {
-          console.log(error);
-          res.status(500).send("Error en el servidor");
-        }
-      });
+router.get("/adminTvoluntariados", async (req, res) => {
+  try {
+    const voluntariados = await obtenerVoluntariados();
+    res.render("adminTvoluntariados", {"voluntariados":voluntariados});
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Error en el servidor");
+    }
+});
+
+router.get("/adminTusuarios", async (req, res) => {
+  try {
+    const usuarios = await obtenerUsuarios();
+    res.render("adminTusuarios", {"usuarios": usuarios})
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Error en el servidor");
+    }
+});
+
+router.get("/adminTadmin", async (req, res) => {
+  try {
+    try {
+      const admin = await obtenerAdmin();
+      res.render("adminTadmin", {"admin": admin})
+      } catch (error) {
+        console.log(error);
+        res.status(500).send("Error en el servidor");
+      }
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error en el servidor");
+  }
+})
 
 router.get("/api/v1/usuarios", obtenerUsuarios);
 

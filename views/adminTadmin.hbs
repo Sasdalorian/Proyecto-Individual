@@ -1,5 +1,5 @@
 {{#> plantillaAdmin}}
-    <h3 class="nameTable">Administrar Tabla Usuarios</h3>
+    <h3 class="nameTable">Administrar Tabla Admin</h3>
     <div class="table-responsive">
         <table class="table table-sm table-striped table-bordered">
             <thead>
@@ -8,20 +8,18 @@
                     <td>Nombre</td>
                     <td>Apellidos</td>
                     <td>Email</td>
-                    <td>idrol</td>
                     <td>Editar</td>
                     <td>Eliminar</td>
                 </tr>
             </thead>
             
             <tbody class="table-group-divider">
-                {{#each usuarios}} 
+                {{#each admin}} 
                     <tr>
                         <td>{{id_usuario}}</td>
                         <td>{{nombre}}</td>
                         <td>{{apellidos}}</td>
                         <td>{{email}}</td>
-                        <td>{{idrol}}</td>
                         <td>
                             <a href="#" onclick="editar({{id}})"><span class="material-symbols-outlined">
                                 edit
@@ -29,9 +27,9 @@
                         </td>
                         <td>
                             <form action="/deletevolunt/{{id}}?_method=DELETE" method="POST">
-                            <button type="submit">
-                                <i class="fa-solid fa-trash-can"></i> delete
-                            </button>
+                                <button type="submit">
+                                    <i class="fa-solid fa-trash-can"></i> delete
+                                </button>
                             </form>
                         </td>
                     </tr>

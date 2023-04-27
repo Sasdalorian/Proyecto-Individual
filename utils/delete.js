@@ -7,7 +7,7 @@ export const deleteVolunt = async (req, res) => {
         method: "delete",
         headers: { "Content-Type": "application/json" },
       });
-      res.redirect("/administracion");
+      res.redirect("/adminTvoluntariados");
       console.log(`Se ha eliminado el voluntariado con id: ${id}`)
     } catch (error) {
       console.error("No se pudo eliminar el pedido", error);
