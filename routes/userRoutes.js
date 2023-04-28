@@ -98,5 +98,3 @@ export const inicioSesion = async (req,res) => {
         console.log(error);
     }
 };
-
-export const getToken = () => localStorage.getItem("token");

@@ -4,9 +4,10 @@
         <table class="table table-sm table-striped table-bordered">
             <thead>
                 <tr>
-                    <td>Id</td>
+                    <td>ID</td>
                     <td>Titulo</td>
-                    <td>Ubicacion</td>
+                    <td><form action="/ubicacion"><button class="buttonREST" type="submit">ubicacion</button></form></td>
+                    <td>Areas</td>
                     <td>Duracion</td>
                     <td>Cantidad</td>
                     <td>Que hacer</td>
@@ -22,21 +23,16 @@
                         <td>{{id}}</td>
                         <td>{{titulo}}</td>
                         <td>{{ubicacion}}</td>
+                        <td>{{#each areas}}{{nombreArea}}{{/each}}</td>
                         <td>{{duracion}}</td>
                         <td>{{cantidad}}</td>
                         <td>{{quehacer}}</td>
                         <td>{{beneficio}}</td>
                         <td>
-                            <a href="#" onclick="editar({{id}})"><span class="material-symbols-outlined">
-                                edit
-                            </span></a>
+                            <a href="#" onclick="editar({{id}})"><img class="icons" src="https://img.icons8.com/arcade/30/null/edit.png"/></a>
                         </td>
                         <td>
-                            <form action="/deletevolunt/{{id}}?_method=DELETE" method="POST">
-                            <button type="submit">
-                                <i class="fa-solid fa-trash-can"></i> delete
-                            </button>
-                            </form>
+                            <a onclick="deleteVolunt({{id}}, '{{titulo}}')"><img class="icons" src="https://img.icons8.com/color/29/null/trash--v1.png"/></a>
                         </td>
                     </tr>
                 {{/each}}

@@ -40,17 +40,3 @@ const categorias = ["Niños", "Emergencias", "Adultos Mayores", "Animales", "Dis
       filtro.appendChild(botonFiltro);
       areaFiltrado.appendChild(botonFiltrado);
   });
-
-const botonesCategorias = document.querySelectorAll('.boton-categoria');
-botonesCategorias.forEach(boton => {
-  boton.addEventListener('click', () => {
-    const categoria = boton.dataset.categoria;
-    filtrarVoluntariadosPorCategoria(categoria);
-  });
-});
-
-function filtrarVoluntariadosPorCategoria(categoria) {
-    const voluntariados = obtenerVoluntariados(); // Obtener todos los voluntariados
-    const voluntariadosFiltrados = voluntariados.filter(voluntariado => voluntariado.categoria === categoria);
-    mostrarVoluntariados(voluntariadosFiltrados); // Mostrar solo los voluntariados filtrados
-  }

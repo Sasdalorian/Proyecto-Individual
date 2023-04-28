@@ -2,7 +2,6 @@
 // ORDER BY Y GROUP BY
 // Documentacion COMENTAR EL CODIGO
 
-
 // IMPORTS
 import bodyParser from "body-parser";
 import { Router } from "express";
@@ -81,7 +80,6 @@ router.get("/adminTadmin", async (req, res) => {
 })
 
 router.get("/api/v1/usuarios", obtenerUsuarios);
-
 //POST
     //REGISTRAR VOLUNTARIO
 router.post("/registerVoluntario", registrarVolunt);

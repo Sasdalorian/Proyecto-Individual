@@ -1,5 +1,5 @@
 
-//BORRAR VOLUNTARIADO
+//Eliminar Voluntariado
 export const deleteVolunt = async (req, res) => {
     const { id } = req.params;
     try {
@@ -14,6 +14,7 @@ export const deleteVolunt = async (req, res) => {
     }
 };
 
+// Eliminar Usuario
 export const deleteUsuario = async (req, res) => {
   const { id } = req.params;
   try {
