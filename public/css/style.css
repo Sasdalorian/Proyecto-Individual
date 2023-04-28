@@ -294,7 +294,7 @@ a {
 /*        DONACION        */
 
 .fondoDonacion {
-  background-color: #eceaea;;
+  background-color: #eceaea;
 }
     /* BANNER 4 */
 .banner4__titulo {
@@ -843,8 +843,4 @@ a {
   height: 1rem;
 }
 
-/* ASIDE RIGHT */
-.asideRight {
-  grid-column: 10/11;
-}
 
