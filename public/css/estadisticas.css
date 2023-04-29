@@ -14,7 +14,6 @@ body {
     border: 1px solid #E6E9ED;
     -webkit-column-break-inside: avoid;
     -moz-column-break-inside: avoid;
-    column-break-inside: avoid;
     opacity: 1;
     transition: all .2s ease
 }
@@ -33,16 +32,7 @@ h2 {
     margin-top: 5px;
     width: 100%;
 }
-.navbar-nav .open .dropdown-menu {
-    position: absolute;
-    background: #fff;
-    margin-top: 0;
-    border: 1px solid #D9DEE4;
-    -webkit-box-shadow: none;
-    right: 0;
-    left: auto;
-    width: 220px
-}
+
 .x_panel,
 .x_title {
     margin-bottom: 1px
@@ -57,9 +47,7 @@ ul.top_profiles li:nth-child(odd) {
 .media .profile_thumb i {
     font-size: 30px
 }
-.event .media-body a.title {
-    font-weight: 700
-}
+
 .event .media-body p {
     margin-bottom: 0
 }
@@ -71,9 +59,7 @@ ul.top_profiles li:nth-child(odd) {
     -webkit-border-radius: 5px;
     overflow: hidden;
     padding-bottom: 5px;
-    -webkit-background-clip: padding-box;
     -moz-border-radius: 5px;
-    -moz-background-clip: padding;
     border-radius: 5px;
     background: #FFF;
     transition: all .3s ease-in-out
