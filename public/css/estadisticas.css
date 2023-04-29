@@ -24,6 +24,7 @@ h2 {
     display: block;
     font-size: 18px;
     font-weight: 400;
+    margin-left: 1rem;
 }
 .x_content {
     padding: 0 5px;
