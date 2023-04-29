@@ -4,9 +4,21 @@
         <table class="table table-sm table-striped table-bordered">
             <thead>
                 <tr>
-                    <td>ID</td>
+                    <td class="tableID">
+                        <form action="/voluntariado/desc" method="GET">
+                            <button class="buttonREST" name="orden" value="desc" type="submit">
+                                <img src="https://img.icons8.com/ios-filled/20/null/down-squared--v1.png"/>
+                            </button>
+                        </form>
+                            ID
+                        <form action="/voluntariado/asc" method="GET">
+                            <button class="buttonREST" name="orden" value="desc" type="submit">
+                                <img src="https://img.icons8.com/ios-filled/20/null/up-squared.png"/>
+                            </button>
+                        </form>
+                    </td>
                     <td>Titulo</td>
-                    <td><form action="/ubicacion"><button class="buttonREST" type="submit">ubicacion</button></form></td>
+                    <td>Ubicacion</td>
                     <td>Areas</td>
                     <td>Duracion</td>
                     <td>Cantidad</td>
@@ -23,7 +35,7 @@
                         <td>{{id}}</td>
                         <td>{{titulo}}</td>
                         <td>{{ubicacion}}</td>
-                        <td>{{#each areas}}{{nombreArea}}{{/each}}</td>
+                        <td>{{#each areas}} {{nombreArea}}{{/each}}</td>
                         <td>{{duracion}}</td>
                         <td>{{cantidad}}</td>
                         <td>{{quehacer}}</td>

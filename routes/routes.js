@@ -7,7 +7,8 @@ import bodyParser from "body-parser";
 import { Router } from "express";
 import methodOverride from "method-override";
 
-import { inicioSesion, registrarAnf, registrarVolunt } from "./userRoutes.js";
+//Controladores
+import { inicioSesion, registrarAnf, registrarVolunt } from "../utils/post.js";
 import { deleteVolunt } from "../utils/delete.js";
 import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados } from "../utils/gets.js";
 
@@ -42,8 +43,13 @@ router.get("/voluntariado", async (req, res) => {
       res.status(500).send("Error en el servidor");
       }
 });
-      
-      // ADMINISTRACION VOLUNTARIADOS
+
+router.get("/adminEstadisticas", async (req,res) => {
+  res.render("adminEstadisticas")
+})
+
+
+    // ADMINISTRACION VOLUNTARIADOS
 router.get("/adminTvoluntariados", async (req, res) => {
   try {
     const voluntariados = await obtenerVoluntariados();
@@ -53,6 +59,7 @@ router.get("/adminTvoluntariados", async (req, res) => {
       res.status(500).send("Error en el servidor");
     }
 });
+
 
 router.get("/adminTusuarios", async (req, res) => {
   try {
@@ -91,11 +98,23 @@ router.post("/iniciarSesion", inicioSesion);
 //DELETE
 router.delete("/deletevolunt/:id", deleteVolunt);
 
-// router.get("/voluntariado", async (req, res) => {
-//     const resultado = await fetch("http://localhost:4000/api/v2/voluntariados");
-//     const data = await resultado.json();
-//     res.render("voluntariado", {"voluntariados": data});
-// })
-
 // EXPORT
 export default router;
+
+
+  // BORRAR O ADAPTAR
+
+
+  // ADAPTAR PARA FUTURO
+  // MOSTRAR VOLUNTARIADOS DE FORMA DESC
+  router.get("/voluntariado/:direccion?", async (req, res) => {
+    try {
+      const direccion = req.params.direccion;
+      const url = direccion === "desc" ? "voluntariadosDesc" : "voluntariadosAsc";
+      const resultado = await fetch(`http://localhost:4000/api/v1/${url}`);
+      const voluntariados = await resultado.json();
+      res.render("adminTvoluntariados", { voluntariados });
+    } catch (error) {
+      console.log(error);
+    }
+  });

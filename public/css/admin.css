@@ -2,6 +2,10 @@
     text-align: center;
     margin-top: 1rem;
 }
+.table, .table-responsive {
+    background-color: white;
+    border-radius: 1rem;
+}
 .table-responsive {
     text-align: center;
 }
@@ -48,8 +52,14 @@
 .icons {
     cursor:pointer;
 }
-
-
+.tableID {
+    display: flex;
+    align-items: center;
+}
+.negrita {
+    font-weight: bold;
+    padding-bottom: 0;
+}
 /* FOOTER */
 footer {
     display: flex;
