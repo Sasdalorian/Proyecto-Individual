@@ -16,7 +16,7 @@ import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, topAreas } from ".
 const router = Router();
 
 router.use(methodOverride("_method", {methods: ["POST"]}));
-router.use(bodyParser.urlencoded({ extended: false}));
+router.use(bodyParser.urlencoded({ extended: true}));
 router.use(bodyParser.json());
 
 // Paginas Principales sin uso de DB
