@@ -9,7 +9,7 @@ export const obtenerVoluntariados = async () => {
   // Función para Administrar Voluntariados
 export const adminShowVolunt = async (req, res) => {
       const voluntariados = await obtenerVoluntariados();
-      res.render("administracion", {"voluntariados": voluntariados});
+      return voluntariados;
 };
 
 // MOSTRAR para Administrar Usuarios
@@ -24,4 +24,11 @@ export const obtenerAdmin = async () => {
     const resultado = await fetch("http://localhost:4000/api/v1/admin");
     const admin = await resultado.json();
     return admin;
+};
+
+// Mostrar Areas contando Voluntariados
+export const topAreas = async () => {
+    const resultado = await fetch("http://localhost:4000/api/v1/topAreas");
+    const topAreas = await resultado.json();
+    return topAreas;
 };

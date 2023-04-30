@@ -10,7 +10,7 @@ import methodOverride from "method-override";
 //Controladores
 import { inicioSesion, registrarAnf, registrarVolunt } from "../utils/post.js";
 import { deleteVolunt } from "../utils/delete.js";
-import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados } from "../utils/gets.js";
+import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, topAreas } from "../utils/gets.js";
 
 
 const router = Router();
@@ -19,7 +19,7 @@ router.use(methodOverride("_method", {methods: ["POST"]}));
 router.use(bodyParser.urlencoded({ extended: false}));
 router.use(bodyParser.json());
 
-// GET
+// Paginas Principales sin uso de DB
 router.get("/", async (req, res) => {
     res.render("index");
 });
@@ -33,7 +33,7 @@ router.get("/signUp", (req, res) => {
     res.render("signUp");
 });
 
-    // MOSTRAR VOLUNTARIADOS
+// MOSTRAR VOLUNTARIADOS
 router.get("/voluntariado", async (req, res) => {
   try {
     const voluntariados = await obtenerVoluntariados();
@@ -44,12 +44,29 @@ router.get("/voluntariado", async (req, res) => {
       }
 });
 
-router.get("/adminEstadisticas", async (req,res) => {
-  res.render("adminEstadisticas")
-})
+// MUESTRA TOP AREAS
+router.get("/adminEstadisticas", async (req, res) => {
+  try {
+    const topAreasData = await topAreas();
+    res.render("adminEstadisticas", { topAreas: topAreasData });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+// MUESTRA TOP AREAS DE FORMA ASC O DESC
+router.get("/top/topAreas/:direccion?", async (req, res) => {
+  try {
+      const direccion = req.params.direccion || "asc"; // Si no se especifica la dirección, se asume que es "asc"
+      const url = direccion === "desc" ? "topAreasDesc" : "topAreasAsc";
+      const resultado = await fetch(`http://localhost:4000/api/v1/top/${url}`);
+      const topAreas = await resultado.json();
+      res.render("adminEstadisticas", { topAreas });
+  } catch (error) {
+      console.log(error);
+  }
+});
 
-
-    // ADMINISTRACION VOLUNTARIADOS
+// ADMINISTRACION VOLUNTARIADOS
 router.get("/adminTvoluntariados", async (req, res) => {
   try {
     const voluntariados = await obtenerVoluntariados();
@@ -59,8 +76,7 @@ router.get("/adminTvoluntariados", async (req, res) => {
       res.status(500).send("Error en el servidor");
     }
 });
-
-
+// ADMINISTRACION DE USUARIOS
 router.get("/adminTusuarios", async (req, res) => {
   try {
     const usuarios = await obtenerUsuarios();
@@ -70,7 +86,7 @@ router.get("/adminTusuarios", async (req, res) => {
       res.status(500).send("Error en el servidor");
     }
 });
-
+// Administracion de Admins
 router.get("/adminTadmin", async (req, res) => {
   try {
     try {
@@ -86,35 +102,23 @@ router.get("/adminTadmin", async (req, res) => {
   }
 })
 
-router.get("/api/v1/usuarios", obtenerUsuarios);
-//POST
-    //REGISTRAR VOLUNTARIO
+
+  //POST
+//REGISTRAR VOLUNTARIO
 router.post("/registerVoluntario", registrarVolunt);
-    //REGISTRAR ANFITRION
+//REGISTRAR ANFITRION
 router.post("/registerAnfitrion", registrarAnf);
-    // LOGIN USUARIO
+// LOGIN USUARIO
 router.post("/iniciarSesion", inicioSesion);
 
-//DELETE
+
+
+
+  //PUT  // ARREGLAR
+router.put("/editvolunt/:id");
+
+  //DELETE
 router.delete("/deletevolunt/:id", deleteVolunt);
 
 // EXPORT
 export default router;
-
-
-  // BORRAR O ADAPTAR
-
-
-  // ADAPTAR PARA FUTURO
-  // MOSTRAR VOLUNTARIADOS DE FORMA DESC
-  router.get("/voluntariado/:direccion?", async (req, res) => {
-    try {
-      const direccion = req.params.direccion;
-      const url = direccion === "desc" ? "voluntariadosDesc" : "voluntariadosAsc";
-      const resultado = await fetch(`http://localhost:4000/api/v1/${url}`);
-      const voluntariados = await resultado.json();
-      res.render("adminTvoluntariados", { voluntariados });
-    } catch (error) {
-      console.log(error);
-    }
-  });

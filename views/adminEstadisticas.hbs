@@ -41,34 +41,35 @@
                 <div class=" col-md-12 col-xs-12 col-lg-6">
                     <div class="x_panel">
                         <div class="x_title">
-                            <h2>Top Areas</h2>
-                            <div class="clearfix"></div>
+                            <h2> ● Top Areas</h2>
+                            <div class="x_tittle_right">
+                                <form action="/top/topAreas/desc" method="GET">
+                                    <button class="buttonREST" name="direccion" value="desc" type="submit">
+                                        <img src="https://img.icons8.com/material-rounded/20/7950F2/circled-down.png" />
+                                    </button>
+                                </form>
+                                <strong>Cantidad</strong>
+                                <form action="/top/topAreas/asc" method="GET">
+                                    <button class="buttonREST" name="orden" value="asc" type="submit">
+                                        <img src="https://img.icons8.com/material-rounded/20/7950F2/circled-up.png" />
+                                    </button>
+                                </form>
+                            </div>
                         </div>
-                        <div class="x_content">
+
+                        <table class="x_content">
                             <ul class="list-unstyled top_profiles scroll-view">
+                                {{#each topAreas}}
                                 <li class="media event">
                                     <div class="media-body">
-                                        <h6 class="negrita">AQUI DESPUES SE HACE UN EACH</h6>
-                                        <p><strong>31 </strong> Y SE RELLENARA SOLITO </p>
-                                        <p> Hola soy una prueba</p>
+                                        <p><strong>ID: </strong>{{id_area}}</p>
+                                        <h6 class="negrita">{{nombreArea}}</h6>
+                                        <p><strong>Cantidad de Voluntariados:</strong>{{cantidad}}</p>
                                     </div>
                                 </li>
-                                <li class="media event">
-                                    <div class="media-body">
-                                        <h6 class="negrita">SuperUsuario</h6>
-                                        <p><strong>SIONOOO </strong> Tickets Respondidos </p>
-                                        <p> Hola soy una prueba</p>
-                                    </div>
-                                </li>
-                                <li class="media event">
-                                    <div class="media-body">
-                                        <h6 class="negrita">SuperUsuario</h6>
-                                        <p><strong>31 </strong> Tickets Respondidos </p>
-                                        <p> Hola soy una prueba</p>
-                                    </div>
-                                </li>
+                                {{/each}}
                             </ul>
-                        </div>
+                        </table>
                     </div>
                 </div>
 

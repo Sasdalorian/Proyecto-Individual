@@ -60,6 +60,10 @@
     font-weight: bold;
     padding-bottom: 0;
 }
+.formModal {
+    display: grid;
+    grid-template-columns: repeat(2,4fr);
+}
 /* FOOTER */
 footer {
     display: flex;

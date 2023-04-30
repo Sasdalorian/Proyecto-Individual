@@ -33,9 +33,15 @@ h2 {
     width: 100%;
 }
 
-.x_panel,
 .x_title {
-    margin-bottom: 1px
+    margin-bottom: 1px;
+    display: flex;
+    justify-content: space-between;
+}
+.x_tittle_right {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
 }
 ul.top_profiles li {
     margin: 0;
@@ -47,10 +53,14 @@ ul.top_profiles li:nth-child(odd) {
 .media .profile_thumb i {
     font-size: 30px
 }
-
+.media-body {
+    display: flex;
+    justify-content: space-between;
+}
 .event .media-body p {
     margin-bottom: 0
 }
+
 .tile-stats {
     position: relative;
     display: block;

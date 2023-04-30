@@ -4,19 +4,7 @@
         <table class="table table-sm table-striped table-bordered">
             <thead>
                 <tr>
-                    <td class="tableID">
-                        <form action="/voluntariado/desc" method="GET">
-                            <button class="buttonREST" name="orden" value="desc" type="submit">
-                                <img src="https://img.icons8.com/ios-filled/20/null/down-squared--v1.png"/>
-                            </button>
-                        </form>
-                            ID
-                        <form action="/voluntariado/asc" method="GET">
-                            <button class="buttonREST" name="orden" value="desc" type="submit">
-                                <img src="https://img.icons8.com/ios-filled/20/null/up-squared.png"/>
-                            </button>
-                        </form>
-                    </td>
+                    <td>ID</td>
                     <td>Titulo</td>
                     <td>Ubicacion</td>
                     <td>Areas</td>
@@ -41,7 +29,7 @@
                         <td>{{quehacer}}</td>
                         <td>{{beneficio}}</td>
                         <td>
-                            <a href="#" onclick="editar({{id}})"><img class="icons" src="https://img.icons8.com/arcade/30/null/edit.png"/></a>
+                            <a onclick="/"><img class="icons" src="https://img.icons8.com/arcade/30/null/edit.png"/></a>
                         </td>
                         <td>
                             <a onclick="deleteVolunt({{id}}, '{{titulo}}')"><img class="icons" src="https://img.icons8.com/color/29/null/trash--v1.png"/></a>
