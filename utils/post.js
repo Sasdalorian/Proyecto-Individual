@@ -1,7 +1,6 @@
 import bcrypt from "bcrypt";
 import { LocalStorage } from "node-localstorage";
 const localStorage = new LocalStorage("./localStorage");
-import { obtenerUsuarios, obtenerVoluntariados } from "../utils/gets.js";
 
 //REGISTRAR VOLUNTARIO
 export const registrarVolunt = async (req, res) => {
@@ -85,16 +84,27 @@ export const inicioSesion = async (req,res) => {
                     "Content-Type": "application/json"
                 }
             });
-        try {
-            console.log("Se ha iniciado sesion")
-            res.redirect("adminTvoluntariados");
-        } catch (error) {
-            console.log(error);
-            res.status(500).send("Error en el servidor");
+
+            // Obtener el token de la respuesta
+            const { token } = await resultado.json();
+
+            // Almacenar el token en localStorage
+            localStorage.setItem('authToken', token);
+
+            try {
+                console.log("Se ha iniciado sesion")
+                res.redirect("adminTvoluntariados");
+            } catch (error) {
+                console.log(error);
+                res.status(500).send("Error en el servidor");
             }
         }
     } catch (error) {
         res.render("login");
         console.log(error);
     }
+};
+
+export const getToken = () => {
+    return localStorage.getItem('authToken');
 };

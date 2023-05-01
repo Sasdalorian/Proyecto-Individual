@@ -1,4 +1,5 @@
-//Acá estan los controladores que traen las peticiones hechas al Backend
+import { getToken } from "./post.js";
+import axios from "axios";
 
     // Funcion para obtener Voluntariados
 export const obtenerVoluntariados = async () => {
@@ -7,10 +8,19 @@ export const obtenerVoluntariados = async () => {
     return data;
 }   
   // Función para Administrar Voluntariados
-export const adminShowVolunt = async (req, res) => {
-      const voluntariados = await obtenerVoluntariados();
-      return voluntariados;
-};
+  export const adminShowVolunt = async () => {
+    const token = getToken();
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    };
+    try {
+      const response = await axios.get('http://localhost:4000/api/v1/Admvoluntariados', config);
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      throw new Error('Error al obtener los datos de los voluntariados.');
+    }
+  };
 
 // MOSTRAR para Administrar Usuarios
 export const obtenerUsuarios = async () => {
