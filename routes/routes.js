@@ -9,7 +9,7 @@ import methodOverride from "method-override";
 
 //Controladores
 import { inicioSesion, registrarAnf, registrarVolunt } from "../utils/post.js";
-import { deleteVolunt } from "../utils/delete.js";
+import { deleteAdmin, deleteUsuario, deleteVolunt } from "../utils/delete.js";
 import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, topAreas, adminShowVolunt } from "../utils/gets.js";
 import { authMiddleware } from "../utils/auth.js"
 
@@ -117,6 +117,8 @@ router.put("/editvolunt/:id");
 
   //DELETE
 router.delete("/deletevolunt/:id", deleteVolunt);
-
+router.delete("/deleteusuario/:id", deleteUsuario);
+router.delete("/deleteadmin/:id", deleteAdmin);
+  
 // EXPORT
 export default router;
