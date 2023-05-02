@@ -108,3 +108,19 @@ export const inicioSesion = async (req,res) => {
 export const getToken = () => {
     return localStorage.getItem('authToken');
 };
+
+export const cerrarSesion = async (req, res) => {
+    console.log("Entramos a cerrar sesión?")
+    const response = await fetch('http://localhost:4000/api/v1/logout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('authToken')}` // Incluye el token de autenticación en el encabezado
+      },
+    });
+    const data = await response.json();
+    // Borra el token del almacenamiento del navegador
+    localStorage.removeItem('authToken'); 
+    // Realiza cualquier otra acción necesaria después de cerrar sesión, como redirigir al usuario a la página de inicio de sesión
+    res.redirect("login");
+};

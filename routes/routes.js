@@ -8,7 +8,7 @@ import { Router } from "express";
 import methodOverride from "method-override";
 
 //Controladores
-import { inicioSesion, registrarAnf, registrarVolunt } from "../utils/post.js";
+import { cerrarSesion, inicioSesion, registrarAnf, registrarVolunt } from "../utils/post.js";
 import { deleteAdmin, deleteUsuario, deleteVolunt } from "../utils/delete.js";
 import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, topAreas, adminShowVolunt } from "../utils/gets.js";
 import { authMiddleware } from "../utils/auth.js"
@@ -108,7 +108,8 @@ router.post("/registerVoluntario", registrarVolunt);
 router.post("/registerAnfitrion", registrarAnf);
 // LOGIN USUARIO
 router.post("/iniciarSesion", inicioSesion);
-
+// LOGOUT USUARIO
+router.post("/logout", cerrarSesion);
 
 
 
