@@ -15,7 +15,7 @@ import { authMiddleware } from "../utils/auth.js"
 
 const router = Router();
 
-router.use(methodOverride("_method", {methods: ["POST"]}));
+router.use(methodOverride("_method", {methods: ["POST", "GET"]}));
 router.use(bodyParser.urlencoded({ extended: true}));
 router.use(bodyParser.json());
 
@@ -116,7 +116,7 @@ router.post("/iniciarSesion", inicioSesion);
 router.put("/editvolunt/:id");
 
   //DELETE
-router.delete("/deletevolunt/:id", authMiddleware, deleteVolunt);
+router.delete("/deletevolunt/:id", deleteVolunt);
 
 // EXPORT
 export default router;

@@ -1,11 +1,15 @@
 
 //Eliminar Voluntariado
 export const deleteVolunt = async (req, res) => {
+    console.log("probando")
     const { id } = req.params;
+    console.log(id)
     try {
       await fetch(`http://localhost:4000/api/v1/deletevolunt/${id}`, {
-        method: "delete",
-        headers: { "Content-Type": "application/json" }
+        method: "DELETE",
+        headers:  { "Content-Type": "application/json",
+                    "Accept": "application/json"
+                  }
       });
       res.redirect("/adminTvoluntariados");
       console.log(`Se ha eliminado el voluntariado con id: ${id}`)
