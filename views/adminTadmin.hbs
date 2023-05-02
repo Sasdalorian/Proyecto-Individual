@@ -21,16 +21,10 @@
                         <td>{{apellidos}}</td>
                         <td>{{email}}</td>
                         <td>
-                            <a href="#" onclick="editar({{id}})"><span class="material-symbols-outlined">
-                                edit
-                            </span></a>
+                            <a onclick="#"><img class="icons" src="https://img.icons8.com/arcade/30/null/edit.png"/></a>
                         </td>
                         <td>
-                            <form action="/deletevolunt/{{id}}?_method=DELETE" method="POST">
-                                <button type="submit">
-                                    <i class="fa-solid fa-trash-can"></i> delete
-                                </button>
-                            </form>
+                            <a onclick="#"><img class="icons" src="https://img.icons8.com/color/29/null/trash--v1.png"/></a>
                         </td>
                     </tr>
                 {{/each}}

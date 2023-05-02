@@ -30,6 +30,7 @@ regalo.addEventListener("click", function (e) {
         document.getElementById('parrafo_regalo').style.display = "block"
     }
 });
+
 /* OPCION FISICA O DIGITAL */
 var fisica = document.getElementById("opcionFisica");
 var digital = document.getElementById("opcionDigital");
