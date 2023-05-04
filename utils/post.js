@@ -93,7 +93,7 @@ export const inicioSesion = async (req,res) => {
 
             try {
                 console.log("Se ha iniciado sesion")
-                res.redirect("adminTvoluntariados");
+                res.redirect("perfil");
             } catch (error) {
                 console.log(error);
                 res.status(500).send("Error en el servidor");

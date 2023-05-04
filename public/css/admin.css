@@ -1,6 +1,7 @@
 .nameTable {
     text-align: center;
     margin-top: 1rem;
+    margin-bottom: 2rem;
 }
 .table, .table-responsive {
     background-color: white;
@@ -44,6 +45,7 @@
     border: none;
     color: white;
     font-weight: bold;
+    text-decoration: none;
 }
 .buttonREST {
     background-color: transparent;
@@ -63,6 +65,10 @@
 .formModal {
     display: grid;
     grid-template-columns: repeat(2,4fr);
+}
+.swal2-modal {
+    height: 85%;
+    width: 45% !important;
 }
 /* FOOTER */
 footer {

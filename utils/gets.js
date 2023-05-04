@@ -1,13 +1,14 @@
 import { getToken } from "./post.js";
 import axios from "axios";
 
-    // Funcion para obtener Voluntariados
+// Funcion para obtener Voluntariados
 export const obtenerVoluntariados = async () => {
-    const resultado = await fetch("http://localhost:4000/api/v1/voluntariados");
-    const data = await resultado.json();
-    return data;
-}   
-  // Función para Administrar Voluntariados
+  const resultado = await fetch("http://localhost:4000/api/v1/voluntariados");
+  const data = await resultado.json();
+  return data;
+} 
+
+// Función para Administrar Voluntariados
   export const adminShowVolunt = async () => {
     const token = getToken();
     const config = {
@@ -21,14 +22,12 @@ export const obtenerVoluntariados = async () => {
       throw new Error('Error al obtener los datos de los voluntariados.');
     }
   };
-
 // MOSTRAR para Administrar Usuarios
 export const obtenerUsuarios = async () => {
     const resultado = await fetch("http://localhost:4000/api/v1/usuarios");
     const usuarios = await resultado.json();
     return usuarios;
 };
-
 // MOSTRAR para Administrar Admins
 export const obtenerAdmin = async () => {
     const resultado = await fetch("http://localhost:4000/api/v1/admin");
@@ -36,7 +35,14 @@ export const obtenerAdmin = async () => {
     return admin;
 };
 
-// Mostrar Areas contando Voluntariados
+export const obtenerPerfil = async () => {
+  const resultado = await fetch("http://localhost:4000/api/v1/perfil");
+  const datosPerfil = await resultado.json();
+  console.log(datosPerfil);
+  return datosPerfil;
+} 
+
+// Mostrar Areas contando Voluntariados Admins
 export const topAreas = async () => {
     const resultado = await fetch("http://localhost:4000/api/v1/topAreas");
     const topAreas = await resultado.json();

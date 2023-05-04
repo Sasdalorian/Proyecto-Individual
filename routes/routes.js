@@ -10,7 +10,7 @@ import methodOverride from "method-override";
 //Controladores
 import { cerrarSesion, inicioSesion, registrarAnf, registrarVolunt } from "../utils/post.js";
 import { deleteAdmin, deleteUsuario, deleteVolunt } from "../utils/delete.js";
-import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, topAreas, adminShowVolunt } from "../utils/gets.js";
+import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, topAreas, adminShowVolunt, obtenerPerfil } from "../utils/gets.js";
 import { authMiddleware } from "../utils/auth.js"
 
 const router = Router();
@@ -31,6 +31,16 @@ router.get("/login", (req, res) => {
 });
 router.get("/signUp", (req, res) => {
     res.render("signUp");
+});
+
+// Perfil
+router.get("/perfil", async (req, res) => {
+  try {
+    const datosPerfil = await obtenerPerfil();
+    res.render("perfil", {"datosPerfil": datosPerfil})
+  } catch (error) {
+    res.status(500).send("Error en el servidor");    
+  }
 });
 
 // MOSTRAR VOLUNTARIADOS
@@ -112,9 +122,6 @@ router.post("/iniciarSesion", inicioSesion);
 router.post("/logout", cerrarSesion);
 
 
-
-  //PUT  // ARREGLAR
-router.put("/editvolunt/:id");
 
   //DELETE
 router.delete("/deletevolunt/:id", deleteVolunt);
