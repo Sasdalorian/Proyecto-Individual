@@ -8,6 +8,23 @@ export const obtenerVoluntariados = async () => {
   return data;
 } 
 
+// OBTENER PERFIL USUARIO
+export const mostrarPerfil = async (req, res) => {
+  const token = getToken();
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  try {
+    const response = await axios.get("http://localhost:4000/api/v1/perfil", config);
+    return response.data;
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error al obtener el perfil desde la API.");
+  }
+};
+
 // Función para Administrar Voluntariados
   export const adminShowVolunt = async () => {
     const token = getToken();

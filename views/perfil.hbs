@@ -1,23 +1,23 @@
 {{#> plantillaUsuario}}
     <div class="encabezadoPerfil">
         <div class="bloqueImagenPerfil"> 
-            <img class="imagenPerfil" src="img/imgUser/krauser.jfif">
+            <img class="imagenPerfil" src={{img}} alt="Imagen de perfil" onerror="cargarImagenPorDefecto(this)">
         </div>
         <div>
             <h3> Nombre:</h3>
-            <h2> Username Apellidos</h2>
+            <h2> {{nombre}} {{apellidos}}</h2>
         </div>
         <div>
             <h3> Clase:</h3>
-            <h2> Rol </h2>
+            <h2> {{rol}} </h2>
         </div>
         <div>
             <h3> Email:</h3>
-            <h2> Email</h2>
+            <h2> {{email}}</h2>
         </div>
         <div>
             <h3> Password:</h3>
-            <h2> Pass</h2>
+            <h2> {{censura}}</h2>
         </div>
     </div>
 {{/plantillaUsuario}}

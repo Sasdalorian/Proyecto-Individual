@@ -10,7 +10,7 @@ import methodOverride from "method-override";
 //Controladores
 import { cerrarSesion, inicioSesion, registrarAnf, registrarVolunt } from "../utils/post.js";
 import { deleteAdmin, deleteUsuario, deleteVolunt } from "../utils/delete.js";
-import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, topAreas, adminShowVolunt, obtenerPerfil } from "../utils/gets.js";
+import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, topAreas, adminShowVolunt, obtenerPerfil, mostrarPerfil } from "../utils/gets.js";
 import { authMiddleware } from "../utils/auth.js"
 
 const router = Router();
@@ -35,7 +35,24 @@ router.get("/signUp", (req, res) => {
 
 // Perfil
 router.get("/perfil", authMiddleware, async (req, res) => {
-  res.render("perfil");
+  try {
+    const usuario = await mostrarPerfil(req, res);
+    console.log(usuario)
+    const passE = usuario.pass;
+    const Censurada = passE.replace(passE, "********");
+
+    res.render("perfil", { 
+      nombre: usuario.nombre,
+      apellidos: usuario.apellidos,
+      email: usuario.email,
+      rol: usuario.rol.clase,
+      censura: Censurada,
+      img: usuario.img
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error al obtener el perfil.");
+  }
 });
 
 // MOSTRAR VOLUNTARIADOS
