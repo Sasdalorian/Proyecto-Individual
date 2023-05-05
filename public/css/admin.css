@@ -66,10 +66,6 @@
     display: grid;
     grid-template-columns: repeat(2,4fr);
 }
-.swal2-modal {
-    height: 85%;
-    width: 45% !important;
-}
 /* FOOTER */
 footer {
     display: flex;

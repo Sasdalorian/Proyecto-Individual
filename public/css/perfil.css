@@ -1,0 +1,22 @@
+.encabezadoPerfil {
+    display: grid;
+    grid-template-columns: repeat(3, 2fr);
+    padding: 2rem;
+    background-color: #171a21dc;
+    border-radius: 1rem 1rem 0 0;
+    color: #8F98A0;
+}
+.bloqueImagenPerfil {
+    place-self: center;
+    grid-column: 1/2;
+    grid-row: 1/3;
+    background-color: #8f98a038;
+    padding: 0.3rem;
+}
+.imagenPerfil {
+    height: 100%;
+    width: 100%;
+}
+.cuerpoPerfil {
+    background-color: #8F98A0;
+}

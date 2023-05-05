@@ -1,14 +1,23 @@
 {{#> plantillaUsuario}}
-    <br><br>
-    <div class="containerPerfil">
-        <h3>Perfil Usuario</h3>
-        {{#each datosPerfil}}
-        <h4>Nombre</h4>
-        {{nombre}}
-        <h4>Email</h4>
-        {{Email}}
-        <h4>Rol</h4>
-        {{idrol}}
-        {{/each}}
+    <div class="encabezadoPerfil">
+        <div class="bloqueImagenPerfil"> 
+            <img class="imagenPerfil" src="img/imgUser/krauser.jfif">
+        </div>
+        <div>
+            <h3> Nombre:</h3>
+            <h2> Username Apellidos</h2>
+        </div>
+        <div>
+            <h3> Clase:</h3>
+            <h2> Rol </h2>
+        </div>
+        <div>
+            <h3> Email:</h3>
+            <h2> Email</h2>
+        </div>
+        <div>
+            <h3> Password:</h3>
+            <h2> Pass</h2>
+        </div>
     </div>
 {{/plantillaUsuario}}

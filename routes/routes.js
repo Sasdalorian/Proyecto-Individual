@@ -34,13 +34,8 @@ router.get("/signUp", (req, res) => {
 });
 
 // Perfil
-router.get("/perfil", async (req, res) => {
-  try {
-    const datosPerfil = await obtenerPerfil();
-    res.render("perfil", {"datosPerfil": datosPerfil})
-  } catch (error) {
-    res.status(500).send("Error en el servidor");    
-  }
+router.get("/perfil", authMiddleware, async (req, res) => {
+  res.render("perfil");
 });
 
 // MOSTRAR VOLUNTARIADOS
