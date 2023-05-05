@@ -66,44 +66,46 @@ export const registrarAnf = async (req,res) => {
 };
 
 // LOGIN USUARIO
-export const inicioSesion = async (req,res) => {
+export const inicioSesion = async (req, res) => {
     try {
-        const { email, pass } = req.body;
-        const cuerpo = { email, pass };
-
-        //VERIFICAR QUE LOS CAMPOS NO ESTEN VACIOS
-        if(!email || !pass) {
-            // HACER SWEETALERT EN JS PUBLIC
-            console.log("Campos Vacios.")
-            res.render("login");
-        } else {
-            const resultado = await fetch("http://localhost:4000/api/v1/iniciarSesion", {
-                method: "POST",
-                body: JSON.stringify(cuerpo),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            });
-
-            // Obtener el token de la respuesta
-            const { token } = await resultado.json();
-
-            // Almacenar el token en localStorage
-            localStorage.setItem('authToken', token);
-
-            try {
-                console.log("Se ha iniciado sesion")
-                res.redirect("perfil");
-            } catch (error) {
-                console.log(error);
-                res.status(500).send("Error en el servidor");
-            }
-        }
-    } catch (error) {
+      const { email, pass } = req.body;
+      const cuerpo = { email, pass };
+  
+      // Verificar que los campos no estén vacíos
+      if (!email || !pass) {
+        console.log("Campos vacíos.");
         res.render("login");
-        console.log(error);
+      } else {
+        const resultado = await fetch("http://localhost:4000/api/v1/iniciarSesion", {
+          method: "POST",
+          body: JSON.stringify(cuerpo),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+  
+        // Verificar que la respuesta tenga el código 200 OK
+        if (resultado.status === 200) {
+          // Obtener el token de la respuesta
+          const { token } = await resultado.json();
+  
+          // Almacenar el token en localStorage
+          localStorage.setItem("authToken", token);
+  
+          console.log("Se ha iniciado sesión");
+          res.redirect("perfil");
+        } else {
+          // Si la respuesta no es 200 OK, mostrar mensaje de error
+          const { msg } = await resultado.json();
+          console.log(msg);
+          res.render("login");
+        }
+      }
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Error en el servidor");
     }
-};
+  };
 
 export const getToken = () => {
     return localStorage.getItem('authToken');
