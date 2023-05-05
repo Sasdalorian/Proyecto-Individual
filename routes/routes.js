@@ -15,40 +15,41 @@ import { authMiddleware } from "../utils/auth.js"
 
 const router = Router();
 
-router.use(methodOverride("_method", {methods: ["POST", "GET"]}));
-router.use(bodyParser.urlencoded({ extended: true}));
+router.use(methodOverride("_method", { methods: ["POST", "GET"] }));
+router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 // Paginas Principales sin uso de DB
 router.get("/", async (req, res) => {
-    res.render("index");
+  res.render("index");
 });
 router.get("/donacion", (req, res) => {
-    res.render("donacion");
+  res.render("donacion");
 });
 router.get("/login", (req, res) => {
-    res.render("login");
+  res.render("login");
 });
 router.get("/signUp", (req, res) => {
-    res.render("signUp");
+  res.render("signUp");
 });
 
 // Perfil
 router.get("/perfil", authMiddleware, async (req, res) => {
   try {
     const usuario = await mostrarPerfil(req, res);
-    console.log(usuario)
     const passE = usuario.pass;
     const Censurada = passE.replace(passE, "********");
-
-    res.render("perfil", { 
+    console.log(usuario)
+    res.render("perfil", {
       nombre: usuario.nombre,
       apellidos: usuario.apellidos,
       email: usuario.email,
       rol: usuario.rol.clase,
       censura: Censurada,
-      img: usuario.img
+      img: usuario.img,
+      descripcion: usuario.descripcion
     });
+    console.log("Entrando a Perfil");
   } catch (error) {
     console.log(error);
     res.status(500).send("Error al obtener el perfil.");
@@ -59,18 +60,18 @@ router.get("/perfil", authMiddleware, async (req, res) => {
 router.get("/voluntariado", async (req, res) => {
   try {
     const voluntariados = await obtenerVoluntariados();
-    res.render("voluntariado", {"voluntariados": voluntariados});
-    } catch (error) {
-      console.log(error);
-      res.status(500).send("Error en el servidor");
-      }
+    res.render("voluntariado", { "voluntariados": voluntariados });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error en el servidor");
+  }
 });
 
 // ADMINISTRACION VOLUNTARIADOS
 router.get('/adminTvoluntariados', authMiddleware, async (req, res) => {
   try {
     const voluntariados = await adminShowVolunt();
-    res.render('adminTvoluntariados', {'voluntariados':voluntariados});
+    res.render('adminTvoluntariados', { 'voluntariados': voluntariados });
   } catch (error) {
     console.log(error);
     res.redirect('login');
@@ -80,22 +81,22 @@ router.get('/adminTvoluntariados', authMiddleware, async (req, res) => {
 router.get("/adminTusuarios", authMiddleware, async (req, res) => {
   try {
     const usuarios = await obtenerUsuarios();
-    res.render("adminTusuarios", {"usuarios": usuarios})
-    } catch (error) {
-      console.log(error);
-      res.status(500).send("Error en el servidor");
-    }
+    res.render("adminTusuarios", { "usuarios": usuarios })
+  } catch (error) {
+    console.log(error);
+    res.status(500).send("Error en el servidor");
+  }
 });
 // Administracion de Admins
 router.get("/adminTadmin", authMiddleware, async (req, res) => {
   try {
     try {
       const admin = await obtenerAdmin();
-      res.render("adminTadmin", {"admin": admin})
-      } catch (error) {
-        console.log(error);
-        res.status(500).send("Error en el servidor");
-      }
+      res.render("adminTadmin", { "admin": admin })
+    } catch (error) {
+      console.log(error);
+      res.status(500).send("Error en el servidor");
+    }
   } catch (error) {
     console.log(error);
     res.status(500).send("Error en el servidor");
@@ -113,17 +114,17 @@ router.get("/adminEstadisticas", authMiddleware, async (req, res) => {
 // MUESTRA TOP AREAS DE FORMA ASC O DESC
 router.get("/top/topAreas/:direccion?", authMiddleware, async (req, res) => {
   try {
-      const direccion = req.params.direccion || "asc"; // Si no se especifica la dirección, se asume que es "asc"
-      const url = direccion === "desc" ? "topAreasDesc" : "topAreasAsc";
-      const resultado = await fetch(`http://localhost:4000/api/v1/top/${url}`);
-      const topAreas = await resultado.json();
-      res.render("adminEstadisticas", { topAreas });
+    const direccion = req.params.direccion || "asc"; // Si no se especifica la dirección, se asume que es "asc"
+    const url = direccion === "desc" ? "topAreasDesc" : "topAreasAsc";
+    const resultado = await fetch(`http://localhost:4000/api/v1/top/${url}`);
+    const topAreas = await resultado.json();
+    res.render("adminEstadisticas", { topAreas });
   } catch (error) {
-      console.log(error);
+    console.log(error);
   }
 });
 
-  //POST
+//POST
 //REGISTRAR VOLUNTARIO
 router.post("/registerVoluntario", registrarVolunt);
 //REGISTRAR ANFITRION
@@ -135,10 +136,10 @@ router.post("/logout", cerrarSesion);
 
 
 
-  //DELETE
+//DELETE
 router.delete("/deletevolunt/:id", deleteVolunt);
 router.delete("/deleteusuario/:id", deleteUsuario);
 router.delete("/deleteadmin/:id", deleteAdmin);
-  
+
 // EXPORT
 export default router;

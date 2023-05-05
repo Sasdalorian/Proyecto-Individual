@@ -19,5 +19,8 @@
     width: 100%;
 }
 .cuerpoPerfil {
-    background-color: #8F98A0;
+    background-color: #8f98a0b1;
+    color: #000000;
+    min-height: 10rem;
+    text-align: center;
 }
