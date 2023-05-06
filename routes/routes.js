@@ -132,7 +132,7 @@ router.post("/registerAnfitrion", registrarAnf);
 
 
 //AGREGAR VOLUNTARIADO
-router.post("/agregarVoluntariado", registrarVoluntariado );
+router.post("/agregarVoluntariado", registrarVoluntariado);
 //EDITAR VOLUNTARIADO
 router.post("/editarVoluntariado", editarVoluntariado);
 //AGREGAR Usuario

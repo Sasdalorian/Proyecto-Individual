@@ -1,7 +1,5 @@
 import bcrypt from "bcrypt";
 import { LocalStorage } from "node-localstorage";
-import { __dirname } from "../index.js";
-import path from "path";
 
 
 const localStorage = new LocalStorage("./localStorage");
