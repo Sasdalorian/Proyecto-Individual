@@ -74,7 +74,25 @@
     grid-template-columns: repeat(2,4fr);
 }
 .modal-content {
-    width: 105%;
+    width: 110%;
+}
+.labelcenter {
+    grid-column: 1/3;
+    text-align: center;
+}
+.inputRolUser {
+    margin-top: .5rem;
+    grid-column: 1/3;
+    display: flex;
+    justify-content: space-evenly;
+}
+.inputDesc {
+    grid-column: 1/3;
+    text-align: center;
+}
+#descripcion {
+    width: 100%;
+    height: 5rem;
 }
 /* FOOTER */
 footer {
@@ -94,7 +112,6 @@ footer {
 
 .btn-primary {
     background-color: #2A3F54;
-    
 }
 .btn-secondary {
     background-color: #5C636A;

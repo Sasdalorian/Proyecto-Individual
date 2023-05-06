@@ -4,7 +4,6 @@ import path from "path";
 // EDITAR VOLUNTARIADO
 export const editarVoluntariado = async (req, res) => {
     try {
-        console.log(req.files)
         const id = req.body.voluntariadoId;
         const titulo = req.body.tituloE;
         const ubicacion = req.body.ubicacionE;
@@ -17,8 +16,7 @@ export const editarVoluntariado = async (req, res) => {
         
         const parentDir = path.resolve(__dirname, ".");
         const uploadPath = parentDir + "/public/img/imgUser/" + imgA.name;
-        const img = "/img/imgUser/" + imgA.name
-        console.log(img.name)
+        const img = "/img/imgUser/" + imgA.name;
 
         imgA.mv(uploadPath, function(err) {
             if(err)
@@ -41,7 +39,7 @@ export const editarVoluntariado = async (req, res) => {
                 }
             });
             res.redirect("adminTvoluntariados");
-            console.log("Voluntariado Añadido")
+            console.log("Voluntariado Editado")
         }
     } catch (error) {
         res.render("error", { "error": "Problemas al Editar Voluntariado." })

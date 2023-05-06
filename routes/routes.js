@@ -9,13 +9,13 @@ import methodOverride from "method-override";
 import fileUpload from "express-fileupload";
 
 //Controladores
-import { cerrarSesion, inicioSesion, registrarAnf, registrarVolunt, registrarVoluntariado } from "../utils/post.js";
+import { cerrarSesion, inicioSesion, registrarAnf, registrarVolunt } from "../utils/post.js";
 import { deleteAdmin, deleteUsuario, deleteVolunt } from "../utils/delete.js";
 import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, topAreas, adminShowVolunt } from "../utils/gets.js";
 import { obtenerDatosPerfil, datosPerfil } from "../utils/DataUser.js";
 import { authMiddleware } from "../utils/auth.js"
 import { editarVoluntariado } from "../utils/put.js";
-
+import { registrarUsuario, registrarVoluntariado } from "../utils/postAdmin.js";
 
 const router = Router();
 router.use(fileUpload());
@@ -23,7 +23,7 @@ router.use(methodOverride("_method", { methods: ["POST", "GET", "PUT"] }));
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
-// Paginas Principales sin uso de DB
+// Paginas Principales sin uso de DataBase
 router.get("/", async (req, res) => {
   res.render("index");
 });
@@ -71,6 +71,7 @@ router.get('/adminTvoluntariados', authMiddleware, async (req, res) => {
     res.redirect('login');
   }
 });
+
 // ADMINISTRACION DE USUARIOS
 router.get("/adminTusuarios", authMiddleware, async (req, res) => {
   try {
@@ -82,6 +83,7 @@ router.get("/adminTusuarios", authMiddleware, async (req, res) => {
     res.status(500).send("Error en el servidor");
   }
 });
+
 // Administracion de Admins
 router.get("/adminTadmin", authMiddleware, async (req, res) => {
   try {
@@ -98,6 +100,7 @@ router.get("/adminTadmin", authMiddleware, async (req, res) => {
     res.status(500).send("Error en el servidor");
   }
 })
+
 // MUESTRA TOP AREAS
 router.get("/adminEstadisticas", authMiddleware, async (req, res) => {
   try {
@@ -132,6 +135,9 @@ router.post("/registerAnfitrion", registrarAnf);
 router.post("/agregarVoluntariado", registrarVoluntariado );
 //EDITAR VOLUNTARIADO
 router.post("/editarVoluntariado", editarVoluntariado);
+//AGREGAR Usuario
+router.post("/agregarUsuario", registrarUsuario);
+
 
 // LOGIN USUARIO
 router.post("/iniciarSesion", inicioSesion);

@@ -69,50 +69,6 @@ export const registrarAnf = async (req, res) => {
     }
 };
 
-//REGISTRAR Voluntariado
-export const registrarVoluntariado = async (req, res) => {
-    try {
-        const titulo = req.body.titulo;
-        const ubicacion = req.body.ubicacion;
-        const areas = req.body.areas;
-        const duracion = req.body.duracion;
-        const quehacer = req.body.quehacer;
-        const beneficio = req.body.beneficio;
-        const cantidad = req.body.cantidad;
-        const imgA = req.files.img;
-        const parentDir = path.resolve(__dirname, ".");
-        const uploadPath = parentDir + "/public/img/imgUser/" + imgA.name;
-        const img = "/img/imgUser/" + imgA.name
-        console.log(img)
-
-        imgA.mv(uploadPath, function(err) {
-            if(err)
-            return res.status(500).send(err)
-        })
-
-        if (!titulo || !ubicacion || !areas || !duracion || !quehacer || !beneficio || !imgA) {
-            // HACER SWEETALERT EN JS PUBLIC
-            res.redirect("adminTvoluntariados");
-            console.log("Campos de Voluntariado Vacios.");
-
-        } else {
-            const cuerpo = { titulo, ubicacion, areas, duracion, quehacer, beneficio, cantidad, img};
-
-            const resultado = await fetch("http://localhost:4000/api/v1/addvolunt", {
-                method: "POST",
-                body: JSON.stringify(cuerpo),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            });
-            res.redirect("adminTvoluntariados");
-            console.log("Voluntariado Añadido")
-        }
-    } catch (error) {
-        console.log("No se pudo registrar el voluntariado")
-    }
-};
-
 // LOGIN USUARIO
 export const inicioSesion = async (req, res) => {
     try {
