@@ -52,13 +52,6 @@ export const obtenerAdmin = async () => {
     return admin;
 };
 
-export const obtenerPerfil = async () => {
-  const resultado = await fetch("http://localhost:4000/api/v1/perfil");
-  const datosPerfil = await resultado.json();
-  console.log(datosPerfil);
-  return datosPerfil;
-} 
-
 // Mostrar Areas contando Voluntariados Admins
 export const topAreas = async () => {
     const resultado = await fetch("http://localhost:4000/api/v1/topAreas");

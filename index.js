@@ -3,13 +3,14 @@ import hbs from "hbs";
 import { dirname, join} from "path";
 import {fileURLToPath} from "url";
 import router from "./routes/routes.js";
+import fileUpload from "express-fileupload";
 
-const __dirname = dirname(fileURLToPath(import.meta.url));
+export const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 
 app.set('view engine', 'hbs');
 app.use(express.json());
-
+router.use(fileUpload());
 app.use(router);
 
 app.use(express.json());

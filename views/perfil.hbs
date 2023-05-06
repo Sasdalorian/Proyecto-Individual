@@ -1,29 +1,30 @@
 {{#> plantillaUsuario}}
-    <div class="encabezadoPerfil">
-        <div class="bloqueImagenPerfil"> 
-            <img class="imagenPerfil" src={{img}} alt="Imagen de perfil" onerror="cargarImagenPorDefecto(this)">
-        </div>
-        <div>
-            <h3> Nombre:</h3>
-            <h2> {{nombre}} {{apellidos}}</h2>
-        </div>
-        <div>
-            <h3> Clase:</h3>
-            <h2> {{rol}} </h2>
-        </div>
-        <div>
-            <h3> Email:</h3>
-            <h2> {{email}}</h2>
-        </div>
-        <div>
-            <h3> Password:</h3>
-            <h2> {{censura}}</h2>
-        </div>
+<div class="encabezadoPerfil">
+    <div class="bloqueImagenPerfil">
+        <img class="imagenPerfil" src={{datosPerfil.img}} alt="Imagen de perfil" onerror="cargarImagenPorDefecto(this)">
     </div>
-    <div class="cuerpoPerfil">
-        <div>
-            <h3> Descripcion:</h3>
-            <h4> {{descripcion}}</h4>
-        </div>
+    <div>
+        <h3> Nombre:</h3>
+        <h2> {{datosPerfil.nombre}} {{datosPerfil.apellidos}}</h2>
     </div>
+    <div>
+        <h3> Clase:</h3>
+        <h2> {{datosPerfil.rol}} </h2>
+    </div>
+    <div>
+        <h3> Email:</h3>
+        <h2> {{datosPerfil.email}}</h2>
+    </div>
+    <div>
+        <h3> Password:</h3>
+        <h2> {{datosPerfil.censura}}</h2>
+    </div>
+</div>
+<div class="cuerpoPerfil">
+    <div>
+        <h3> Descripcion:</h3>
+        <h4> {{datosPerfil.descripcion}}</h4>
+    </div>
+</div>
+
 {{/plantillaUsuario}}

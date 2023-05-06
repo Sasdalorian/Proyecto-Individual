@@ -6,16 +6,20 @@
 import bodyParser from "body-parser";
 import { Router } from "express";
 import methodOverride from "method-override";
+import fileUpload from "express-fileupload";
 
 //Controladores
-import { cerrarSesion, inicioSesion, registrarAnf, registrarVolunt } from "../utils/post.js";
+import { cerrarSesion, inicioSesion, registrarAnf, registrarVolunt, registrarVoluntariado } from "../utils/post.js";
 import { deleteAdmin, deleteUsuario, deleteVolunt } from "../utils/delete.js";
-import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, topAreas, adminShowVolunt, obtenerPerfil, mostrarPerfil } from "../utils/gets.js";
+import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, topAreas, adminShowVolunt } from "../utils/gets.js";
+import { obtenerDatosPerfil, datosPerfil } from "../utils/DataUser.js";
 import { authMiddleware } from "../utils/auth.js"
+import { editarVoluntariado } from "../utils/put.js";
+
 
 const router = Router();
-
-router.use(methodOverride("_method", { methods: ["POST", "GET"] }));
+router.use(fileUpload());
+router.use(methodOverride("_method", { methods: ["POST", "GET", "PUT"] }));
 router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
@@ -36,19 +40,8 @@ router.get("/signUp", (req, res) => {
 // Perfil
 router.get("/perfil", authMiddleware, async (req, res) => {
   try {
-    const usuario = await mostrarPerfil(req, res);
-    const passE = usuario.pass;
-    const Censurada = passE.replace(passE, "********");
-    console.log(usuario)
-    res.render("perfil", {
-      nombre: usuario.nombre,
-      apellidos: usuario.apellidos,
-      email: usuario.email,
-      rol: usuario.rol.clase,
-      censura: Censurada,
-      img: usuario.img,
-      descripcion: usuario.descripcion
-    });
+    await obtenerDatosPerfil(req, res);
+    res.render("perfil", {datosPerfil});
     console.log("Entrando a Perfil");
   } catch (error) {
     console.log(error);
@@ -70,8 +63,9 @@ router.get("/voluntariado", async (req, res) => {
 // ADMINISTRACION VOLUNTARIADOS
 router.get('/adminTvoluntariados', authMiddleware, async (req, res) => {
   try {
+    await obtenerDatosPerfil(req, res);
     const voluntariados = await adminShowVolunt();
-    res.render('adminTvoluntariados', { 'voluntariados': voluntariados });
+    res.render('adminTvoluntariados', { 'voluntariados': voluntariados, datosPerfil });
   } catch (error) {
     console.log(error);
     res.redirect('login');
@@ -81,7 +75,8 @@ router.get('/adminTvoluntariados', authMiddleware, async (req, res) => {
 router.get("/adminTusuarios", authMiddleware, async (req, res) => {
   try {
     const usuarios = await obtenerUsuarios();
-    res.render("adminTusuarios", { "usuarios": usuarios })
+    const admin = await obtenerAdmin();
+    res.render("adminTusuarios", { "usuarios": usuarios, datosPerfil })
   } catch (error) {
     console.log(error);
     res.status(500).send("Error en el servidor");
@@ -91,8 +86,9 @@ router.get("/adminTusuarios", authMiddleware, async (req, res) => {
 router.get("/adminTadmin", authMiddleware, async (req, res) => {
   try {
     try {
+      await obtenerDatosPerfil(req, res);
       const admin = await obtenerAdmin();
-      res.render("adminTadmin", { "admin": admin })
+      res.render("adminTadmin", { "admin": admin, datosPerfil })
     } catch (error) {
       console.log(error);
       res.status(500).send("Error en el servidor");
@@ -106,7 +102,8 @@ router.get("/adminTadmin", authMiddleware, async (req, res) => {
 router.get("/adminEstadisticas", authMiddleware, async (req, res) => {
   try {
     const topAreasData = await topAreas();
-    res.render("adminEstadisticas", { topAreas: topAreasData });
+    const admin = await obtenerAdmin();
+    res.render("adminEstadisticas", { topAreas: topAreasData, datosPerfil });
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
@@ -129,6 +126,13 @@ router.get("/top/topAreas/:direccion?", authMiddleware, async (req, res) => {
 router.post("/registerVoluntario", registrarVolunt);
 //REGISTRAR ANFITRION
 router.post("/registerAnfitrion", registrarAnf);
+
+
+//AGREGAR VOLUNTARIADO
+router.post("/agregarVoluntariado", registrarVoluntariado );
+//EDITAR VOLUNTARIADO
+router.post("/editarVoluntariado", editarVoluntariado);
+
 // LOGIN USUARIO
 router.post("/iniciarSesion", inicioSesion);
 // LOGOUT USUARIO

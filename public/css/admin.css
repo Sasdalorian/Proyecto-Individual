@@ -1,4 +1,7 @@
 .nameTable {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
     text-align: center;
     margin-top: 1rem;
     margin-bottom: 2rem;
@@ -62,9 +65,16 @@
     font-weight: bold;
     padding-bottom: 0;
 }
-.formModal {
+.iconAdd {
+    text-align: center;
+}
+
+.formAdd {
     display: grid;
     grid-template-columns: repeat(2,4fr);
+}
+.modal-content {
+    width: 105%;
 }
 /* FOOTER */
 footer {
@@ -73,7 +83,31 @@ footer {
     padding-top: 1rem;
     gap: 1rem;
   }
-  
+.modal-footer {
+    grid-column: 1/3;
+    margin-right: 2rem;
+    margin-top: 1rem;
+}
   .icono {
     height: 1.5rem;
   }
+
+.btn-primary {
+    background-color: #2A3F54;
+    
+}
+.btn-secondary {
+    background-color: #5C636A;
+}
+.btn-secondary:hover {
+    background-color: #73879C;
+}
+.inputCantidad {
+    grid-column: 1/3;
+    text-align: center;
+}
+.divinputfile {
+    grid-column: 1/3;
+    text-align: center;
+    margin-top: 1rem;
+}

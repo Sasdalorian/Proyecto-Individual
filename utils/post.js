@@ -1,5 +1,9 @@
 import bcrypt from "bcrypt";
 import { LocalStorage } from "node-localstorage";
+import { __dirname } from "../index.js";
+import path from "path";
+
+
 const localStorage = new LocalStorage("./localStorage");
 
 //REGISTRAR VOLUNTARIO
@@ -65,6 +69,50 @@ export const registrarAnf = async (req, res) => {
     }
 };
 
+//REGISTRAR Voluntariado
+export const registrarVoluntariado = async (req, res) => {
+    try {
+        const titulo = req.body.titulo;
+        const ubicacion = req.body.ubicacion;
+        const areas = req.body.areas;
+        const duracion = req.body.duracion;
+        const quehacer = req.body.quehacer;
+        const beneficio = req.body.beneficio;
+        const cantidad = req.body.cantidad;
+        const imgA = req.files.img;
+        const parentDir = path.resolve(__dirname, ".");
+        const uploadPath = parentDir + "/public/img/imgUser/" + imgA.name;
+        const img = "/img/imgUser/" + imgA.name
+        console.log(img)
+
+        imgA.mv(uploadPath, function(err) {
+            if(err)
+            return res.status(500).send(err)
+        })
+
+        if (!titulo || !ubicacion || !areas || !duracion || !quehacer || !beneficio || !imgA) {
+            // HACER SWEETALERT EN JS PUBLIC
+            res.redirect("adminTvoluntariados");
+            console.log("Campos de Voluntariado Vacios.");
+
+        } else {
+            const cuerpo = { titulo, ubicacion, areas, duracion, quehacer, beneficio, cantidad, img};
+
+            const resultado = await fetch("http://localhost:4000/api/v1/addvolunt", {
+                method: "POST",
+                body: JSON.stringify(cuerpo),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            res.redirect("adminTvoluntariados");
+            console.log("Voluntariado Añadido")
+        }
+    } catch (error) {
+        console.log("No se pudo registrar el voluntariado")
+    }
+};
+
 // LOGIN USUARIO
 export const inicioSesion = async (req, res) => {
     try {
@@ -107,12 +155,13 @@ export const inicioSesion = async (req, res) => {
     }
 };
 
+// PARA OBTENER TOKEN Y USARLO DONDE REQUIERA
 export const getToken = () => {
     return localStorage.getItem('authToken');
 };
 
+// CERRAR SESION = ELIMINAR TOKEN
 export const cerrarSesion = async (req, res) => {
-    console.log("Entramos a cerrar sesión?")
     const response = await fetch('http://localhost:4000/api/v1/logout', {
         method: 'POST',
         headers: {
@@ -123,6 +172,7 @@ export const cerrarSesion = async (req, res) => {
     const data = await response.json();
     // Borra el token del almacenamiento del navegador
     localStorage.removeItem('authToken');
+    console.log("Sesion cerrada")
     // Realiza cualquier otra acción necesaria después de cerrar sesión, como redirigir al usuario a la página de inicio de sesión
     res.redirect("login");
 };

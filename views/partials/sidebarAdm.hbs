@@ -1,0 +1,75 @@
+<div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 sticky-top">
+    <br><br>
+    <span class="span ms-1 d-none d-sm-inline">Menu</span>
+    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+        <li class="w-100">
+            <a href="/" class="nav-link px-0">
+                <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/home.png" />
+                <span class="span d-none d-sm-inline"> Inicio</span>
+            </a>
+        </li>
+
+        <li class="w-100">
+            <a href="/donacion" class="nav-link px-0">
+                <img src="https://img.icons8.com/material-outlined/30/FFFFFF/donate.png" />
+                <span class="span d-none d-sm-inline"> Donacion</span>
+            </a>
+        </li>
+
+        <li class="w-100">
+            <a href="/voluntariado" class="nav-link px-0">
+                <img class="fs-4 bi-bootstrap" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/volunteering.png" />
+                <span class="span d-none d-sm-inline"> Voluntariado</span>
+            </a>
+        </li>
+
+        <br><br><br>
+        <span class="span ms-1 d-none d-sm-inline">Administracion</span>
+        </li>
+        <li class="w-100">
+            <a href="/adminTvoluntariados" class="nav-link px-0">
+                <img
+                    src="https://img.icons8.com/external-outline-juicy-fish/30/FFFFFF/external-volunteering-humanitarian-outline-outline-juicy-fish.png" />
+                <span class="span d-none d-sm-inline"> Voluntariados</span>
+            </a>
+        </li>
+
+        <li class="w-100">
+            <a href="/adminTusuarios" class="nav-link px-0">
+                <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/conference-call--v1.png" />
+                <span class="span d-none d-sm-inline"> Usuarios</span>
+            </a>
+        </li>
+        <li class="w-100">
+            <a href="/adminTadmin" class="nav-link px-0">
+                <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/admin-settings-male.png" />
+                <span class="span d-none d-sm-inline"> Admin</span></a>
+        </li>
+
+        <li class="w-100">
+            <a href="/adminEstadisticas" class="nav-link px-0">
+                <img
+                    src="https://img.icons8.com/external-flatart-icons-outline-flatarticons/30/FFFFFF/external-Business-business-management-flatart-icons-outline-flatarticons.png" />
+                <span class="span d-none d-sm-inline"> Estadisticas</span>
+            </a>
+        </li>
+    </ul>
+
+    <div class="fixed-bottom">
+        <div class="dropdown pb-4">
+            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="{{datosPerfil.img}}" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                <span class="d-none d-sm-inline mx-1">{{datosPerfil.nombre}}</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                <li><a class="dropdown-item" href="#">Configuracion</a></li>
+                <li><a class="dropdown-item" href="/perfil">Perfil</a></li>
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="/logout?_method=post">Cerrar Sesion</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
