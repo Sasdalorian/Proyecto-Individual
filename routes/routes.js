@@ -14,8 +14,8 @@ import { deleteAdmin, deleteUsuario, deleteVolunt } from "../utils/delete.js";
 import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, topAreas, adminShowVolunt } from "../utils/gets.js";
 import { obtenerDatosPerfil, datosPerfil } from "../utils/DataUser.js";
 import { authMiddleware } from "../utils/auth.js"
-import { editarUsuario, editarVoluntariado } from "../utils/put.js";
-import { registrarUsuario, registrarVoluntariado } from "../utils/postAdmin.js";
+import { editarAdmin, editarUsuario, editarVoluntariado } from "../utils/put.js";
+import { registrarAdmin, registrarUsuario, registrarVoluntariado } from "../utils/postAdmin.js";
 
 const router = Router();
 router.use(fileUpload());
@@ -139,6 +139,10 @@ router.post("/editarVoluntariado", editarVoluntariado);
 router.post("/agregarUsuario", registrarUsuario);
 //EDITAR USUARIO
 router.post("/editarUsuario", editarUsuario);
+//AGREGAR ADMIN
+router.post("/agregarAdmin", registrarAdmin);
+//EDITAR ADMIN
+router.post("/editarAdmin", editarAdmin);
 
 // LOGIN USUARIO
 router.post("/iniciarSesion", inicioSesion);

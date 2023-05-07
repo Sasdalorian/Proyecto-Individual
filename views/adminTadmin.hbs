@@ -1,37 +1,149 @@
 {{#> plantillaUsuario}}
-        <div class="nameTable">
-        <h3>Administrar Admin</h3> 
-        <img class="iconAdd icons" src="https://img.icons8.com/fluency/30/null/add.png"/>
+<div class="nameTable">
+    <h3>Administrar Admin</h3>
+    <button type="button" class="AlertConfirm" data-bs-toggle="modal" data-bs-target="#ModalAgregar">
+        <img class="iconAdd icons" src="https://img.icons8.com/fluency/30/null/add.png" />  
+    </button>
+</div>
+<div class="table-responsive">
+    <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+                <td>Id</td>
+                <td>Nombre</td>
+                <td>Apellidos</td>
+                <td>Email</td>
+                <td>Editar</td>
+                <td>Eliminar</td>
+            </tr>
+        </thead>
+
+        <tbody class="table-group-divider">
+            {{#each admin}}
+            <tr>
+                <td>{{id_usuario}}</td>
+                <td>{{nombre}}</td>
+                <td>{{apellidos}}</td>
+                <td>{{email}}</td>
+                <td>
+                    <button type="button" class="AlertConfirm" data-bs-toggle="modal" data-bs-target="#ModalEditar"
+                        onclick="abrirModalEdicion('{{id_usuario}}')">
+                        <img class="icons" src="https://img.icons8.com/arcade/30/null/edit.png" />
+                    </button>
+                </td>
+                <td>
+                    <a onclick="deleteAdmin({{id_usuario}}, '{{nombre}}')"><img class="icons"
+                            src="https://img.icons8.com/color/29/null/trash--v1.png" /></a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+
+{{!-- // -------------------- MODAL AGREGAR ADMIN -------------------- // --}}
+<div class="modal fade" id="ModalAgregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir Admin</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="formAdd" action="agregarAdmin" method="post" enctype="multipart/form-data">
+                    <div>
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" class="swal2-input" id="nombre" name="nombre" required><br><br>
+                    </div>
+                    <div>
+                        <label for="apellidos">Apellidos:</label>
+                        <input type="text" class="swal2-input" id="apellidos" name="apellidos" required><br><br>
+                    </div>
+                    <div>
+                        <label for="email">Email:</label>
+                        <input type="email" class="swal2-input" id="email" name="email" required><br><br>
+                    </div>
+                    <div>
+                        <label for="pass">Contraseña:</label>
+                        <input type="password" class="swal2-input" id="pass" name="pass" required><br><br>
+                    </div>
+                    <div class="labelcenter">
+                        <label for="descripcion">Descripción:</label><br>
+                    </div>
+                    <div class="inputDesc">
+                        <textarea id="descripcion" name="descripcion"></textarea><br><br>
+                    </div>
+                    <div class="labelcenter">
+                        <label for="img">Imagen:</label>
+                    </div>
+                    <div class="divinputfile">
+                        <input type="file" id="img" name="img"><br><br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Añadir Admin</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="table-responsive">
-        <table class="table table-sm table-striped table-bordered">
-            <thead>
-                <tr>
-                    <td>Id</td>
-                    <td>Nombre</td>
-                    <td>Apellidos</td>
-                    <td>Email</td>
-                    <td>Editar</td>
-                    <td>Eliminar</td>
-                </tr>
-            </thead>
-            
-            <tbody class="table-group-divider">
-                {{#each admin}} 
-                    <tr>
-                        <td>{{id_usuario}}</td>
-                        <td>{{nombre}}</td>
-                        <td>{{apellidos}}</td>
-                        <td>{{email}}</td>
-                        <td>
-                            <a onclick="#"><img class="icons" src="https://img.icons8.com/arcade/30/null/edit.png"/></a>
-                        </td>
-                        <td>
-                            <a onclick="deleteAdmin({{id_usuario}}, '{{nombre}}')"><img class="icons" src="https://img.icons8.com/color/29/null/trash--v1.png"/></a>
-                        </td>
-                    </tr>
-                {{/each}}
-            </tbody>
-        </table>
+</div>
+
+
+<div class="modal fade" id="ModalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Admin</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="formAdd" action="editarAdmin" method="post" enctype="multipart/form-data">
+                    <input type="hidden" id="id" name="id">
+                    <div>
+                        <label for="nombreE">Nombre:</label>
+                        <input type="text" class="swal2-input" id="nombreE" name="nombreE" required><br><br>
+                    </div>
+                    <div>
+                        <label for="apellidosE">Apellidos:</label>
+                        <input type="text" class="swal2-input" id="apellidosE" name="apellidosE" required><br><br>
+                    </div>
+                    <div>
+                        <label for="emailE">Email:</label>
+                        <input type="email" class="swal2-input" id="emailE" name="emailE" required><br><br>
+                    </div>
+                    <div>
+                        <label for="passE">Contraseña:</label>
+                        <input type="password" class="swal2-input" id="passE" name="passE" required><br><br>
+                    </div>
+
+                    <div class="labelcenter">
+                        <label for="descripcionE">Descripción:</label><br>
+                    </div>
+                    <div class="inputDesc">
+                        <textarea id="descripcionE" name="descripcionE"></textarea><br><br>
+                    </div>
+                    <div class="labelcenter">
+                        <label for="imgE">Imagen:</label>
+                    </div>
+                    <div class="divinputfile">
+                        <input type="file" id="imgE" name="imgE"><br><br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Editar Admin</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+</div>
+
+{{!-- // -------------------- SCRIPT PARA OBTENER ID -------------------- // --}}
+<script>
+    function abrirModalEdicion(usuarioId) {
+        document.getElementById("id").value = usuarioId;
+    }
+</script>
 {{/plantillaUsuario}}

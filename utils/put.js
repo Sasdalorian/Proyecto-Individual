@@ -67,3 +67,31 @@ export const editarUsuario = async (req, res) => {
         res.render("error", { "error": "Problemas al Editar Usuario." })
     }
 }
+
+// EDITAR ADMIN
+export const editarAdmin = async (req, res) => {
+    try {
+        const { id, nombreE, apellidosE, emailE, passE, descripcionE } = req.body;
+        const imgA = req.files.imgE
+        const parentDir = path.resolve(__dirname, ".");
+        const uploadPath = parentDir + "/public/img/imgUser/" + imgA.name;
+        const img = "/img/imgUser/" + imgA.name;
+
+        imgA.mv(uploadPath, function (err) {
+            if(err)
+            return res.status(500).send(err)
+        })
+        const cuerpo = { id, nombreE, apellidosE, emailE, passE, descripcionE, img};
+        const resultado = await fetch("http://localhost:4000/api/v1/editadmin", {
+            method: "PUT",
+            body: JSON.stringify(cuerpo),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        res.redirect("adminTadmin");
+        console.log("El usuario se ha editado correctamente")
+    } catch (error) {
+        res.render("error", { "error": "Problemas al Editar Admin." })
+    }
+}

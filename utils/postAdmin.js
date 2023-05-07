@@ -6,9 +6,7 @@ import path from "path";
 export const registrarUsuario = async (req, res) => {
     try {
         const { nombre, apellidos, email, pass, idrol, descripcion } = req.body;
-        console.log(req.body);
         let passE = bcrypt.hashSync(pass, 10);
-        console.log(passE)
         const imgA = req.files.img;
 
         const parentDir = path.resolve(__dirname, ".");
@@ -72,3 +70,33 @@ export const registrarVoluntariado = async (req, res) => {
         console.log("No se pudo registrar el voluntariado")
     }
 };
+
+// REGISTRAR ADMIN
+export const registrarAdmin = async (req, res) => {
+    try {
+        const { nombre, apellidos, email, pass, descripcion } = req.body;
+        let passE = bcrypt.hashSync(pass, 10);
+        const imgA = req.files.img;
+
+        const parentDir = path.resolve(__dirname, ".");
+        const uploadPath = parentDir + "/public/img/imgUser/" + imgA.name;
+        const img = "/img/imgUser/" + imgA.name;
+        imgA.mv(uploadPath, function (err) {
+            if (err)
+                return res.status(500).send(err)
+        });
+        const cuerpo = { nombre, apellidos, email, passE, img, descripcion }
+        
+        const resultado = await fetch("http://localhost:4000/api/v1/addadmin", {
+            method: "POST",
+            body: JSON.stringify(cuerpo),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        console.log("Admin Añadido"); 
+        res.redirect("adminTadmin");
+    } catch (error) {
+        console.log("No se pudo registrar el Admin");
+    }
+}
