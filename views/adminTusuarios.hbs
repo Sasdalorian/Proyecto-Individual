@@ -42,7 +42,6 @@
         </tbody>
     </table>
 </div>
-
 {{!-- // -------------------- MODAL AGREGAR USUARIO -------------------- // --}}
 <div class="modal fade" id="ModalAgregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -89,7 +88,7 @@
                         <label for="descripcion">Descripción:</label><br>
                     </div>
                     <div class="inputDesc">
-                        <textarea id="descripcion" name="descripcion" required></textarea><br><br>
+                        <textarea id="descripcion" name="descripcion"  maxlength="255"></textarea><br><br>
                     </div>
                     <div class="labelcenter">
                         <label for="img">Imagen:</label>
@@ -106,7 +105,6 @@
         </div>
     </div>
 </div>
-
 {{!-- // -------------------- MODAL EDITAR USUARIO -------------------- // --}}
 <div class="modal fade" id="ModalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -153,7 +151,7 @@
                         <label for="descripcionE">Descripción:</label><br>
                     </div>
                     <div class="inputDesc">
-                        <textarea id="descripcionE" name="descripcionE"></textarea><br><br>
+                        <textarea id="descripcionE" name="descripcionE"  maxlength="255"></textarea><br><br>
                     </div>
                     <div class="labelcenter">
                         <label for="imgE">Imagen:</label>

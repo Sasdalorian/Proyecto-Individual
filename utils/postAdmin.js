@@ -86,7 +86,7 @@ export const registrarAdmin = async (req, res) => {
                 return res.status(500).send(err)
         });
         const cuerpo = { nombre, apellidos, email, passE, img, descripcion }
-        
+        console.log(cuerpo);
         const resultado = await fetch("http://localhost:4000/api/v1/addadmin", {
             method: "POST",
             body: JSON.stringify(cuerpo),

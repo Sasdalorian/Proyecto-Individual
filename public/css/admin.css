@@ -90,6 +90,9 @@
     grid-column: 1/3;
     text-align: center;
 }
+.sidebarContainer {
+    bottom: 0;
+}
 #descripcionE, #descripcion{
     width: 100%;
     height: 5rem;
