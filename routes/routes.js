@@ -14,7 +14,7 @@ import { deleteAdmin, deleteUsuario, deleteVolunt } from "../utils/delete.js";
 import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, topAreas, adminShowVolunt } from "../utils/gets.js";
 import { obtenerDatosPerfil, datosPerfil } from "../utils/DataUser.js";
 import { authMiddleware } from "../utils/auth.js"
-import { editarVoluntariado } from "../utils/put.js";
+import { editarUsuario, editarVoluntariado } from "../utils/put.js";
 import { registrarUsuario, registrarVoluntariado } from "../utils/postAdmin.js";
 
 const router = Router();
@@ -137,7 +137,8 @@ router.post("/agregarVoluntariado", registrarVoluntariado);
 router.post("/editarVoluntariado", editarVoluntariado);
 //AGREGAR Usuario
 router.post("/agregarUsuario", registrarUsuario);
-
+//EDITAR USUARIO
+router.post("/editarUsuario", editarUsuario);
 
 // LOGIN USUARIO
 router.post("/iniciarSesion", inicioSesion);

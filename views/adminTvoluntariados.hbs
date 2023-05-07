@@ -1,7 +1,7 @@
 {{#> plantillaUsuario}}
 <div class="nameTable">
     <h3>Administrar Voluntariados</h3>
-    <button type="button" class="AlertConfirm" data-bs-toggle="modal" data-bs-target="#ModalAgregar">
+    <button type="button" class="AlertConfirm" data-bs-toggle="modal" data-bs-target="#ModalAgregarV">
         <img class="iconAdd icons" src="https://img.icons8.com/fluency/30/null/add.png" />  
     </button>
     
@@ -37,7 +37,7 @@
                 <td>{{quehacer}}</td>
                 <td>{{beneficio}}</td>
                 <td>
-                    <button type="button" class="AlertConfirm" data-bs-toggle="modal" data-bs-target="#ModalEditar" onclick="abrirModalEdicion('{{id}}')">
+                    <button type="button" class="AlertConfirm" data-bs-toggle="modal" data-bs-target="#ModalEditarV" onclick="abrirModalEdicion('{{id}}')">
                         <img class="icons" src="https://img.icons8.com/arcade/30/null/edit.png"/>  
                     </button>
                 </td>
@@ -51,7 +51,7 @@
     </table>
 </div>
 
-<div class="modal fade" id="ModalAgregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="ModalAgregarV" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -106,7 +106,7 @@
 </div>
 
 
-<div class="modal fade" id="ModalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="ModalEditarV" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">

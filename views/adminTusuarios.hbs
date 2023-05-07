@@ -28,7 +28,10 @@
                 <td>{{email}}</td>
                 <td>{{idrol}}</td>
                 <td>
-                    <a onclick="#"><img class="icons" src="https://img.icons8.com/arcade/30/null/edit.png" /></a>
+                    <button type="button" class="AlertConfirm" data-bs-toggle="modal" data-bs-target="#ModalEditar"
+                        onclick="abrirModalEdicion('{{id_usuario}}')">
+                        <img class="icons" src="https://img.icons8.com/arcade/30/null/edit.png" />
+                    </button>
                 </td>
                 <td>
                     <a onclick="deleteUsuario({{id_usuario}}, '{{nombre}}')"><img class="icons"
@@ -40,6 +43,7 @@
     </table>
 </div>
 
+{{!-- // -------------------- MODAL AGREGAR USUARIO -------------------- // --}}
 <div class="modal fade" id="ModalAgregar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -102,4 +106,75 @@
         </div>
     </div>
 </div>
+
+{{!-- // -------------------- MODAL EDITAR USUARIO -------------------- // --}}
+<div class="modal fade" id="ModalEditar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Usuario</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="formAdd" action="editarUsuario" method="post" enctype="multipart/form-data">
+                    <input type="hidden" id="id" name="id">
+                    <div>
+                        <label for="nombreE">Nombre:</label>
+                        <input type="text" class="swal2-input" id="nombreE" name="nombreE" required><br><br>
+                    </div>
+                    <div>
+                        <label for="apellidosE">Apellidos:</label>
+                        <input type="text" class="swal2-input" id="apellidosE" name="apellidosE" required><br><br>
+                    </div>
+                    <div>
+                        <label for="emailE">Email:</label>
+                        <input type="email" class="swal2-input" id="emailE" name="emailE" required><br><br>
+                    </div>
+                    <div>
+                        <label for="passE">Contraseña:</label>
+                        <input type="password" class="swal2-input" id="passE" name="passE" required><br><br>
+                    </div>
+                    <div class="labelcenter">
+                        <label for="idrol">ID de Rol:</label><br>
+                    </div>
+
+                    <div class="inputRolUser">
+                        <div>
+                            <input type="radio" id="voluntarioE" name="idrolE" value="2" required>
+                            <label for="voluntarioE">Voluntario</label><br>
+                        </div>
+                        <div>
+                            <input type="radio" id="anfitrionE" name="idrolE" value="3" required>
+                            <label for="anfitrionE">Anfitrión</label><br><br>
+                        </div>
+                    </div>
+
+                    <div class="labelcenter">
+                        <label for="descripcionE">Descripción:</label><br>
+                    </div>
+                    <div class="inputDesc">
+                        <textarea id="descripcionE" name="descripcionE"></textarea><br><br>
+                    </div>
+                    <div class="labelcenter">
+                        <label for="imgE">Imagen:</label>
+                    </div>
+                    <div class="divinputfile">
+                        <input type="file" id="imgE" name="imgE"><br><br>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Editar Usuario</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- // -------------------- SCRIPT PARA OBTENER ID -------------------- // --}}
+<script>
+    function abrirModalEdicion(usuarioId) {
+        document.getElementById("id").value = usuarioId;
+    }
+</script>
 {{/plantillaUsuario}}
