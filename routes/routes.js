@@ -11,8 +11,8 @@ import fileUpload from "express-fileupload";
 //Controladores
 import { cerrarSesion, inicioSesion, registrarAnf, registrarVolunt } from "../utils/post.js";
 import { deleteAdmin, deleteUsuario, deleteVolunt } from "../utils/delete.js";
-import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, topAreas, adminShowVolunt } from "../utils/gets.js";
-import { obtenerDatosPerfil, datosPerfil } from "../utils/DataUser.js";
+import { obtenerAdmin, obtenerUsuarios, obtenerVoluntariados, adminShowVolunt, obtenerEstadisticas, obtenerTopAreasAsc, obtenerTopAreasDesc } from "../utils/gets.js";
+import { obtenerDatosPerfil, datosPerfil, adminMiddleware } from "../utils/DataUser.js";
 import { authMiddleware } from "../utils/auth.js"
 import { editarAdmin, editarUsuario, editarVoluntariado } from "../utils/put.js";
 import { registrarAdmin, registrarUsuario, registrarVoluntariado } from "../utils/postAdmin.js";
@@ -27,10 +27,11 @@ router.use(bodyParser.json());
 router.get("/", async (req, res) => {
   res.render("index");
 });
-router.get("/donacion", (req, res) => {
+
+router.get("/donacion", async (req, res) => {
   res.render("donacion");
 });
-router.get("/login", (req, res) => {
+router.get("/login", async (req, res) => {
   res.render("login");
 });
 router.get("/signUp", (req, res) => {
@@ -40,8 +41,8 @@ router.get("/signUp", (req, res) => {
 // Perfil
 router.get("/perfil", authMiddleware, async (req, res) => {
   try {
-    await obtenerDatosPerfil(req, res);
-    res.render("perfil", {datosPerfil});
+    await obtenerDatosPerfil();
+    res.render("perfil", { datosPerfil });
     console.log("Entrando a Perfil");
   } catch (error) {
     console.log(error);
@@ -61,7 +62,7 @@ router.get("/voluntariado", async (req, res) => {
 });
 
 // ADMINISTRACION VOLUNTARIADOS
-router.get('/adminTvoluntariados', authMiddleware, async (req, res) => {
+router.get('/adminTvoluntariados', adminMiddleware, async (req, res) => {
   try {
     await obtenerDatosPerfil(req, res);
     const voluntariados = await adminShowVolunt();
@@ -73,10 +74,9 @@ router.get('/adminTvoluntariados', authMiddleware, async (req, res) => {
 });
 
 // ADMINISTRACION DE USUARIOS
-router.get("/adminTusuarios", authMiddleware, async (req, res) => {
+router.get("/adminTusuarios", adminMiddleware, async (req, res) => {
   try {
     const usuarios = await obtenerUsuarios();
-    const admin = await obtenerAdmin();
     res.render("adminTusuarios", { "usuarios": usuarios, datosPerfil })
   } catch (error) {
     console.log(error);
@@ -85,10 +85,10 @@ router.get("/adminTusuarios", authMiddleware, async (req, res) => {
 });
 
 // Administracion de Admins
-router.get("/adminTadmin", authMiddleware, async (req, res) => {
+router.get("/adminTadmin", adminMiddleware, async (req, res) => {
   try {
     try {
-      await obtenerDatosPerfil(req, res);
+      await obtenerDatosPerfil();
       const admin = await obtenerAdmin();
       res.render("adminTadmin", { "admin": admin, datosPerfil })
     } catch (error) {
@@ -100,30 +100,29 @@ router.get("/adminTadmin", authMiddleware, async (req, res) => {
     res.status(500).send("Error en el servidor");
   }
 })
-
-// MUESTRA TOP AREAS
-router.get("/adminEstadisticas", authMiddleware, async (req, res) => {
+router.get("/adminEstadisticas", async (req, res) => {
   try {
-    const topAreasData = await topAreas();
+    await obtenerDatosPerfil();
     const admin = await obtenerAdmin();
-    res.render("adminEstadisticas", { topAreas: topAreasData, datosPerfil });
+    const estadisticas = await obtenerEstadisticas();
+    const topAreas = await obtenerTopAreasDesc();
+    res.render("adminEstadisticas", { admin, datosPerfil, topAreas, estadisticas });
   } catch (error) {
-    res.status(500).json({ message: error.message });
+    console.error(error);
+    res.status(500).send("Error al obtener las estadísticas");
   }
 });
-// MUESTRA TOP AREAS DE FORMA ASC O DESC
-router.get("/top/topAreas/:direccion?", authMiddleware, async (req, res) => {
+router.get("/adminEstadisticas/asc", async (req, res) => {
   try {
-    const direccion = req.params.direccion || "asc"; // Si no se especifica la dirección, se asume que es "asc"
-    const url = direccion === "desc" ? "topAreasDesc" : "topAreasAsc";
-    const resultado = await fetch(`http://localhost:4000/api/v1/top/${url}`);
-    const topAreas = await resultado.json();
-    res.render("adminEstadisticas", { topAreas });
+    await obtenerDatosPerfil();
+    const admin = await obtenerAdmin();
+    const estadisticas = await obtenerEstadisticas();
+    const topAreas = await obtenerTopAreasAsc();
+    res.render("adminEstadisticas", { admin, datosPerfil, topAreas, estadisticas });
   } catch (error) {
-    console.log(error);
+    res.status(500).send("Error al obtener las estadísticas");
   }
-});
-
+})
 //POST
 //REGISTRAR VOLUNTARIO
 router.post("/registerVoluntario", registrarVolunt);

@@ -7,27 +7,27 @@
             <div class="row top_tiles">
                 <div class="col-lg-3 col-sm-6">
                     <div class="tile-stats">
-                        <div class="count">1</div>
+                        <div class="count">{{estadisticas.voluntarios}}</div>
                         <h3>Voluntarios <br>de Earth Volunteers</h3>
                     </div>
                 </div>
                 <div class="col-lg-3 col-sm-6">
                     <div class="tile-stats">
                         <div class="icon"><i class="fa fa-comments-o"></i></div>
-                        <div class="count">1</div>
+                        <div class="count">{{estadisticas.anfitriones}}</div>
                         <h3>Anfitriones <br>de Earth Volunteers</h3>
                     </div>
                 </div>
                 <div class="animated flipInY col-lg-3 col-sm-6">
                     <div class="tile-stats">
                         <div class="icon"><i class="fa fa-sort-amount-desc"></i></div>
-                        <div class="count">1</div>
+                        <div class="count">{{estadisticas.admins}}</div>
                         <h3>Admin <br>de Earth Volunteers</h3>
                     </div>
                 </div>
                 <div class="animated flipInY col-lg-3 col-sm-6 ">
                     <div class="tile-stats">
-                        <div class="count">6</div>
+                        <div class="count">{{estadisticas.voluntariados}}</div>
                         <h3>Voluntariados <br>de Earth Volunteers</h3>
 
                     </div>
@@ -40,20 +40,18 @@
                         <div class="x_title">
                             <h2> ● Top Areas</h2>
                             <div class="x_tittle_right">
-                                <form action="/top/topAreas/desc" method="GET">
-                                    <button class="buttonREST" name="direccion" value="desc" type="submit">
-                                        <img src="https://img.icons8.com/material-rounded/20/7950F2/circled-down.png" />
-                                    </button>
-                                </form>
-                                <strong>Cantidad</strong>
-                                <form action="/top/topAreas/asc" method="GET">
-                                    <button class="buttonREST" name="orden" value="asc" type="submit">
-                                        <img src="https://img.icons8.com/material-rounded/20/7950F2/circled-up.png" />
-                                    </button>
-                                </form>
+                            <form action="/adminEstadisticas" method="GET">
+                                <button class="buttonREST" type="submit">
+                                    <img src="https://img.icons8.com/material-rounded/20/7950F2/circled-up.png" />
+                                </button>
+                            </form>
+                            <form action="/adminEstadisticas/asc" method="GET">
+                                <button class="buttonREST" type="submit">
+                                    <img src="https://img.icons8.com/material-rounded/20/7950F2/circled-down.png"/>
+                                </button>
+                            </form>
                             </div>
                         </div>
-
                         <table class="x_content">
                             <ul class="list-unstyled top_profiles scroll-view">
                                 {{#each topAreas}}

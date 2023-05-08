@@ -53,8 +53,47 @@ export const obtenerAdmin = async () => {
 };
 
 // Mostrar Areas contando Voluntariados Admins
-export const topAreas = async () => {
-    const resultado = await fetch("http://localhost:4000/api/v1/topAreas");
-    const topAreas = await resultado.json();
-    return topAreas;
-};
+export async function obtenerEstadisticas() {
+  try {
+    // Llamada a la ruta /api/v1/estadisticas
+    const resultado = await fetch("http://localhost:4000/api/v1/estadisticas");
+
+    if (!resultado.ok) {
+      throw new Error("Error al obtener las estadísticas");
+    }
+    const estadisticas = await resultado.json();
+    return estadisticas;
+    // Aquí puedes utilizar los datos obtenidos
+  } catch (error) {
+    console.error(error);
+  }
+}
+// MOSTRAR AREAS ORDEN ASC & DESC
+export async function obtenerTopAreasAsc() {
+  try {
+    // Llamada a la ruta correspondiente según el orden especificado
+    const resultado = await fetch(`http://localhost:4000/api/v1/estadisticas/asc`);
+    if (!resultado.ok) {
+      throw new Error("Error al obtener las estadísticas");
+    }
+    const estadisticas = await resultado.json();
+    return estadisticas;
+    // Aquí puedes utilizar los datos obtenidos
+  } catch (error) {
+    console.error(error);
+  }
+}
+export async function obtenerTopAreasDesc() {
+  try {
+    // Llamada a la ruta correspondiente según el orden especificado
+    const resultado = await fetch(`http://localhost:4000/api/v1/estadisticas/desc`);
+    if (!resultado.ok) {
+      throw new Error("Error al obtener las estadísticas");
+    }
+    const estadisticas = await resultado.json();
+    return estadisticas;
+    // Aquí puedes utilizar los datos obtenidos
+  } catch (error) {
+    console.error(error);
+  }
+}

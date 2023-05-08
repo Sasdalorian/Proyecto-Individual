@@ -99,7 +99,6 @@ export const inicioSesion = async (req, res) => {
             } else {
                 // Si la respuesta no es 200 OK, mostrar mensaje de error
                 const { msg } = await resultado.json();
-                console.log(msg);
                 res.render("login");
             }
         }

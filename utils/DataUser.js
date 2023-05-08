@@ -7,14 +7,16 @@ export const datosPerfil = {
     rol: '',
     censura: '',
     img: '',
-    descripcion: ''
+    descripcion: '',
+    isAdmin: false,
+    isUser: false
 };
 
 export async function obtenerDatosPerfil(req, res) {
     try {
         const usuario = await mostrarPerfil(req, res);
         const passE = usuario.pass;
-        const Censurada = passE.replace(passE, "********");
+        const Censurada = passE.replace(    passE, "********");
 
         datosPerfil.nombre = usuario.nombre;
         datosPerfil.apellidos = usuario.apellidos;
@@ -24,8 +26,16 @@ export async function obtenerDatosPerfil(req, res) {
         datosPerfil.img = usuario.img;
         datosPerfil.descripcion = usuario.descripcion;
 
+        datosPerfil.isAdmin = datosPerfil.rol === 'Admin';
     } catch (error) {
         console.log(error);
-        throw new Error("Error al obtener el perfil.");
+    }
+}
+
+export function adminMiddleware(req, res, next) {
+    if (datosPerfil.isAdmin) {
+        next();
+    } else {
+        res.status(403).send("Acceso denegado");
     }
 }

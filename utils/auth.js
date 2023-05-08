@@ -6,7 +6,8 @@ export const authMiddleware = async (req, res, next) => {
   const token = getToken();
   // Por si no se logra obtener el token de getToken
   if (!token) {
-    res.status(401).json({ msg: 'No se proporcionó token de autenticación.' });
+    console.log({ msg: 'No se proporcionó token de autenticación.' });
+    res.redirect("login")
     return;
   }
   // Se validara si el token obtenido es correcto
@@ -15,7 +16,8 @@ export const authMiddleware = async (req, res, next) => {
     if (data) {
       next();
     } else {
-      res.status(401).json({ msg: 'Token no válido.' });
+      console.log({ msg: 'Token no válido.' });
+      res.redirect("login")
     }
   } catch (error) {
     console.error(error);
