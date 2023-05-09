@@ -10,7 +10,6 @@
 ### Para instalar Dependencias usar ```npm i```
 
 ``` 
-    axios
     bcrypt
     body-parser
     bootstrap

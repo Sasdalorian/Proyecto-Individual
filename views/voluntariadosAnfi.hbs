@@ -1,0 +1,95 @@
+{{#> plantillaUsuario}}
+<div class="nameTable">
+    <h3>Agregar Voluntariados</h3>
+    <button type="button" class="AlertConfirm" data-bs-toggle="modal" data-bs-target="#ModalAgregarV">
+        <img class="iconAdd icons" src="https://img.icons8.com/fluency/30/null/add.png" />
+    </button>
+</div>
+<div class="table-responsive">
+    <table class="table table-sm table-striped table-bordered">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Titulo</td>
+                <td>Ubicacion</td>
+                <td>Areas</td>
+                <td>Duracion</td>
+                <td>Cantidad</td>
+                <td>Que hacer</td>
+                <td>Beneficio</td>
+            </tr>
+        </thead>
+
+        <tbody class="table-group-divider">
+            {{#each voluntariados}}
+            <tr>
+                <td>{{id}}</td>
+                <td>{{titulo}}</td>
+                <td>{{ubicacion}}</td>
+                <td>{{#each areas}} {{nombreArea}}{{/each}}</td>
+                <td>{{duracion}}</td>
+                <td>{{cantidad}}</td>
+                <td>{{quehacer}}</td>
+                <td>{{beneficio}}</td>
+                <td>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</div>
+
+<div class="modal fade" id="ModalAgregarV" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Añadir Voluntariado</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form class="formAdd" action="agregarVoluntariadoAnfi" method="post" enctype="multipart/form-data">
+                    <div>
+                        <label for="titulo">Título:</label>
+                        <input id="titulo" name="titulo" class="swal2-input" placeholder="Título">
+                    </div>
+                    <div>
+                        <label for="ubicacion">Ubicación:</label>
+                        <input id="ubicacion" name="ubicacion" class="swal2-input" placeholder="Valparaiso #254">
+                    </div>
+                    <div>
+                        <label for="areas">Areas:</label>
+                        <input id="areas" name="areas" class="swal2-input" placeholder="1, 2, 5, 6, 8, 9">
+                    </div>
+                    <div>
+                        <label for="duracion">Duración:</label>
+                        <input id="duracion" name="duracion" class="swal2-input" placeholder="2 Semanas">
+                    </div>
+                    <div>
+                        <label for="quehacer">Qué hacer:</label>
+                        <textarea id="quehacer" name="quehacer" class="swal2-textarea"
+                            placeholder="Limpieza, Diurno, Cuidado"></textarea>
+                    </div>
+                    <div>
+                        <label for="beneficio">Beneficio:</label>
+                        <textarea id="beneficio" name="beneficio" class="swal2-textarea"
+                            placeholder="Comida, Habitacion"></textarea>
+                    </div>
+                    <div class="inputCantidad">
+                        <label for="cantidad">Cantidad de Voluntarios:</label>
+                        <input type="number" name="cantidad" id="cantidad" class="swal2-input" placeholder="1">
+                    </div>
+                    <div class="divinputfile">
+                        <label for="img">Subir Imagen Voluntariado:</label>
+                        <input class="inputfile" type="file" id="img" name="img" accept="image/*" required>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Añadir Voluntariado</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{/plantillaUsuario}}

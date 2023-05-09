@@ -38,3 +38,18 @@ function deleteAdmin(id, nombre) {
     allowOutsideClick: () => !Swal.isLoading()
   })
 }
+
+// Inscribir Voluntario
+function inscribir( id, titulo) {
+  console.log(id, titulo)
+  Swal.fire({
+    title: `¿Estás seguro de Inscribirse a ${titulo}?`,
+    showCancelButton: true,
+    cancelButtonColor: '#6e7881',
+    cancelButtonText: 'Cancelar',
+    confirmButtonColor: '#2E8B57',
+    confirmButtonText: `
+      <a class="AlertConfirm" href="/voluntariadosUser">Inscribirse</a>`,
+    allowOutsideClick: () => !Swal.isLoading()
+  })
+}

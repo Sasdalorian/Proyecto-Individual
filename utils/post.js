@@ -1,5 +1,7 @@
 import bcrypt from "bcrypt";
 import { LocalStorage } from "node-localstorage";
+import { __dirname } from "../index.js";
+import path from "path";
 
 
 const localStorage = new LocalStorage("./localStorage");
@@ -128,4 +130,42 @@ export const cerrarSesion = async (req, res) => {
     console.log("Sesion cerrada")
     // Realiza cualquier otra acción necesaria después de cerrar sesión, como redirigir al usuario a la página de inicio de sesión
     res.redirect("login");
+};
+
+
+//REGISTRAR Voluntariado
+export const registrarVoluntariadoAnfi = async (req, res) => {
+    console.log("entramos")
+    try {
+        const { titulo, ubicacion, areas, duracion, quehacer, beneficio, cantidad } = req.body;
+        const imgA = req.files.img;
+        const parentDir = path.resolve(__dirname, ".");
+        const uploadPath = parentDir + "/public/img/voluntariado/" + imgA.name;
+        const img = "/img/voluntariado/" + imgA.name;
+
+        if (!titulo || !ubicacion || !areas || !duracion || !quehacer || !beneficio || !imgA) {
+            // HACER SWEETALERT EN JS PUBLIC
+            res.redirect("adminTvoluntariados");
+            console.log("Campos de Voluntariado Vacios.");
+        } else {
+            imgA.mv(uploadPath, function (err) {
+                if (err)
+                    return res.status(500).send(err)
+            })
+
+            const cuerpo = { titulo, ubicacion, areas, duracion, quehacer, beneficio, cantidad, img };
+
+            const resultado = await fetch("http://localhost:4000/api/v1/addvolunt", {
+                method: "POST",
+                body: JSON.stringify(cuerpo),
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+            res.redirect("voluntariadosAnfi");
+            console.log("Voluntariado Añadido")
+        }
+    } catch (error) {
+        console.log("No se pudo registrar el voluntariado")
+    }
 };

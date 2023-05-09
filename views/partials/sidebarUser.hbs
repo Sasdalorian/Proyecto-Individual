@@ -1,32 +1,46 @@
-<div class="sidebarContainerd-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 sticky-top">
-    <br><br>
-    <span class="span ms-1 d-none d-sm-inline">Menu</span>
-    <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-        <li class="w-100">
-            <a href="/" class="nav-link px-0">
-                <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/home.png" />
-                <span class="span d-none d-sm-inline"> Inicio</span>
-            </a>
-        </li>
+<div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+    <div
+        class="sidebarContainerd-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100 sticky-top">
+        <br><br>
+        <span class="span ms-1 d-none d-sm-inline">Menu</span>
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+            <li class="w-100">
+                <a href="/" class="nav-link px-0">
+                    <img src="https://img.icons8.com/ios-glyphs/30/FFFFFF/home.png" />
+                    <span class="span d-none d-sm-inline"> Inicio</span>
+                </a>
+            </li>
 
-        <li class="w-100">
-            <a href="/donacion" class="nav-link px-0">
-                <img src="https://img.icons8.com/material-outlined/30/FFFFFF/donate.png" />
-                <span class="span d-none d-sm-inline"> Donacion</span>
-            </a>
-        </li>
+            <li class="w-100">
+                <a href="/donacion" class="nav-link px-0">
+                    <img src="https://img.icons8.com/material-outlined/30/FFFFFF/donate.png" />
+                    <span class="span d-none d-sm-inline"> Donacion</span>
+                </a>
+            </li>
 
-        <li class="w-100">
-            <a href="/voluntariado" class="nav-link px-0">
-                <img class="fs-4 bi-bootstrap" src="https://img.icons8.com/ios-glyphs/30/FFFFFF/volunteering.png" />
-                <span class="span d-none d-sm-inline"> Voluntariado</span>
-            </a>
-        </li>
+            <br>
 
-        <br><br><br>
-
-    
-        {{#if datosPerfil.isAdmin}}
+            {{#if datosPerfil.isVoluntario}}
+            <span class="span ms-1 d-none d-sm-inline">Voluntariado</span>
+            <li class="w-100">
+                <a href="/voluntariadosUser" class="nav-link px-0">
+                    <img src="https://img.icons8.com/external-outline-juicy-fish/30/FFFFFF/external-volunteering-humanitarian-outline-outline-juicy-fish-2.png"/>
+                    <span class="span d-none d-sm-inline"> Inscribir Voluntariado</span> 
+                </a>
+            </li>
+            <br>
+            {{/if}}
+            {{#if datosPerfil.isAnfitrion}}
+            <span class="span ms-1 d-none d-sm-inline">Anfitrion</span>
+            <li class="w-100">
+                <a href="/voluntariadosAnfi" class="nav-link px-0">
+                    <img src="https://img.icons8.com/pastel-glyph/30/FFFFFF/create-new--v3.png"/>
+                    <span class="span d-none d-sm-inline"> Crear Voluntariado</span>
+                </a>
+            </li>
+            {{/if}}
+            <br>
+            {{#if datosPerfil.isAdmin}}
             <span class="span ms-1 d-none d-sm-inline">Administracion</span>
             <li class="w-100">
                 <a href="/adminTvoluntariados" class="nav-link px-0">
@@ -54,24 +68,24 @@
                     <span class="span d-none d-sm-inline"> Estadisticas</span>
                 </a>
             </li>
-        {{/if}}
-    </ul>
+            {{/if}}
+        </ul>
 
-    <div class="fixed-bottom">
-        <div class="dropdown pb-4">
-            <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
-                id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="{{datosPerfil.img}}" alt="hugenerd" width="30" height="30" class="rounded-circle">
-                <span class="d-none d-sm-inline mx-1">{{datosPerfil.nombre}}</span>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-                <li><a class="dropdown-item" href="#">Configuracion</a></li>
-                <li><a class="dropdown-item" href="/perfil">Perfil</a></li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="/logout?_method=post">Cerrar Sesion</a></li>
-            </ul>
+        <div class="fixed-bottom">
+            <div class="dropdown pb-4">
+                <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+                    id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img src="{{datosPerfil.img}}" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                    <span class="d-none d-sm-inline mx-1">{{datosPerfil.nombre}}</span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
+                    <li><a class="dropdown-item" href="/perfil">Perfil</a></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><a class="dropdown-item" href="/logout?_method=post">Cerrar Sesion</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>

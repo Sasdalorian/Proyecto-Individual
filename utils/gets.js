@@ -1,5 +1,4 @@
 import { getToken } from "./post.js";
-import axios from "axios";
 
 // Funcion para obtener Voluntariados
 export const obtenerVoluntariados = async () => {
@@ -11,34 +10,43 @@ export const obtenerVoluntariados = async () => {
 // OBTENER PERFIL USUARIO
 export const mostrarPerfil = async (req, res) => {
   const token = getToken();
-  const config = {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  };
   try {
-    const response = await axios.get("http://localhost:4000/api/v1/perfil", config);
-    return response.data;
+    const response = await fetch("http://localhost:4000/api/v1/perfil", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      throw new Error("Error al obtener el perfil desde la API.");
+    }
   } catch (error) {
     console.log(error);
     res.status(500).send("Error al obtener el perfil desde la API.");
   }
 };
 
-// Función para Administrar Voluntariados
-  export const adminShowVolunt = async () => {
-    const token = getToken();
-    const config = {
-      headers: { Authorization: `Bearer ${token}` }
-    };
-    try {
-      const response = await axios.get('http://localhost:4000/api/v1/Admvoluntariados', config);
-      return response.data;
-    } catch (error) {
-      console.error(error);
-      throw new Error('Error al obtener los datos de los voluntariados.');
-    }
-  };
+// MOSTRAR TABLA VOLUNTARIADOS
+export const adminShowVolunt = async () => {
+  const token = getToken();
+  try {
+    const response = await fetch('http://localhost:4000/api/v1/Admvoluntariados', {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    });
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Error al obtener los datos de los voluntariados.');
+  }
+};
 // MOSTRAR para Administrar Usuarios
 export const obtenerUsuarios = async () => {
     const resultado = await fetch("http://localhost:4000/api/v1/usuarios");
