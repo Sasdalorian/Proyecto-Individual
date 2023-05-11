@@ -13,37 +13,14 @@
       </button>
 
       <div class="collapse navbar-collapse navbarspace" id="navbarNavAltMarkup">
-        <div>
-          <li class="dropdown navbar-nav">
-            <a class="nav-link" href="/#inicio" data-bs-toggle="dropdown">
-              {{datosPerfil.nombre}}
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="/perfil">Perfil</a></li>
-              {{#if datosPerfil.isAdmin}}
-              <li><a class="dropdown-item" href="/adminTvoluntariados">Voluntariados</a></li>
-              <li><a class="dropdown-item" href="/adminTusuarios">Usuarios</a></li>
-              <li><a class="dropdown-item" href="/adminTadmin">Admin</a></li>
-              <li><a class="dropdown-item" href="/adminEstadisticas">Estadisticas</a></li>
-              {{/if}}
-              {{#if datosPerfil.isOnlyVolun}}
-              <li><a class="dropdown-item" href="/voluntariadosUser">Voluntariados</a></li>
-              {{/if}}
-              {{#if datosPerfil.isOnlyAnfi}}
-              <li><a class="dropdown-item" href="/voluntariadosAnfi">Voluntariados</a></li>
-              {{/if}}
-            </ul>
-          </li>
-        </div>
-
         <div class="navbar-nav">
           <a class="nav-link" href="/#inicio">Inicio</a>
           <a class="nav-link" href="/donacion">Donacion</a>
           <a class="nav-link" href="/voluntariado">Voluntariado</a>
           {{#if datosPerfil.isUser}}
-          <a class="nav-link" href="/logout?_method=post">Cerrar Sesion</a>
+            <a class="nav-link" href="/perfil">{{datosPerfil.nombre}}</a>
           {{else}}
-          <a class="nav-link open" id="login" href="/login">Login</a>
+            <a class="nav-link" href="/login">Login</a>
           {{/if}}
         </div>
       </div>

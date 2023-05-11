@@ -40,8 +40,8 @@ function deleteAdmin(id, nombre) {
 }
 
 // Inscribir Voluntario
-function inscribir( id, titulo) {
-  console.log(id, titulo)
+function inscribir( id, titulo, id_usuario) {
+  console.log(id, titulo, id_usuario)
   Swal.fire({
     title: `¿Estás seguro de Inscribirse a ${titulo}?`,
     showCancelButton: true,
